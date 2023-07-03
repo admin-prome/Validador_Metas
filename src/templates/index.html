@@ -1,0 +1,15 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+
+<h1>Bienvenido, {{ nombre }}</h1>
+    <form action="{{ url_for('logout') }}" method="POST">
+        <button class="btn btn-outline-secondary" type="submit">Cerrar sesión</button>
+    </form>
+</div>
+
+{% endblock %}
+
+
+
+

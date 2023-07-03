@@ -1,0 +1,46 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+<form action="{{ url_for('editar_usuario', legajo=datos_usuario.legajo) }}" method="POST">    
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Legajo</th>
+            <th>Nombre Completo</th>
+            <th>Mail</th>
+            <th>Password</th>
+            <th>Perfil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ datos_usuario.legajo }}</td>            
+            <td>
+              <input type="text" name="nombre" value="{{ datos_usuario.nombre }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="text" name="mail" value="{{ datos_usuario.mail }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="text" name="password" value="{{ datos_usuario.password }}" class="form-control" required>
+            </td>
+            <td>
+              <select name="perfil" required>
+                <option value="Jefe Zonal" {% if datos_usuario.perfil == 'Jefe Zonal' %}selected{% endif %}>Jefe Zonal</option>
+                <option value="Jefe Coordinador" {% if datos_usuario.perfil == 'Jefe Coordinador' %}selected{% endif %}>Jefe Coordinador</option>
+                <option value="Desarrollo de Carrera" {% if datos_usuario.perfil == 'Desarrollo de Carrera' %}selected{% endif %}>Desarrollo de Carrera</option>
+                <option value="Personas" {% if datos_usuario.perfil == 'Personas' %}selected{% endif %}>Personas</option>
+                <option value="Inteligencia Comercial" {% if datos_usuario.perfil == 'Inteligencia Comercial' %}selected{% endif %}>Inteligencia Comercial</option>
+                <option value="Admin" {% if datos_usuario.perfil == 'Admin' %}selected{% endif %}>Admin</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
+    </div>
+</form>
+
+{% endblock %}

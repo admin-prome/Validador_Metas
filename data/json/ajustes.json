@@ -1,0 +1,124 @@
+{
+    "Ajustes": [
+      {
+        "tipo_ajuste": "EC Vacaciones 2 Sem (BIM)",
+        "dias": 14,
+        "ajuste_q": "15,00%",
+        "ajuste_monto": "15,00%"
+      },
+      {
+        "tipo_ajuste": "Enfermedad >15 (MES)",
+        "dias": 16,
+        "ajuste_q": "50,00%",
+        "ajuste_monto": "50,00%"
+      },
+      {
+        "tipo_ajuste": "Maternidad/Adopcion EC MES 1",
+        "dias": 10,
+        "ajuste_q": "50,00%",
+        "ajuste_monto": "50,00%"
+      },
+      {
+        "tipo_ajuste": "Maternidad/Adopcion EC MES 2",
+        "dias": 10,
+        "ajuste_q": "15,00%",
+        "ajuste_monto": "15,00%"
+      },
+      {
+        "tipo_ajuste": "Maternidad/Adopcion EC MES 3",
+        "dias": 10,
+        "ajuste_q": "15,00%",
+        "ajuste_monto": "15,00%"
+      },
+      {
+        "tipo_ajuste": "Fertilidad",
+        "dias": 10,
+        "ajuste_q": "15,00%",
+        "ajuste_monto": "15,00%"
+      },
+      {
+        "tipo_ajuste": "Paternidad/Adopcion",
+        "dias": 10,
+        "ajuste_q": "15,00%",
+        "ajuste_monto": "15,00%"
+      },
+      {
+        "tipo_ajuste": "Matrimonio",
+        "dias": 10,
+        "ajuste_q": "10,00%",
+        "ajuste_monto": "10,00%"
+      },
+      {
+        "tipo_ajuste": "COVID POSITIVO - 10%",
+        "dias": 10,
+        "ajuste_q": "10,00%",
+        "ajuste_monto": "10,00%"
+      },
+      {
+        "tipo_ajuste": "COVID POSTIVO - 20%",
+        "dias": 10,
+        "ajuste_q": "20,00%",
+        "ajuste_monto": "20,00%"
+      },
+      {
+        "tipo_ajuste": "COVID POSTIVO - 30%",
+        "dias": 10,
+        "ajuste_q": "30,00%",
+        "ajuste_monto": "30,00%"
+      },
+      {
+        "tipo_ajuste": "Tutoria 10%",
+        "dias": 10,
+        "ajuste_q": "10,00%",
+        "ajuste_monto": "10,00%"
+      },
+      {
+        "tipo_ajuste": "COVID SUCURSAL - 1 SEM",
+        "dias": 10,
+        "ajuste_q": "12,50%",
+        "ajuste_monto": "12,50%"
+      },
+      {
+        "tipo_ajuste": "COVID SUCURSAL - 2 SEM",
+        "dias": 10,
+        "ajuste_q": "25,00%",
+        "ajuste_monto": "25,00%"
+      },
+      {
+        "tipo_ajuste": "COVID SUCURSAL - 3 SEM",
+        "dias": 10,
+        "ajuste_q": "37,50%",
+        "ajuste_monto": "37,50%"
+      },
+      {
+        "tipo_ajuste": "COVID SUCURSAL - 50%",
+        "dias": 10,
+        "ajuste_q": "50,00%",
+        "ajuste_monto": "50,00%"
+      },
+      {
+        "tipo_ajuste": "A LO LIQUIDADO",
+        "dias": 10,
+        "ajuste_q": "100,00%",
+        "ajuste_monto": "100,00%"
+      },
+      {
+        "tipo_ajuste": "No Activo (MES 1)",
+        "dias": 10,
+        "ajuste_q": "50,00%",
+        "ajuste_monto": "50,00%"
+      },
+      {
+        "tipo_ajuste": "No Activo (BIM)",
+        "dias": 10,
+        "ajuste_q": "100,00%",
+        "ajuste_monto": "100,00%"
+      },
+      {
+        "tipo_ajuste": "Tareas Reducidas",
+        "ajuste_q": "50%",
+        "ajuste_monto": "50%"
+      }
+    ]
+}
+  

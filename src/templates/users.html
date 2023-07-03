@@ -1,0 +1,49 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+
+
+<div class="container">
+  <div class="container">
+    <h3 style="text-decoration: underline;">Usuarios</h3>
+  </div>
+
+  <div class="table-container">
+    <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Legajo</th>
+            <th>Nombre Completo</th>
+            <th>Mail</th>
+            <th>Perfil</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td class="text-nowrap">{{ user.legajo }}</td>
+            <td class="text-nowrap">{{ user.nombre }}</td>
+            <td class="text-nowrap">{{ user.mail }}</td>
+            <td class="text-nowrap">{{ user.perfil }}</td>
+            <td>
+              <div class="button-group">
+                <a href="{{ url_for('editar_usuario', legajo=user['legajo']) }}" class="btn btn-outline-success">Editar</a>
+                <form action="{{ url_for('eliminar_user', legajo=user.legajo) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar al usuario {{ user.nombre }} {{ user.apellido }}?');">
+                  <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <a href="{{ url_for('agregar_usuario') }}" class="btn btn-outline-primary">Agregar Usuario</a>
+</div>
+
+{% endblock %}
+

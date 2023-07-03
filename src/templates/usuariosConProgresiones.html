@@ -1,0 +1,60 @@
+
+
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+<div class="container">
+  <h3 style="text-decoration: underline;">Usuarios con Progresion</h3>
+</div>
+<div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Legajo</th>
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>Mail</th>
+        <th>Categoría</th>
+        <th>Fecha Desde</th>
+        <th>Fecha Hasta</th>
+        <th>Mes de Progresion</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for user in usuarios %}     
+        <tr>
+          <td class="text-nowrap">{{ user.legajo }}</td>
+          <td class="text-nowrap">{{ user.apellido }}</td>
+          <td class="text-nowrap">{{ user.nombre }}</td>
+          <td class="text-nowrap">{{ user.mail }}</td>
+          <td class="text-nowrap">{{ user.categoria }}</td>
+          <td class="text-nowrap">{{ user.fecha_desde }}</td>
+          <td class="text-nowrap">{{ user.fecha_hasta }}</td>
+          <td class="text-nowrap">{{ user.mes_progresion }}</td>
+          <td>
+            <div class="button-group">
+              <a href="{{ url_for('editar_usuario_con_progresiones', legajo=user.legajo) }}" class="btn btn-outline-success">Editar</a>
+              <form action="{{ url_for('eliminar_usuario_con_progresiones', legajo=user.legajo) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar al usuarios {{ user.nombre }} {{ user.apellido }}?');">
+                <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-start">
+        <a href="{{ url_for('agregar_usuario_con_progresion') }}" class="btn btn-outline-primary me-2">Agregar Nuevo Usuario</a>
+        <button class="btn btn-outline-secondary" onclick="history.back()">Volver atrás</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

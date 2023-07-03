@@ -1,0 +1,53 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+<form action="{{ url_for('agregar_tutor') }}" method="POST">    
+    <div class="table-responsive">
+      {% if error_message %}
+        <p class="text-danger">{{ error_message }}</p>
+      {% endif %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th> Legajo </th>
+            <th> Nombre </th>
+            <th> Apellido </th>
+            <th> Categoria </th>
+            <th> Fecha Inicio Tutoria </th>
+            <th> Fecha Fin Tutoria </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+                <input type="number" name="legajo" required>
+              </td>
+              <td>
+                  <input type="text" name="nombre" " required>
+                </td>
+                <td>
+                    <input type="text" name="apellido" required>
+                </td>
+                <td>
+                  <select name="categoria" required>
+                    <option value="C-SE - EC Senior" selected>C-SE - EC Senior</option>
+                    <option value="C-SS - EC Semi Senior">C-SS - EC Semi Senior</option>
+                    <option value="C-JU - EC Junior">C-JU - EC Junior</option>
+                    <option value="C-JC - EC Junior en Capacitacion">C-JC - EC Junior en Capacitacion</option>
+                  </select>
+                </td>
+                <td>
+                <input type="date" name="fecha_inicio_tutoria" required>
+                </td>
+                <td>
+                <input type="date" name="fecha_fin_tutoria" required>
+                </td>                
+          </tr>
+        </tbody>
+      </table>
+    
+      <button type="submit" class="btn btn-outline-primary">Agregar Tutor</button>
+    </div>
+</form>
+
+{% endblock %}

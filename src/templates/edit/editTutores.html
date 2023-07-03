@@ -1,0 +1,53 @@
+
+
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+<form action="{{ url_for('editar_tutores', legajo=datos_tutores.legajo) }}" method="POST">    
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Legajo</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Categoria</th>
+            <th>Mes Inicio Tutoria</th>
+            <th>Mes Fin Tutoria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ datos_tutores.legajo }}</td>
+            <td>
+              <input type="text" name="nombre" value="{{ datos_tutores.nombre }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="text" name="apellido" value="{{ datos_tutores.apellido }}" class="form-control" required>
+            </td>
+            <td>
+              <!-- <input type="text" name="categoria" value="{{ datos_tutores.categoria }}" required> -->
+              <select name="categoria" class="form-control"required>
+                <option value="C-SE - EC Senior" {% if datos_tutores.categoria == "C-SE - EC Senior" %}selected{% endif %}>C-SE - EC Senior</option>
+                <option value="C-SS - EC Semi Senior" {% if datos_tutores.categoria == "C-SS - EC Semi Senior" %}selected{% endif %}>C-SS - EC Semi Senior</option>
+                <option value="C-JU - EC Junior" {% if datos_tutores.categoria == "C-JU - EC Junior" %}selected{% endif %}>C-JU - EC Junior</option>
+                <option value="C-JC - EC Junior en Capacitacion" {% if datos_tutores.categoria == "C-JC - EC Junior en Capacitacion" %}selected{% endif %}>C-JC - EC Junior en Capacitacion</option>
+            </select>
+            </td>
+            <td>
+              <input type="date" name="fecha_inicio_tutoria" value="{{ datos_tutores.fecha_inicio_tutoria }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="date" name="fecha_fin_tutoria" value="{{ datos_tutores.fecha_fin_tutoria }}" class="form-control" required>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
+    </div>
+</form>
+
+{% endblock %}
+
+

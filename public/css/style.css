@@ -1,0 +1,53 @@
+
+.logo-img {
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+.naveg {
+    position: relative;
+    color: #000000;
+    text-decoration: none;
+}
+
+.naveg::before,
+.naveg::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease, height 0.3s linear;
+}
+
+.naveg::before {
+    transition-delay: 0s, 0s;
+}
+
+.naveg::after {
+    transition-delay: 0s, 0.2s;
+}
+
+.naveg:hover::before,
+.naveg:hover::after {
+    transform: scaleX(1);
+}
+
+.button-group {
+    display: flex;
+    gap: 5px;
+}
+
+.nav_gradient {
+    background: linear-gradient(90deg, rgba(39, 157, 46, 1) 0%, rgba(38, 186, 195, 1) 88%);   
+}
+
+.prueba{
+    background-color: #000000;
+}

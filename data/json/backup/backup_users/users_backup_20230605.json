@@ -1,0 +1,39 @@
+{
+  "Users": [
+    {
+      "legajo": 2382,
+      "apellido": "Agustin Lucas",
+      "nombre": "Farola",
+      "mail": "afarola@provinciamicrocreditos.com",
+      "perfil": "Jefe Zonal"
+    },
+    {
+      "legajo": 5294,
+      "apellido": "Emiliano",
+      "nombre": "Clergue",
+      "mail": "eclergue@provinciamicrocreditos.com",
+      "perfil": "Jefe Coordinador"
+    },
+    {
+      "legajo": 2459,
+      "apellido": "Fatima Elizabeth",
+      "nombre": "Roldan",
+      "mail": "froldan@provinciamicrocreditos.com",
+      "perfil": "Jefe Zonal"
+    },
+    {
+      "legajo": 2394,
+      "apellido": "Lorena Yael",
+      "nombre": "Castrillo",
+      "mail": "lcastrillo@provinciamicrocreditos.com",
+      "perfil": "Jefe Zonal"
+    },
+    {
+      "legajo": 5662,
+      "apellido": "Barreto",
+      "nombre": "Matias Gabriel",
+      "mail": "mbarreto@provinciamicrocreditos.com",
+      "perfil": "Admin"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "Metas": [
+    {
+      "categoria": "C-SE - EC Senior",
+      "cantidad": 22,
+      "monto": 44000000.0,
+      "monto_prom": 2000000.0,
+      "fecha": "2023-06-21"
+    },
+    {
+      "categoria": "C-SS - EC Semi Senior",
+      "cantidad": 34,
+      "monto": 3940000.0,
+      "monto_prom": 910000.0,
+      "fecha": "2023-06-21"
+    },
+    {
+      "categoria": "C-JU - EC Junior",
+      "cantidad": 40,
+      "monto": 15475000.0,
+      "monto_prom": 386875.0,
+      "fecha": "2023-06-21"
+    },
+    {
+      "categoria": "C-JC - EC Junior en Capacitacion",
+      "cantidad": 40,
+      "monto": 14000000.0,
+      "monto_prom": 300000.0,
+      "fecha": "2023-06-22"
+    }
+  ]
+}

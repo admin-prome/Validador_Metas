@@ -1,0 +1,60 @@
+{
+  "Tutores": [
+    {
+      "legajo": 5894,
+      "nombre": "Rodriguez ",
+      "apellido": "Maria Virginia",
+      "categoria": "C-JU - EC Junior",
+      "fecha_inicio_tutoria": "2023-05-30",
+      "fecha_fin_tutoria": "2023-06-09"
+    },
+    {
+      "legajo": 5520,
+      "nombre": "SANCHEZ PENINO ",
+      "apellido": "MARTIN MIGUEL",
+      "categoria": "C-SS - EC Semi Senior",
+      "fecha_inicio_tutoria": "2023-05-29",
+      "fecha_fin_tutoria": "2023-06-09"
+    },
+    {
+      "legajo": 5399,
+      "nombre": "alonso",
+      "apellido": "adriana",
+      "categoria": "C-SE - EC Senior",
+      "fecha_inicio_tutoria": "2023-06-12",
+      "fecha_fin_tutoria": "2023-06-12"
+    },
+    {
+      "legajo": 2242,
+      "nombre": "MARIA EUGENIA",
+      "apellido": "TORRICELLI ",
+      "categoria": "C-JU - EC Junior",
+      "fecha_inicio_tutoria": "2023-05-28",
+      "fecha_fin_tutoria": "2023-06-12"
+    },
+    {
+      "legajo": 111,
+      "nombre": "bab",
+      "apellido": "babab",
+      "categoria": "C-SE - EC Senior",
+      "fecha_inicio_tutoria": "2023-06-14",
+      "fecha_fin_tutoria": "2023-06-14"
+    },
+    {
+      "legajo": 1212,
+      "nombre": "hola",
+      "apellido": "hola",
+      "categoria": "C-SS - EC Semi Senior",
+      "fecha_inicio_tutoria": "2023-06-21",
+      "fecha_fin_tutoria": "2023-06-21"
+    },
+    {
+      "legajo": 5533,
+      "nombre": "marchi",
+      "apellido": "esteban",
+      "categoria": "C-SE - EC Senior",
+      "fecha_inicio_tutoria": "2023-06-21",
+      "fecha_fin_tutoria": "2023-06-21"
+    }
+  ]
+}

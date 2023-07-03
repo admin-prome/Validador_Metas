@@ -1,0 +1,39 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+<form action="{{ url_for('editar_meta', categoria=datos_categoria.categoria) }}" method="POST">    
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th>Monto</th>
+            <th>Monto Promedio</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ datos_categoria.categoria }}</td>
+            <td>
+              <input type="number" name="cantidad" value="{{ datos_categoria.cantidad }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="number" name="monto" value="{{ datos_categoria.monto }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="number" name="monto_prom" value="{{ datos_categoria.monto_prom }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="date" name="fecha" value="{{ datos_categoria.fecha }}" class="form-control" required>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
+    </div>
+</form>
+
+{% endblock %}

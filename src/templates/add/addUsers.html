@@ -1,0 +1,55 @@
+
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+<form action="{{ url_for('agregar_usuario') }}" method="POST">    
+    <div class="table-responsive">
+      {% if error_message %}
+        <p class="text-danger">{{ error_message }}</p>
+      {% endif %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Legajo</th>
+            <th>Nombre Completo</th>
+            <th>Mail</th>
+            <th>Password</th>
+            <th>Perfil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="number" name="legajo" required>
+            </td>            
+            <td>
+              <input type="text" name="nombre" required>
+            </td>
+            <td>
+              <input type="email" name="mail" required>
+            </td>
+            <td>
+              <input type="password" name="password" required>
+            </td>
+            <td>
+              <!-- <input type="text" name="perfil"> -->
+              <select name="perfil" required>
+                <option value="Jefe Zonal">Jefe Zonal</option>
+                <option value="Jefe Coordinador">Jefe Coordinador</option>
+                <option value="Desarrollo de Carrera">Desarrollo de Carrera</option>
+                <option value="Personas">Personas</option>
+                <option value="Inteligencia Comercial">Inteligencia Comercial</option>
+                <option value="Admin">Admin</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <button type="submit" class="btn btn-outline-primary">Agregar Usuario</button>
+    </div>
+</form>
+
+{% endblock %}
+
+

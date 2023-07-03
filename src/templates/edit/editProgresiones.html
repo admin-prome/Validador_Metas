@@ -1,0 +1,49 @@
+
+
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+<form action="{{ url_for('editar_progresion', categoria=datos_progresion.categoria) }}" method="POST">    
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Categoría</th>
+            <th>Mes 1</th>
+            <th>Mes 2</th>
+            <th>Mes 3</th>
+            <th>Mes 4</th>
+            <th>Mes 5</th>
+            <th>Mes 6</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ datos_progresion.categoria }}</td>
+            <td>
+              <input type="number" name="mes_1" value="{{ datos_progresion.mes_1 }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="number" name="mes_2" value="{{ datos_progresion.mes_2 }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="number" name="mes_3" value="{{ datos_progresion.mes_3 }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="number" name="mes_4" value="{{ datos_progresion.mes_4 }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="number" name="mes_5" value="{{ datos_progresion.mes_5 }}" class="form-control" required>
+            </td>
+            <td>
+              <input type="number" name="mes_6" value="{{ datos_progresion.mes_6 }}" class="form-control" required>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
+    </div>
+</form>
+
+{% endblock %}

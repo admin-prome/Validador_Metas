@@ -1,0 +1,66 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+<h3>Agregar Nuevo Usuario</h3>
+<form action="{{ url_for('agregar_usuario_con_progresion') }}" method="POST">
+  <div class="table-responsive">
+    {% if error_message %}
+      <p class="text-danger">{{ error_message }}</p>
+    {% endif %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Legajo</th>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Mail</th>
+          <th>Categoría</th>
+          <th>Fecha Desde</th>
+          <th>Fecha Hasta</th>
+          <th>Mes de Progresión</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="number" name="legajo" required>
+          </td>
+          <td>
+            <input type="text" name="apellido" required>
+          </td>
+          <td>
+            <input type="text" name="nombre" required>
+          </td>
+          <td>
+            <input type="email" name="mail" required>
+          </td>
+          <td>
+            <!-- <input type="text" name="categoria" required> -->
+            <select name="categoria" required>
+              <option value="C-SE - EC Senior">C-SE - EC Senior</option>
+              <option value="C-SS - EC Semi Senior">C-SS - EC Semi Senior</option>
+              <option value="C-JU - EC Junior">C-JU - EC Junior</option>
+              <option value="C-JC - EC Junior en Capacitacion">C-JC - EC Junior en Capacitacion</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" name="fecha_desde" required>
+          </td>
+          <td>
+            <input type="date" name="fecha_hasta" required>
+          </td>
+          <td>
+            <select name="mes_progresion" required>
+              <option value="mes_1">mes_1</option>
+              <option value="mes_2">mes_2</option>
+              <option value="mes_3">mes_3</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-outline-primary">Agregar Nuevo Usuario</button>
+  </div>
+</form>
+{% endblock %}

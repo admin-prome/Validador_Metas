@@ -1,0 +1,114 @@
+{
+  "Progresion_Users": [
+    {
+      "legajo": 5564,
+      "apellido": "ZUCHINI ",
+      "nombre": "LUCIANA MICAELA",
+      "mail": "LZUCHINI@provinciamicrocreditos.com",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-06-01",
+      "fecha_hasta": "2023-06-09",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 5968,
+      "apellido": "STRADA",
+      "nombre": "DAIANA",
+      "mail": "dstrada@provinciamicrocreditos.com",
+      "categoria": "C-SS - EC Semi Senior",
+      "fecha_desde": "2023-06-01",
+      "fecha_hasta": "2023-06-01",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 5970,
+      "apellido": "VILLAFRANCA ",
+      "nombre": "AGUST\u00cdN",
+      "mail": "avillafrancia@provinciamicrocreditos.com",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-06-01",
+      "fecha_hasta": "2023-06-09",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 5250,
+      "apellido": "ARAUJO ",
+      "nombre": "PRISCILA MARIA NOELIA",
+      "mail": "paraujo@provinciamicrocreditos.com",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-06-01",
+      "fecha_hasta": "2023-06-09",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 5417,
+      "apellido": "ZOCINE ",
+      "nombre": "MARIANO CARLOS",
+      "mail": "mzocine@provinciamicrocreditos.com",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-06-01",
+      "fecha_hasta": "2023-06-09",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 1212,
+      "apellido": "saasDASA",
+      "nombre": "DADAD",
+      "mail": "A@A",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-05-28",
+      "fecha_hasta": "2023-06-15",
+      "mes_progresion": "mes_3"
+    },
+    {
+      "legajo": 5487,
+      "apellido": "ANDERSCH ARIEL HERNAN",
+      "nombre": "q",
+      "mail": "q@q",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-06-13",
+      "fecha_hasta": "2023-06-06",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 5562,
+      "apellido": "ALVIDE DIEGO OSCAR",
+      "nombre": "mama",
+      "mail": "a@a",
+      "categoria": "C-JU - EC Junior",
+      "fecha_desde": "2023-05-28",
+      "fecha_hasta": "2023-06-19",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 5533,
+      "apellido": "marchi",
+      "nombre": "esteban",
+      "mail": "marchi@marchi",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-05-28",
+      "fecha_hasta": "2023-06-21",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 5251,
+      "apellido": "NAVARRO HECTOR RICARDO",
+      "nombre": "esteban",
+      "mail": "marchi@marchi",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-05-28",
+      "fecha_hasta": "2023-06-21",
+      "mes_progresion": "mes_5"
+    },
+    {
+      "legajo": 2242,
+      "apellido": "TORRICELLI MARIA EUGENIA",
+      "nombre": "maria",
+      "mail": "mtorricelli@provinciamicrocreditos.com",
+      "categoria": "C-JU - EC Junior",
+      "fecha_desde": "2023-05-28",
+      "fecha_hasta": "2023-06-22",
+      "mes_progresion": "mes_3"
+    }
+  ]
+}

@@ -10,3 +10,7 @@ def number_generator(legajo):
     return numerador
 
 #todo#################################################################
+
+
+def hola():
+    return 'hola'

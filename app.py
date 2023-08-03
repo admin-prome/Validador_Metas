@@ -3,7 +3,7 @@ import os
 from flask import Flask, redirect, render_template, request, session, url_for
 from dotenv import load_dotenv
 
-env_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(env_path)
 
 
@@ -11,7 +11,7 @@ load_dotenv(env_path)
 
 def handle_form_submission(jefe_zonal):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path_nomina = os.path.join(current_dir, '..', 'data', 'json', 'nomina.json')
+    json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')
     with open(json_path_nomina, 'r') as file_nomina:
         data_metas = json.load(file_nomina)
         nomina = data_metas['Nomina']    
@@ -22,11 +22,11 @@ def ajuste_meta_q(categoria, legajo):
     AJUSTE_TUTORES = 0.1
     result = 0
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path_metas = os.path.join(current_dir, '..', 'data', 'json', 'metas.json')
-    json_path_tutores = os.path.join(current_dir, '..', 'data', 'json', 'tutores.json')
-    json_path_progresiones = os.path.join(current_dir, '..', 'data', 'json', 'progresiones.json')    
-    json_path_progresionOfUsers = os.path.join(current_dir, '..', 'data', 'json', 'progresionOfUsers.json')
-    json_path_nomina = os.path.join(current_dir, '..', 'data', 'json', 'nomina.json')    
+    json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
+    json_path_tutores = os.path.join(current_dir, 'data', 'json', 'tutores.json')
+    json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
+    json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
+    json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')    
 
     def meta_real_q(categoria):
         with open(json_path_metas, 'r') as file_metas:
@@ -109,11 +109,11 @@ def ajuste_meta_monto(categoria, legajo):
     AJUSTE_TUTORES = 0.1
     result = 0    
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path_metas = os.path.join(current_dir, '..', 'data', 'json', 'metas.json')
-    json_path_tutores = os.path.join(current_dir, '..', 'data', 'json', 'tutores.json')
-    json_path_progresiones = os.path.join(current_dir, '..', 'data', 'json', 'progresiones.json')    
-    json_path_progresionOfUsers = os.path.join(current_dir, '..', 'data', 'json', 'progresionOfUsers.json')
-    json_path_nomina = os.path.join(current_dir, '..', 'data', 'json', 'nomina.json')
+    json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
+    json_path_tutores = os.path.join(current_dir, 'data', 'json', 'tutores.json')
+    json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
+    json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
+    json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')
 
     def meta_real_monto(categoria):
         with open(json_path_metas, 'r') as file_metas:
@@ -247,7 +247,7 @@ def has_progresiones(legajo):
         return "NO"
 
 
-app = Flask(__name__, static_folder='../public')
+app = Flask(__name__, static_folder='public')
 app.secret_key = 'tu_clave_secreta'
 
 # TODO----------LOGIN----------------------------------------------------------------------------------------------
@@ -256,7 +256,7 @@ app.secret_key = 'tu_clave_secreta'
 @app.route('/', methods=['GET', 'POST'])
 def login():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'users.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'users.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         usuarios = data['Users']    
@@ -269,9 +269,11 @@ def login():
                     session['usuario'] = user
                     return redirect(url_for('index'))
                 else:
-                    return 'La contraseña es incorrecta'        
-        return 'No está autorizado a ingresar en esta página'    
-    return render_template('login.html')
+                    session['error_message'] = 'La contraseña es incorrecta'
+                    return redirect(url_for('login'))        
+        return render_template('not_authorized.html') 
+    error_message = session.pop('error_message', None)   
+    return render_template('login.html', error_message=error_message)
 
 
 
@@ -280,7 +282,7 @@ def index():
     usuario = session.get('usuario')
     if usuario:
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        json_path = os.path.join(current_dir, '..', 'data', 'json', 'users.json')
+        json_path = os.path.join(current_dir, 'data', 'json', 'users.json')
         
         with open(json_path, 'r') as json_file:
             data = json.load(json_file)
@@ -303,7 +305,7 @@ def logout():
 @app.route('/nomina', methods=['GET', 'POST'])
 def nomina():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'nomina.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         nomina = data["Nomina"]
@@ -319,7 +321,7 @@ def nomina():
 @app.route('/edit_observacion/<legajo>', methods=['GET', 'POST'])
 def edit_observacion(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'nomina.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     nomina = data['Nomina']
@@ -338,7 +340,7 @@ def edit_observacion(legajo):
 def delete_observacion():
     legajo = request.form['legajo']
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'nomina.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
 
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
@@ -361,7 +363,7 @@ def delete_observacion():
 @app.route('/metas', methods=['GET', 'POST'])
 def metas():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'metas.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'metas.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         metas = data["Metas"]
@@ -372,7 +374,7 @@ def metas():
 @app.route('/editar-meta/<categoria>', methods=['GET', 'POST'])
 def editar_meta(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'metas.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'metas.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     metas = data['Metas']
@@ -396,7 +398,7 @@ def editar_meta(categoria):
 @app.route('/eliminar-meta/<categoria>', methods=['POST'])
 def eliminar_meta(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'metas.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'metas.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     metas = data['Metas']
@@ -416,7 +418,7 @@ def eliminar_meta(categoria):
 @app.route('/agregar-meta', methods=['GET', 'POST'])
 def agregar_meta():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'metas.json')    
+    json_path = os.path.join(current_dir, 'data', 'json', 'metas.json')    
     if request.method == 'POST':
         categoria = request.form['categoria']
         cantidad = int(request.form['cantidad'])
@@ -450,7 +452,7 @@ def agregar_meta():
 @app.route('/progresiones', methods=['GET', 'POST'])
 def progresiones():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'progresiones.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'progresiones.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         progresiones = data["Progresiones"]
@@ -461,7 +463,7 @@ def progresiones():
 @app.route('/editar-progresion/<categoria>', methods=['GET', 'POST'])
 def editar_progresion(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'progresiones.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'progresiones.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     progresiones = data['Progresiones']
@@ -483,7 +485,7 @@ def editar_progresion(categoria):
 @app.route('/eliminar-progresion/<categoria>', methods=['POST'])
 def eliminar_progresion(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'progresiones.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'progresiones.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     progresiones = data['Progresiones']
@@ -503,7 +505,7 @@ def eliminar_progresion(categoria):
 @app.route('/agregar-progresion', methods=['GET', 'POST'])
 def agregar_progresion():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'progresiones.json')    
+    json_path = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
     if request.method == 'POST':
         categoria = request.form['categoria']
         mes_1 = float(request.form['mes_1'])
@@ -541,7 +543,7 @@ def agregar_progresion():
 @app.route('/users', methods=['GET', 'POST'])
 def users():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'users.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'users.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         users = data["Users"]        
@@ -553,7 +555,7 @@ def users():
 @app.route('/eliminar-user/<legajo>', methods=['POST'])
 def eliminar_user(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'users.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'users.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     users = data['Users']    
@@ -573,7 +575,7 @@ def eliminar_user(legajo):
 @app.route('/editar-usuario/<legajo>', methods=['GET', 'POST'])
 def editar_usuario(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'users.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'users.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     usuarios = data['Users']
@@ -597,7 +599,7 @@ def editar_usuario(legajo):
 @app.route('/agregar-usuario', methods=['GET', 'POST'])
 def agregar_usuario():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'users.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'users.json')
     if request.method == 'POST':
         legajo = int(request.form['legajo'])
         nombre = request.form['nombre']
@@ -632,7 +634,7 @@ def agregar_usuario():
 @app.route('/usuariosConProgresiones')
 def usuarios_con_progresion():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'progresionOfUsers.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         usuarios = data['Progresion_Users']
@@ -643,7 +645,7 @@ def usuarios_con_progresion():
 @app.route('/editar-usuarioConProgresiones/<legajo>', methods=['GET', 'POST'])
 def editar_usuario_con_progresiones(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'progresionOfUsers.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     usuarios = data["Progresion_Users"]
@@ -666,7 +668,7 @@ def editar_usuario_con_progresiones(legajo):
 @app.route('/eliminar-usuarioConProgresiones/<legajo>', methods=['POST'])
 def eliminar_usuario_con_progresiones(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'progresionOfUsers.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     usuarios = data['Progresion_Users']
@@ -682,7 +684,7 @@ def eliminar_usuario_con_progresiones(legajo):
 @app.route('/agregar-usuarioConProgresion', methods=['GET', 'POST'])
 def agregar_usuario_con_progresion():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'progresionOfUsers.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         usuarios = data['Progresion_Users']
@@ -717,7 +719,7 @@ def agregar_usuario_con_progresion():
 @app.route('/tutores')
 def tutores():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'tutores.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'tutores.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         usuarios = data['Tutores']
@@ -728,7 +730,7 @@ def tutores():
 @app.route('/editar-Tutores/<legajo>', methods=['GET', 'POST'])
 def editar_tutores(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'tutores.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'tutores.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         usuarios = data['Tutores']
@@ -749,7 +751,7 @@ def editar_tutores(legajo):
 @app.route('/eliminar-tutores/<legajo>', methods=['POST'])
 def eliminar_tutores(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'tutores.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'tutores.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
     usuarios = data['Tutores']
@@ -765,7 +767,7 @@ def eliminar_tutores(legajo):
 @app.route('/agregar-Tutor', methods=['GET', 'POST'])
 def agregar_tutor():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, '..', 'data', 'json', 'tutores.json')
+    json_path = os.path.join(current_dir, 'data', 'json', 'tutores.json')
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         tutores = data['Tutores']

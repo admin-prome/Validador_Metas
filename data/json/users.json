@@ -113,25 +113,27 @@
       "perfil": "Admin"
     },
     {
-      "legajo": 1111,
-      "nombre": "Mariana",
-      "mail": "mariana@mariana",
-      "password": "Prome2",
-      "perfil": "Desarrollo de Carrera"
-    },
-    {
       "legajo": 2222,
-      "nombre": "Guillermo",
-      "mail": "guillermo@guillermo",
+      "nombre": "BEYRNE GUILLERMO TOMAS",
+      "mail": "gbeyrne@provinciamicrocreditos.com",
       "password": "prome3",
-      "perfil": "Inteligencia Comercial"
+      "perfil": "Inteligencia Comercial",
+      "apellido": null
     },
     {
       "legajo": 3333,
-      "nombre": "Norma Beltran",
-      "mail": "norma@norma",
+      "nombre": "BELTRAN NORMA GRACIELA",
+      "mail": "nbeltran@provinciamicrocreditos.com",
       "password": "prome3",
       "perfil": "Personas",
+      "apellido": null
+    },
+    {
+      "legajo": 5743,
+      "nombre": "LOPEZ MARIANA ANDREA",
+      "mail": "mmoreno@provinciamicrocreditos.com",
+      "password": "Prome2",
+      "perfil": "Desarrollo de Carrera",
       "apellido": null
     }
   ]

@@ -17,4 +17,10 @@ controllers.py contiene funciones de controlador adicionales que implementan la 
 templates/ es un directorio donde puedes almacenar tus plantillas HTML para las vistas.
 
 
+pip freeze > requirements.txt
+
+pararse en la rama en donde se envia todo ej: 
+git checkout tst
+git merge dev
+git push origin tst
 

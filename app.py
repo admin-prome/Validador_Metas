@@ -288,9 +288,7 @@ def has_progresiones(legajo):
 
 app = Flask(__name__, static_folder='public')
 app.secret_key = 'tu_clave_secreta'
-
 # TODO----------LOGIN--------------------------------------------------------------------------------------------------
-
 @app.route('/', methods=['GET', 'POST'])
 def login():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -333,7 +331,6 @@ def logout():
     return redirect(url_for('login'))
 
 # TODO----------NOMINA-------------------------------------------------------------------------------------------------
-
 @app.route('/nomina', methods=['GET', 'POST'])
 def nomina():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -386,7 +383,6 @@ def delete_observacion():
     return redirect('/nomina')
 
 # TODO-----------METAS------------------------------------------------------------------------------------------------
-
 @app.route('/metas', methods=['GET', 'POST'])
 def metas():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -467,7 +463,6 @@ def agregar_meta():
     return render_template('add/addMetas.html')
 
 # TODO-----------PROGRESIONES-----------------------------------------------------------------------------------------
-
 @app.route('/progresiones', methods=['GET', 'POST'])
 def progresiones():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -550,7 +545,6 @@ def agregar_progresion():
     return render_template('add/addProgresiones.html')
 
 # TODO------------USERS------------------------------------------------------------------------------------------
-
 @app.route('/users', methods=['GET', 'POST'])
 def users():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -633,7 +627,6 @@ def agregar_usuario():
     return render_template('add/addUsers.html')
 
 # TODO-------------USUARIOS_CON_PROGRESIONES---------------------------------------------------------------------------
-
 @app.route('/usuariosConProgresiones')
 def usuarios_con_progresion():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -710,7 +703,6 @@ def agregar_usuario_con_progresion():
     return render_template('add/addUsuarioConProgresion.html', error_message=None)
 
 # TODO-------------TUTORES------------------------------------------------------------------------------------
-
 @app.route('/tutores')
 def tutores():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -781,14 +773,12 @@ def agregar_tutor():
     return render_template('add/addTutores.html', error_message=None)
 
 #TODO--------VALIDACION_DE_USUARIO_LOGUEADO--------------------------------------------------------
-
 @app.before_request
 def before_request():
     if request.endpoint != 'login' and 'usuario' not in session:
         return redirect(url_for('login'))
 
 #TODO--------EXPORT_TO_EXCEL----------------------------------------------------------------------
-
 @app.route('/export_excel', methods=['POST'])
 def export_excel():
     current_dir = os.path.dirname(os.path.abspath(__file__))

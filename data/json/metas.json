@@ -16,17 +16,17 @@
     },
     {
       "categoria": "C-JC - EC Junior en Capacitacion",
-      "cantidad": 35,
+      "cantidad": 30,
       "monto": 17150000.0,
       "monto_prom": 175000.0,
       "fecha": "2023-08-03"
     },
     {
       "categoria": "C-JU - EC Junior",
-      "cantidad": 40,
-      "monto": 10000000.0,
-      "monto_prom": 100000.0,
-      "fecha": "2023-08-03"
+      "cantidad": 32,
+      "monto": 12000000.0,
+      "monto_prom": 1200000.0,
+      "fecha": "2023-08-14"
     }
   ]
 }

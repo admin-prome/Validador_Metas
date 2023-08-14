@@ -47,8 +47,10 @@
         <th class="sticky-top text-nowrap">Cant Dias Licenc</th>
         <th class="sticky-top text-nowrap">es tutor</th>
         <th class="sticky-top text-nowrap">Tiene Progresion</th>
-        <th class="sticky-top text-nowrap">Ajuste Q</th>
-        <th class="sticky-top text-nowrap">Ajuste Monto</th>
+        <th class="sticky-top text-nowrap">Ajuste Q mes 1</th>
+        <th class="sticky-top text-nowrap">Ajuste Q mes 2</th>
+        <th class="sticky-top text-nowrap">Ajuste Monto mes 1</th>
+        <th class="sticky-top text-nowrap">Ajuste Monto mes 2</th>
         <th class="sticky-top text-nowrap">Observaciones</th>
         <th class="sticky-top text-nowrap">Acciones</th>
       </tr>
@@ -64,23 +66,23 @@
         <td class="text-nowrap">{{ user.jefe_a_cargo }}</td>
         <td class="text-nowrap">{{ get_meta_q(user.Categoria) / 2 }}</td>
         <td class="text-nowrap">{{ get_meta_q(user.Categoria) / 2 }}</td>
-        <td class="text-nowrap">{{ get_meta_monto(user.Categoria) / 2 }}</td>
-        <td class="text-nowrap">{{ get_meta_monto(user.Categoria) / 2 }}</td>
+        <td class="text-nowrap">$ {{ get_meta_monto(user.Categoria) / 2 }}</td>
+        <td class="text-nowrap">$ {{ get_meta_monto(user.Categoria) / 2 }}</td>
         <td class="text-nowrap">{{ user.Descripcion_Licencias }}</td>
         <td class="text-nowrap">{{ user.Cant_Dias_Licencia }}</td>
         <td class="text-nowrap">{{ is_tutor(user.legajo) }}</td>
         <td class="text-nowrap">{{ has_progresiones(user.legajo) }}</td>
-        <td class="text-nowrap">{{ ajuste_meta_q(user.Categoria, user.legajo) }}</td>
-        <td class="text-nowrap">{{ ajuste_meta_monto(user.Categoria, user.legajo) }}</td>
+        <td class="text-nowrap">{{ ajuste_meta_q(user.Categoria, user.legajo)/2 }}</td>
+        <td class="text-nowrap">{{ ajuste_meta_q(user.Categoria, user.legajo)/2 }}</td>
+        <td class="text-nowrap">$ {{ ajuste_meta_monto(user.Categoria, user.legajo)/2 }}</td>
+        <td class="text-nowrap">$ {{ ajuste_meta_monto(user.Categoria, user.legajo)/2 }}</td>
         <td class="text-nowrap">{{ user.Observaciones }}</td>
         <td class="text-nowrap">
           <div class="button-group">
-            <a href="{{ url_for('edit_observacion', legajo=user.legajo) }}" class="btn btn-outline-success">Editar
-              Observaciones</a>
-            <form action="{{ url_for('delete_observacion') }}" method="POST"
-              onsubmit="return confirm('¿Estás seguro de que deseas eliminar este Comentario?');">
+            <a href="{{ url_for('edit_observacion', legajo=user.legajo) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
+            <form action="{{ url_for('delete_observacion') }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este Comentario?');">
               <input type="hidden" name="legajo" value="{{ user.legajo }}">
-              <button type="submit" class="btn btn-outline-danger">Eliminar Observaciones</button>
+              <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
             </form>
           </div>
         </td>

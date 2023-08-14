@@ -1,13 +1,53 @@
 import json
 import os
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, redirect, render_template, request, send_file, session, url_for
 from dotenv import load_dotenv
+from openpyxl import Workbook
+from openpyxl.styles import Font, PatternFill
 
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(env_path)
 
 
+def export_to_excel(nomina_data):
+    wb = Workbook()
+    ws = wb.active
+    bold_font = Font(bold=True)
+    fill = PatternFill(start_color="9ACD32", end_color="9ACD32", fill_type="solid")
+    columns = ["Legajo", "Nombre EC", "Mail", "Sucursal", "Categoria", "Jefe a Cargo", "meta Q Mes 1", "meta Q Mes 2", "Meta $ mes 1", "Meta $ mes 2", "Descripción Licencias", "Cant Dias Licenc", "es tutor", "Tiene Progresion", "Ajuste Q", "Ajuste Monto", "Observaciones"]
+    for col_num, column_title in enumerate(columns, 1):
+        cell = ws.cell(row=1, column=col_num, value=column_title)
+        cell.font = bold_font
+        cell.fill = fill
+    ws.append(columns)
+    for user in nomina_data:
+        row_data = [
+            user.get("legajo", ""),
+            user.get("Nombre_de_EC", ""),
+            user.get("mail", ""),
+            user.get("Sucursal", ""),
+            user.get("Categoria", ""),
+            user.get("jefe_a_cargo", ""),
+            get_meta_q(user.get("Categoria", "")) / 2,
+            get_meta_q(user.get("Categoria", "")) / 2,
+            get_meta_monto(user.get("Categoria", "")) / 2,
+            get_meta_monto(user.get("Categoria", "")) / 2,
+            user.get("Descripcion_Licencias", ""),
+            user.get("Cant_Dias_Licencia", ""),
+            is_tutor(user.get("legajo", "")),
+            has_progresiones(user.get("legajo", "")),
+            ajuste_meta_q(user.get("Categoria", ""), user.get("legajo", "")),
+            ajuste_meta_monto(user.get("Categoria", ""), user.get("legajo", "")),
+            user.get("Observaciones", "")
+        ]
+        ws.append(row_data)
+        
+    current_dir = os.path.dirname(os.path.abspath(__file__))  
 
+    excel_file_path = os.path.join(current_dir, 'data', 'export', 'nominas.xlsx')
+    excel_file = excel_file_path
+    wb.save(excel_file)
+    return excel_file
 
 def handle_form_submission(jefe_zonal):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -772,6 +812,17 @@ def agregar_tutor():
         return redirect(url_for('tutores'))
     return render_template('add/addTutores.html', error_message=None)
 
+
+@app.route('/export_excel', methods=['POST'])
+def export_excel():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        nomina = data["Nomina"]
+    
+    excel_file = export_to_excel(nomina)
+    return send_file(excel_file, as_attachment=True)
 
 #TODO--------VALIDACION_DE_USUARIO_LOGUEADO--------------------------------------------------------
 

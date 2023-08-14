@@ -19,7 +19,6 @@ def export_to_excel(nomina_data):
         cell = ws.cell(row=1, column=col_num, value=column_title)
         cell.font = bold_font
         cell.fill = fill
-    ws.append(columns)
     for user in nomina_data:
         row_data = [
             user.get("legajo", ""),
@@ -40,10 +39,8 @@ def export_to_excel(nomina_data):
             ajuste_meta_monto(user.get("Categoria", ""), user.get("legajo", "")),
             user.get("Observaciones", "")
         ]
-        ws.append(row_data)
-        
-    current_dir = os.path.dirname(os.path.abspath(__file__))  
-
+        ws.append(row_data)        
+    current_dir = os.path.dirname(os.path.abspath(__file__))
     excel_file_path = os.path.join(current_dir, 'data', 'export', 'nominas.xlsx')
     excel_file = excel_file_path
     wb.save(excel_file)
@@ -813,6 +810,18 @@ def agregar_tutor():
     return render_template('add/addTutores.html', error_message=None)
 
 
+#TODO--------VALIDACION_DE_USUARIO_LOGUEADO--------------------------------------------------------
+
+
+@app.before_request
+def before_request():
+    if request.endpoint != 'login' and 'usuario' not in session:
+        return redirect(url_for('login'))
+
+
+#TODO--------EXPORT_TO_EXCEL----------------------------------------------------------------------
+
+
 @app.route('/export_excel', methods=['POST'])
 def export_excel():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -824,16 +833,7 @@ def export_excel():
     excel_file = export_to_excel(nomina)
     return send_file(excel_file, as_attachment=True)
 
-#TODO--------VALIDACION_DE_USUARIO_LOGUEADO--------------------------------------------------------
-
-@app.before_request
-def before_request():
-    if request.endpoint != 'login' and 'usuario' not in session:
-        return redirect(url_for('login'))
-
 
 if __name__ == '__main__':    
     app.run()
-    
-    
     

@@ -276,7 +276,6 @@ def login():
     return render_template('login.html', error_message=error_message)
 
 
-
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     usuario = session.get('usuario')
@@ -290,14 +289,12 @@ def index():
         perfil = next((usr['perfil'] for usr in usuarios if usr['legajo'] == usuario['legajo']), None)
         nombre = usuario['nombre']
         return render_template('index.html', nombre=nombre, perfil=perfil)
-    
-    
+      
 
 @app.route('/logout', methods=['POST'])
 def logout():
     session.pop('usuario', None)
     return redirect(url_for('login'))
-
 
 
 # TODO----------NOMINA-------------------------------------------------------------------------------------------------
@@ -356,7 +353,6 @@ def delete_observacion():
     return redirect('/nomina')
 
 
-
 # TODO-----------METAS------------------------------------------------------------------------------------------------
 
 
@@ -368,7 +364,6 @@ def metas():
         data = json.load(json_file)
         metas = data["Metas"]
     return render_template('metas.html', metas=metas)
-
 
 
 @app.route('/editar-meta/<categoria>', methods=['GET', 'POST'])
@@ -394,7 +389,6 @@ def editar_meta(categoria):
     return render_template('edit/editMetas.html', datos_categoria=datos_categoria)
 
 
-
 @app.route('/eliminar-meta/<categoria>', methods=['POST'])
 def eliminar_meta(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -412,7 +406,6 @@ def eliminar_meta(categoria):
     with open(json_path, 'w') as json_file:
         json.dump(data, json_file, indent=2)
     return redirect(url_for('metas'))
-
 
 
 @app.route('/agregar-meta', methods=['GET', 'POST'])
@@ -459,7 +452,6 @@ def progresiones():
     return render_template('progresiones.html', progresiones=progresiones)
 
 
-
 @app.route('/editar-progresion/<categoria>', methods=['GET', 'POST'])
 def editar_progresion(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -481,7 +473,6 @@ def editar_progresion(categoria):
     return render_template('edit/editProgresiones.html', datos_progresion=datos_progresion)
 
 
-
 @app.route('/eliminar-progresion/<categoria>', methods=['POST'])
 def eliminar_progresion(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -499,7 +490,6 @@ def eliminar_progresion(categoria):
     with open(json_path, 'w') as json_file:
         json.dump(data, json_file, indent=2)
     return redirect(url_for('progresiones'))
-
 
 
 @app.route('/agregar-progresion', methods=['GET', 'POST'])
@@ -551,7 +541,6 @@ def users():
     return render_template('users.html', users=users, selected_user=selected_user)
 
 
-
 @app.route('/eliminar-user/<legajo>', methods=['POST'])
 def eliminar_user(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -570,7 +559,6 @@ def eliminar_user(legajo):
         json.dump(data, json_file, indent=2)        
     return redirect(url_for('users'))    
                
-
 
 @app.route('/editar-usuario/<legajo>', methods=['GET', 'POST'])
 def editar_usuario(legajo):
@@ -593,7 +581,6 @@ def editar_usuario(legajo):
             json.dump(data, json_file, indent=2)        
         return redirect(url_for('users'))
     return render_template('edit/editUsers.html', datos_usuario=datos_usuario)
-
 
 
 @app.route('/agregar-usuario', methods=['GET', 'POST'])
@@ -641,7 +628,6 @@ def usuarios_con_progresion():
     return render_template('usuariosConProgresiones.html', usuarios=usuarios)
 
 
-
 @app.route('/editar-usuarioConProgresiones/<legajo>', methods=['GET', 'POST'])
 def editar_usuario_con_progresiones(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -664,7 +650,6 @@ def editar_usuario_con_progresiones(legajo):
     return render_template('edit/editUsuariosConProgresiones.html', datos_usuarioConProgresiones=datos_usuarioConProgresiones)
 
 
-
 @app.route('/eliminar-usuarioConProgresiones/<legajo>', methods=['POST'])
 def eliminar_usuario_con_progresiones(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -678,7 +663,6 @@ def eliminar_usuario_con_progresiones(legajo):
         with open(json_path, 'w') as json_file:
             json.dump(data, json_file, indent=2)
     return redirect(url_for('usuarios_con_progresion'))
-
 
 
 @app.route('/agregar-usuarioConProgresion', methods=['GET', 'POST'])
@@ -726,7 +710,6 @@ def tutores():
     return render_template('tutores.html', usuarios=usuarios)
 
 
-
 @app.route('/editar-Tutores/<legajo>', methods=['GET', 'POST'])
 def editar_tutores(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -745,8 +728,7 @@ def editar_tutores(legajo):
             json.dump(data, json_file, indent=2)
         return redirect(url_for('tutores'))
     return render_template('edit/editTutores.html', datos_tutores=datos_tutores)
-    
-    
+       
     
 @app.route('/eliminar-tutores/<legajo>', methods=['POST'])
 def eliminar_tutores(legajo):
@@ -762,7 +744,6 @@ def eliminar_tutores(legajo):
             json.dump(data, json_file, indent=2)
     return redirect(url_for('tutores'))
 
-  
 
 @app.route('/agregar-Tutor', methods=['GET', 'POST'])
 def agregar_tutor():
@@ -792,7 +773,6 @@ def agregar_tutor():
     return render_template('add/addTutores.html', error_message=None)
 
 
-
 #TODO--------VALIDACION_DE_USUARIO_LOGUEADO--------------------------------------------------------
 
 @app.before_request
@@ -803,10 +783,6 @@ def before_request():
 
 if __name__ == '__main__':    
     app.run()
-    # app.run(port=3000, debug=True)
-    
-    # app.run(ssl_context='adhoc', debug=True)
-    
     
     
     

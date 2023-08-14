@@ -43,8 +43,10 @@
         <th class="sticky-top text-nowrap">Sucursal</th>
         <th class="sticky-top text-nowrap">Categoria</th>
         <th class="sticky-top text-nowrap">Jefe a Cargo</th>
-        <th class="sticky-top text-nowrap">meta Q</th>
-        <th class="sticky-top text-nowrap">Meta Monto</th>
+        <th class="sticky-top text-nowrap">meta Q Mes 1</th>
+        <th class="sticky-top text-nowrap">meta Q Mes 2</th>
+        <th class="sticky-top text-nowrap">Meta $ mes 1</th>
+        <th class="sticky-top text-nowrap">Meta $ mes 2</th>
         <th class="sticky-top text-nowrap">Descripción Licencias</th>
         <th class="sticky-top text-nowrap">Cant Dias Licenc</th>
         <th class="sticky-top text-nowrap">es tutor</th>
@@ -64,8 +66,10 @@
         <td class="text-nowrap">{{ user.Sucursal }}</td>
         <td class="text-nowrap">{{ user.Categoria }}</td>
         <td class="text-nowrap">{{ user.jefe_a_cargo }}</td>
-        <td class="text-nowrap">{{ get_meta_q(user.Categoria) }}</td>
-        <td class="text-nowrap">{{ get_meta_monto(user.Categoria) }}</td>
+        <td class="text-nowrap">{{ get_meta_q(user.Categoria) / 2 }}</td>
+        <td class="text-nowrap">{{ get_meta_q(user.Categoria) / 2 }}</td>
+        <td class="text-nowrap">{{ get_meta_monto(user.Categoria) / 2 }}</td>
+        <td class="text-nowrap">{{ get_meta_monto(user.Categoria) / 2 }}</td>
         <td class="text-nowrap">{{ user.Descripcion_Licencias }}</td>
         <td class="text-nowrap">{{ user.Cant_Dias_Licencia }}</td>
         <td class="text-nowrap">{{ is_tutor(user.legajo) }}</td>

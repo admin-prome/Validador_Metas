@@ -22,20 +22,11 @@
       </thead>
       <tbody>
         <tr>
+          <td> <input type="number" name="legajo" required> </td>
+          <td> <input type="text" name="apellido" required> </td>
+          <td> <input type="text" name="nombre" required> </td>
+          <td> <input type="email" name="mail" required> </td>
           <td>
-            <input type="number" name="legajo" required>
-          </td>
-          <td>
-            <input type="text" name="apellido" required>
-          </td>
-          <td>
-            <input type="text" name="nombre" required>
-          </td>
-          <td>
-            <input type="email" name="mail" required>
-          </td>
-          <td>
-            <!-- <input type="text" name="categoria" required> -->
             <select name="categoria" required>
               <option value="C-SE - EC Senior">C-SE - EC Senior</option>
               <option value="C-SS - EC Semi Senior">C-SS - EC Semi Senior</option>
@@ -43,12 +34,8 @@
               <option value="C-JC - EC Junior en Capacitacion">C-JC - EC Junior en Capacitacion</option>
             </select>
           </td>
-          <td>
-            <input type="date" name="fecha_desde" required>
-          </td>
-          <td>
-            <input type="date" name="fecha_hasta" required>
-          </td>
+          <td> <input type="date" name="fecha_desde" required> </td>
+          <td> <input type="date" name="fecha_hasta" required> </td>
           <td>
             <select name="mes_progresion" required>
               <option value="mes_1">mes_1</option>
@@ -59,8 +46,8 @@
         </tr>
       </tbody>
     </table>
-
     <button type="submit" class="btn btn-outline-primary">Agregar Nuevo Usuario</button>
   </div>
 </form>
+
 {% endblock %}

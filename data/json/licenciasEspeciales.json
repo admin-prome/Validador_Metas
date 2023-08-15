@@ -1,0 +1,22 @@
+{
+  "Licencias": [
+    {
+      "employeeNumber": 2242,
+      "fullName": "TORRICELLI MARIA EUGENIA",
+      "license": "prueba 100",
+      "licenseStar": "2023-08-10",
+      "licenseEnd": "2023-08-20",
+      "licenseDays": "10",
+      "adjustment": 0.07
+    },
+    {
+      "employeeNumber": 2286,
+      "fullName": "GRATTONI MARIELA",
+      "license": "prueba 30",
+      "licenseStar": "2023-08-15",
+      "licenseEnd": "2023-08-20",
+      "licenseDays": "5",
+      "adjustment": 0.15
+    }
+  ]
+}

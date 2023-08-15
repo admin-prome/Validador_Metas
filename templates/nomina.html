@@ -45,6 +45,8 @@
         <th class="sticky-top text-nowrap">Meta $ mes 2</th>
         <th class="sticky-top text-nowrap">Descripción Licencias</th>
         <th class="sticky-top text-nowrap">Cant Dias Licenc</th>
+        <th class="sticky-top text-nowrap">Licencias Especiales</th>
+        <th class="sticky-top text-nowrap">Cant Dias Lice. Esp.</th>
         <th class="sticky-top text-nowrap">es tutor</th>
         <th class="sticky-top text-nowrap">Tiene Progresion</th>
         <th class="sticky-top text-nowrap">Ajuste Q mes 1</th>
@@ -70,6 +72,8 @@
         <td class="text-nowrap">$ {{ get_meta_monto(user.Categoria) / 2 }}</td>
         <td class="text-nowrap">{{ user.Descripcion_Licencias }}</td>
         <td class="text-nowrap">{{ user.Cant_Dias_Licencia }}</td>
+        <td class="text-nowrap">{{ has_special_licence(user.legajo) }}</td>
+        <td class="text-nowrap">{{ has_special_licences_days(user.legajo) }}</td>
         <td class="text-nowrap">{{ is_tutor(user.legajo) }}</td>
         <td class="text-nowrap">{{ has_progresiones(user.legajo) }}</td>
         <td class="text-nowrap">{{ ajuste_meta_q(user.Categoria, user.legajo)/2 }}</td>
@@ -91,7 +95,6 @@
     </tbody>
   </table>
 </div>
-
 <p><b>Número total de registros: {{ nomina|length }}</p>
 <div class="container mt-3">
   <div class="row">

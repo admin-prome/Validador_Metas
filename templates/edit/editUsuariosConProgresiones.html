@@ -1,5 +1,3 @@
-
-
 {% extends 'partials/layout.html' %}
 
 {% block body %}
@@ -21,17 +19,10 @@
             <tbody>
                 <tr>
                     <td>{{ datos_usuarioConProgresiones.legajo }}</td>
+                    <td> <input type="text" name="apellido" value="{{ datos_usuarioConProgresiones.apellido }}" class="form-control" required> </td>
+                    <td> <input type="text" name="nombre" value="{{ datos_usuarioConProgresiones.nombre }}" class="form-control" required> </td>
+                    <td> <input type="text" name="mail" value="{{ datos_usuarioConProgresiones.mail }}" class="form-control" required> </td>
                     <td>
-                        <input type="text" name="apellido" value="{{ datos_usuarioConProgresiones.apellido }}" class="form-control" required>
-                    </td>
-                    <td>
-                        <input type="text" name="nombre" value="{{ datos_usuarioConProgresiones.nombre }}" class="form-control" required>
-                    </td>
-                    <td>
-                        <input type="text" name="mail" value="{{ datos_usuarioConProgresiones.mail }}" class="form-control" required>
-                    </td>
-                    <td>
-                        <!-- <input type="text" name="categoria" value="{{ datos_usuarioConProgresiones.categoria }}"> -->
                         <select name="categoria" class="form-control"required>
                             <option value="C-SE - EC Senior" {% if datos_usuarioConProgresiones.categoria == "C-SE - EC Senior" %}selected{% endif %}>C-SE - EC Senior</option>
                             <option value="C-SS - EC Semi Senior" {% if datos_usuarioConProgresiones.categoria == "C-SS - EC Semi Senior" %}selected{% endif %}>C-SS - EC Semi Senior</option>
@@ -39,27 +30,20 @@
                             <option value="C-JC - EC Junior en Capacitacion" {% if datos_usuarioConProgresiones.categoria == "C-JC - EC Junior en Capacitacion" %}selected{% endif %}>C-JC - EC Junior en Capacitacion</option>
                         </select>
                     </td>
+                    <td> <input type="date" name="fecha_desde" value="{{ datos_usuarioConProgresiones.fecha_desde }}" class="form-control" required> </td>
+                    <td> <input type="date" name="fecha_hasta" value="{{ datos_usuarioConProgresiones.fecha_hasta }}" class="form-control" required> </td>
                     <td>
-                        <input type="date" name="fecha_desde" value="{{ datos_usuarioConProgresiones.fecha_desde }}" class="form-control" required>
-                    </td>
-                    <td>
-                        <input type="date" name="fecha_hasta" value="{{ datos_usuarioConProgresiones.fecha_hasta }}" class="form-control" required>
-                    </td>
-                    <td>
-                        <!-- <input type="date" name="mes_progresion" value="{{ datos_usuarioConProgresiones.mes_progresion }}"> -->
-                        
                         <select name="mes_progresion" class="form-control"required>
                             <option value="mes_1" {% if datos_usuarioConProgresiones.mes_progresion == "mes_1" %}selected{% endif %}>mes_1</option>
                             <option value="mes_2" {% if datos_usuarioConProgresiones.mes_progresion == "mes_2" %}selected{% endif %}>mes_2</option>
                             <option value="mes_3" {% if datos_usuarioConProgresiones.mes_progresion == "mes_3" %}selected{% endif %}>mes_3</option>
-                        </select>
-                        
+                        </select>                        
                     </td>
                 </tr>
             </tbody>
-        </table>
-        
+        </table>        
     </div>
     <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
 </form>
+
 {% endblock %}

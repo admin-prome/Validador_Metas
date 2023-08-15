@@ -14,7 +14,7 @@ def export_to_excel(nomina_data):
     ws = wb.active
     bold_font = Font(bold=True)
     fill = PatternFill(start_color="9ACD32", end_color="9ACD32", fill_type="solid")
-    columns = ["Legajo", "Nombre EC", "Mail", "Sucursal", "Categoria", "Jefe a Cargo", "meta Q Mes 1", "meta Q Mes 2", "Meta $ mes 1", "Meta $ mes 2", "Descripción Licencias", "Cant Dias Licenc", "es tutor", "Tiene Progresion", "Ajuste Q mes 1", "Ajuste Q mes 2", "Ajuste Monto mes 1", "Ajuste Monto mes 2", "Observaciones"]
+    columns = ["Legajo", "Nombre EC", "Mail", "Sucursal", "Categoria", "Jefe a Cargo", "meta Q Mes 1", "meta Q Mes 2", "Meta $ mes 1", "Meta $ mes 2", "Descripción Licencias", "Cant Dias Licenc", "Licencias Especiales", "Cant. Dias Lice. Esp.", "es tutor", "Tiene Progresion", "Ajuste Q mes 1", "Ajuste Q mes 2", "Ajuste Monto mes 1", "Ajuste Monto mes 2", "Observaciones"]
     for col_num, column_title in enumerate(columns, 1):
         cell = ws.cell(row=1, column=col_num, value=column_title)
         cell.font = bold_font
@@ -33,6 +33,8 @@ def export_to_excel(nomina_data):
             get_meta_monto(user.get("Categoria", "")) / 2,
             user.get("Descripcion_Licencias", ""),
             user.get("Cant_Dias_Licencia", ""),
+            has_special_licence(user.get("legajo", "")),
+            has_special_licences_days(user.get("legajo", "")),
             is_tutor(user.get("legajo", "")),
             has_progresiones(user.get("legajo", "")),
             ajuste_meta_q(user.get("Categoria", ""), user.get("legajo", ""))/2,
@@ -259,6 +261,16 @@ def read_tutores():
         # print(legajo)
     return result
 
+def read_licencias_especiales():
+    with open('data/json/licenciasEspeciales.json') as file_licencias:
+        data_licencias = json.load(file_licencias)
+    result = []
+    for obj in data_licencias['Licencias']:
+        result.append(obj)
+        legajo = obj['employeeNumber']
+        # print(legajo)
+    return result
+
 def read_progresiones():
     with open('data/json/progresionOfUsers.json') as file_progression:
         data_progression = json.load(file_progression)
@@ -275,7 +287,23 @@ def is_tutor(legajo):
     if legajo in tutores_legajos:
         return "SI"
     else:
-        return "NO"
+        return "No"
+    
+def has_special_licence(legajo):
+    licencias_data = read_licencias_especiales()
+    licencia_legajos = [licencia['employeeNumber'] for licencia in licencias_data]
+    if legajo in licencia_legajos:
+        return licencias_data[0]['license']
+    else:
+        return ""
+    
+def has_special_licences_days(legajo):
+    licencias_data = read_licencias_especiales()
+    licencia_legajos = [licencia['employeeNumber'] for licencia in licencias_data]
+    if legajo in licencia_legajos:
+        return licencias_data[0]['licenseDays']
+    else:
+        return ""
       
 def has_progresiones(legajo):
     progresiones_data = read_progresiones() 
@@ -283,7 +311,7 @@ def has_progresiones(legajo):
     if legajo in legajos_con_progresiones:
         return "SI"
     else:
-        return "NO"
+        return "No"
 
 
 app = Flask(__name__, static_folder='public')
@@ -342,9 +370,9 @@ def nomina():
     if request.method == 'POST':
         jefe_zonal = request.form['user']
         filtered_nomina = handle_form_submission(jefe_zonal)
-        return render_template('nomina.html', nomina=filtered_nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
+        return render_template('nomina.html', nomina=filtered_nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
     else:
-        return render_template('nomina.html', nomina=nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
+        return render_template('nomina.html', nomina=nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
 
 @app.route('/edit_observacion/<legajo>', methods=['GET', 'POST'])
 def edit_observacion(legajo):
@@ -772,6 +800,77 @@ def agregar_tutor():
         return redirect(url_for('tutores'))
     return render_template('add/addTutores.html', error_message=None)
 
+#TODO--------LICENCIAS ESPECIALES--------------------------------------------------------
+@app.route('/licenciasEspeciales')
+def licencias_especiales():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        licencias = data['Licencias']
+    return render_template('licenciasEspeciales.html', licencias=licencias)
+
+@app.route('/editar-Licencia/<employeeNumber>', methods=['GET', 'POST'])
+def editar_licencia(employeeNumber):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        usuarios = data['Licencias']
+    datos_licencia = next((usuario for usuario in usuarios if usuario['employeeNumber'] == int(employeeNumber)), None)
+    if request.method == 'POST':
+        datos_licencia['fullName'] = request.form.get('fullName')
+        datos_licencia['license'] = request.form.get('license')
+        datos_licencia['licenseStar'] = request.form.get('licenseStar')
+        datos_licencia['licenseEnd'] = request.form.get('licenseEnd')
+        datos_licencia['licenseDays'] = request.form.get('licenseDays')
+        datos_licencia['adjustment'] = float(request.form.get('adjustment'))
+        with open(json_path, 'w') as json_file:
+            json.dump(data, json_file, indent=2)
+        return redirect(url_for('licencias_especiales'))
+    return render_template('edit/editLicencias.html', datos_licencia=datos_licencia)
+
+@app.route('/eliminar-Licencia/<employeeNumber>', methods=['POST'])
+def eliminar_licencia(employeeNumber):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+    usuarios = data['Licencias']
+    licencia_a_eliminar = next((usuario for usuario in usuarios if usuario['employeeNumber'] == int(employeeNumber)), None)
+    if licencia_a_eliminar:
+        usuarios.remove(licencia_a_eliminar)
+        with open(json_path, 'w') as json_file:
+            json.dump(data, json_file, indent=2)
+    return redirect(url_for('licencias_especiales'))
+
+@app.route('/agregar-Licencia', methods=['GET', 'POST'])
+def agregar_licencia():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        licencias = data['Licencias']
+    if request.method == 'POST':
+        employeeNumber = int(request.form.get('employeeNumber'))
+        if any(licen['employeeNumber'] == employeeNumber for licen in licencias):
+            error_message = 'El legajo ya existe. No se permite agregar una licencia con el mismo legajo.'
+            return render_template('add/addLicencias.html', error_message=error_message)        
+        nueva_licencia = {
+            'employeeNumber': employeeNumber,
+            'fullName': request.form.get('fullName'),
+            'license': request.form.get('license'),
+            'licenseStar': request.form.get('licenseStar'),
+            'licenseEnd': request.form.get('licenseEnd'),
+            'licenseDays': request.form.get('licenseDays'),
+            'adjustment': float(request.form.get('adjustment'))
+        }
+        licencias.append(nueva_licencia)
+        with open(json_path, 'w') as json_file:
+            json.dump(data, json_file, indent=2)
+        return redirect(url_for('licencias_especiales'))
+    return render_template('add/addLicencias.html', error_message=None)
+
 #TODO--------VALIDACION_DE_USUARIO_LOGUEADO--------------------------------------------------------
 @app.before_request
 def before_request():
@@ -792,4 +891,3 @@ def export_excel():
 
 if __name__ == '__main__':    
     app.run()
-    

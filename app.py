@@ -68,6 +68,7 @@ def ajuste_meta_q(categoria, legajo):
     json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
     json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
     json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')    
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')    
 
     def meta_real_q(categoria):
         with open(json_path_metas, 'r') as file_metas:
@@ -134,12 +135,22 @@ def ajuste_meta_q(categoria, legajo):
                         return 1.0                
                 return 0
         return 0
+    
+    def ajuste_licencia_especial(legajo):
+        with open(json_path_licencias, 'r') as file_licencia:
+            data_licencia = json.load(file_licencia)
+            licencia = data_licencia['Licencias']
+        for user in licencia:
+            if user['employeeNumber'] == legajo and 'adjustment' in user:
+                return float(user['adjustment'])        
+        return 0.0
 
     meta_real = meta_real_q(categoria)
     ajuste_tutores = tutores_ec(legajo)
     ajuste_progresion = progresion_ec(categoria, legajo)
     ajuste_licencias = ajuste_licencias(legajo)
-    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias
+    ajuste_licencia_especial = ajuste_licencia_especial(legajo)
+    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias + ajuste_licencia_especial
     ajustes = 1 - ajuste_total
     if ajuste_total >= 1:
         ajustes = 0
@@ -155,6 +166,7 @@ def ajuste_meta_monto(categoria, legajo):
     json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
     json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
     json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
 
     def meta_real_monto(categoria):
         with open(json_path_metas, 'r') as file_metas:
@@ -221,16 +233,26 @@ def ajuste_meta_monto(categoria, legajo):
                         return 1.0                
                 return 0
         return 0
+    
+    def ajuste_licencia_especial(legajo):
+        with open(json_path_licencias, 'r') as file_licencia:
+            data_licencia = json.load(file_licencia)
+            licencia = data_licencia['Licencias']
+        for user in licencia:
+            if user['employeeNumber'] == legajo and 'adjustment' in user:
+                return float(user['adjustment'])        
+        return 0.0
 
     meta_real = meta_real_monto(categoria)
     ajuste_tutores = tutores_ec(legajo)
     ajuste_progresion = progresion_ec(categoria, legajo)
     ajuste_licencias = ajuste_licencias(legajo)
-    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias
+    ajuste_licencia_especial = ajuste_licencia_especial(legajo)
+    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias + ajuste_licencia_especial
     ajustes = 1 - ajuste_total
     if ajuste_total >= 1:
         ajustes = 0
-    result = meta_real * ajustes
+    result = round(meta_real * ajustes, 2)
     return result
 
 def get_meta_q(categoria):
@@ -291,19 +313,17 @@ def is_tutor(legajo):
     
 def has_special_licence(legajo):
     licencias_data = read_licencias_especiales()
-    licencia_legajos = [licencia['employeeNumber'] for licencia in licencias_data]
-    if legajo in licencia_legajos:
-        return licencias_data[0]['license']
-    else:
-        return ""
-    
+    for licencia in licencias_data:
+        if licencia['employeeNumber'] == legajo:
+            return licencia['license']
+    return ""
+
 def has_special_licences_days(legajo):
     licencias_data = read_licencias_especiales()
-    licencia_legajos = [licencia['employeeNumber'] for licencia in licencias_data]
-    if legajo in licencia_legajos:
-        return licencias_data[0]['licenseDays']
-    else:
-        return ""
+    for licencia in licencias_data:
+        if licencia['employeeNumber'] == legajo:
+            return licencia['licenseDays']
+    return ""
       
 def has_progresiones(legajo):
     progresiones_data = read_progresiones() 

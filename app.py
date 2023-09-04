@@ -9,6 +9,7 @@ env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(env_path)
 
 
+
 def export_to_excel(nomina_data):
     wb = Workbook()
     ws = wb.active
@@ -60,7 +61,6 @@ def handle_form_submission(jefe_zonal):
     return filtered_nomina
 
 def ajuste_meta_q(categoria, legajo):
-    AJUSTE_TUTORES = 0.1
     result = 0
     current_dir = os.path.dirname(os.path.abspath(__file__))
     json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
@@ -86,10 +86,8 @@ def ajuste_meta_q(categoria, legajo):
             tutores = data_tutores['Tutores']
         for tutor in tutores:
             if tutor['legajo'] == legajo:
-                if tutor['categoria'] == 'C-JU - EC Junior' or tutor['categoria'] == 'C-JC - EC Junior en Capacitacion':
-                    return AJUSTE_TUTORES
-                else:
-                    return 0
+                return 0.2
+                    
         return 0
     
     def progresion_ec(categoria, legajo):
@@ -117,22 +115,75 @@ def ajuste_meta_q(categoria, legajo):
                 Descripcion_Licencias = user['Descripcion_Licencias']
                 Cant_Dias_Licencia = int(user['Cant_Dias_Licencia'])
                 if Descripcion_Licencias == "3553-Vacaciones":
-                    if Cant_Dias_Licencia < 14:
-                        return 0
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
                     else:
-                        return 0.15
+                        return 0
+                if Descripcion_Licencias == "4110-Licencia por Enfermedad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4070-Licencia por Matrimonio":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "2222-Licencias por Violencia de genero":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "3333-Licencias por Perdida Gestacional":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4104-Licencia por Accidente":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
-                if Descripcion_Licencias == "4110-Licencias por Enfermedad":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                   
+                if Descripcion_Licencias == "11-Licencia Fertilidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4132-Licencia por Maternidad":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4118-Beneficio Paternidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4133-Período de Excedencia":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0               
                 return 0
         return 0
     
@@ -148,9 +199,9 @@ def ajuste_meta_q(categoria, legajo):
     meta_real = meta_real_q(categoria)
     ajuste_tutores = tutores_ec(legajo)
     ajuste_progresion = progresion_ec(categoria, legajo)
-    ajuste_licencias = ajuste_licencias(legajo)
-    ajuste_licencia_especial = ajuste_licencia_especial(legajo)
-    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias + ajuste_licencia_especial
+    ajuste_de_licencias = ajuste_licencias(legajo)
+    ajuste_de_licencia_especial = ajuste_licencia_especial(legajo)
+    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_de_licencias + ajuste_de_licencia_especial
     ajustes = 1 - ajuste_total
     if ajuste_total >= 1:
         ajustes = 0
@@ -158,7 +209,6 @@ def ajuste_meta_q(categoria, legajo):
     return result
     
 def ajuste_meta_monto(categoria, legajo):
-    AJUSTE_TUTORES = 0.1
     result = 0    
     current_dir = os.path.dirname(os.path.abspath(__file__))
     json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
@@ -184,10 +234,8 @@ def ajuste_meta_monto(categoria, legajo):
             tutores = data_tutores['Tutores']
         for tutor in tutores:
             if tutor['legajo'] == legajo:
-                if tutor['categoria'] == 'C-JU - EC Junior' or tutor['categoria'] == 'C-JC - EC Junior en Capacitacion':
-                    return AJUSTE_TUTORES
-                else:
-                    return 0
+                    return 0.2
+                
         return 0
 
     def progresion_ec(categoria, legajo):  
@@ -215,22 +263,75 @@ def ajuste_meta_monto(categoria, legajo):
                 Descripcion_Licencias = user['Descripcion_Licencias']
                 Cant_Dias_Licencia = int(user['Cant_Dias_Licencia'])
                 if Descripcion_Licencias == "3553-Vacaciones":
-                    if Cant_Dias_Licencia < 14:
-                        return 0
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
                     else:
-                        return 0.15
+                        return 0
+                if Descripcion_Licencias == "4110-Licencia por Enfermedad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4070-Licencia por Matrimonio":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "2222-Licencias por Violencia de genero":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "3333-Licencias por Perdida Gestacional":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4104-Licencia por Accidente":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
-                if Descripcion_Licencias == "4110-Licencias por Enfermedad":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                   
+                if Descripcion_Licencias == "11-Licencia Fertilidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4132-Licencia por Maternidad":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4118-Beneficio Paternidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4133-Período de Excedencia":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0               
                 return 0
         return 0
     

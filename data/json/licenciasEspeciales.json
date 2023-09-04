@@ -8,6 +8,15 @@
       "licenseEnd": "2023-08-16",
       "licenseDays": "16",
       "adjustment": 0.1
+    },
+    {
+      "employeeNumber": 2242,
+      "fullName": "Torii Mari",
+      "license": "Prueba 22223",
+      "licenseStar": "2023-09-04",
+      "licenseEnd": "2023-09-12",
+      "licenseDays": "10",
+      "adjustment": 0.1
     }
   ]
 }

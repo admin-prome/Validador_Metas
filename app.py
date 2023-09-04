@@ -9,7 +9,6 @@ env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(env_path)
 
 
-
 def export_to_excel(nomina_data):
     wb = Workbook()
     ws = wb.active

@@ -234,7 +234,7 @@ def ajuste_meta_monto(categoria, legajo):
             tutores = data_tutores['Tutores']
         for tutor in tutores:
             if tutor['legajo'] == legajo:
-                    return 0.2
+                return 0.2
                 
         return 0
 

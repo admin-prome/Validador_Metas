@@ -7,8 +7,8 @@
       "Sucursal": "6443 - Sucursal Chivilcoy",
       "Categoria": "C-JU - EC Junior",
       "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
+      "Descripcion_Licencias": "3553-Vacaciones",
+      "Cant_Dias_Licencia": 14,
       "Observaciones": ""
     },
     {
@@ -18,8 +18,8 @@
       "Sucursal": "7169 - Sucursal Lujan",
       "Categoria": "C-SE - EC Senior",
       "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
+      "Descripcion_Licencias": "4110-Licencias por Enfermedad",
+      "Cant_Dias_Licencia": 21,
       "Observaciones": ""
     },
     {
@@ -1450,7 +1450,7 @@
       "jefe_a_cargo": "NIEVES GISELLE",
       "Descripcion_Licencias": "",
       "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
+      "Observaciones": "holaolaolaolaolaolaolaola"
     },
     {
       "legajo": 5163,

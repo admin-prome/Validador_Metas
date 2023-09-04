@@ -1,15 +1,6 @@
 {
   "Progresiones": [
     {
-      "categoria": "C-SE - EC Senior",
-      "mes_1": 0.15,
-      "mes_2": 0.15,
-      "mes_3": 0.05,
-      "mes_4": 0.05,
-      "mes_5": 0.0,
-      "mes_6": 0.0
-    },
-    {
       "categoria": "C-SS - EC Semi Senior",
       "mes_1": 0.3,
       "mes_2": 0.3,
@@ -24,7 +15,7 @@
       "mes_2": 0.5,
       "mes_3": 0.25,
       "mes_4": 0.25,
-      "mes_5": 0.0,
+      "mes_5": 0.1,
       "mes_6": 0.0
     },
     {
@@ -33,6 +24,15 @@
       "mes_2": 0.5,
       "mes_3": 0.25,
       "mes_4": 0.25,
+      "mes_5": 0.0,
+      "mes_6": 0.0
+    },
+    {
+      "categoria": "C-SE - EC Senior",
+      "mes_1": 0.15,
+      "mes_2": 0.15,
+      "mes_3": 0.05,
+      "mes_4": 0.05,
       "mes_5": 0.0,
       "mes_6": 0.0
     }

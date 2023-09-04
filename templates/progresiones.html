@@ -5,7 +5,6 @@
   <h3 style="text-decoration: underline;">Progresiones</h3>
   <p>* No agregar dos categorias con el mismo Nombre</p>
 </div>
-
 <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
   <table class="table">
     <thead>
@@ -31,9 +30,9 @@
         <td class="text-nowrap">{{ progresion.mes_6 }}</td>
         <td>
           <div class="button-group">
-            <a href="{{ url_for('editar_progresion', categoria=progresion.categoria) }}" class="btn btn-outline-success">Editar</a>
+            <a href="{{ url_for('editar_progresion', categoria=progresion.categoria) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
             <form action="{{ url_for('eliminar_progresion', categoria=progresion.categoria) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta progresión {{ progresion.categoria }}?');">
-              <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+              <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
             </form>
           </div>
         </td>
@@ -42,17 +41,15 @@
     </tbody>
   </table>
 </div>
-
 <div class="container mt-3">
   <div class="row">
     <div class="col">
-      <div class="d-flex justify-content-start">
-        <a href="{{ url_for('agregar_progresion') }}" class="btn btn-outline-primary  me-2">Agregar Progresiones</a>
-        <button class="btn btn-outline-secondary" onclick="history.back()">Volver atrás</button>
+      <div class="d-flex justify-content-end">
+        <a href="{{ url_for('agregar_progresion') }}" class="btn btn-outline-primary  me-2" title="Agregar Progresion"><i class="fa-solid fa-plus"></i></a>
+        <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
       </div>
     </div>
   </div>
 </div>
 
 {% endblock %}
-

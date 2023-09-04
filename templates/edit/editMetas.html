@@ -16,22 +16,13 @@
         <tbody>
           <tr>
             <td>{{ datos_categoria.categoria }}</td>
-            <td>
-              <input type="number" name="cantidad" value="{{ datos_categoria.cantidad }}" class="form-control" required>
-            </td>
-            <td>
-              <input type="number" name="monto" value="{{ datos_categoria.monto }}" class="form-control" required>
-            </td>
-            <td>
-              <input type="number" name="monto_prom" value="{{ datos_categoria.monto_prom }}" class="form-control" required>
-            </td>
-            <td>
-              <input type="date" name="fecha" value="{{ datos_categoria.fecha }}" class="form-control" required>
-            </td>
+            <td> <input type="number" name="cantidad" value="{{ datos_categoria.cantidad }}" class="form-control" required> </td>
+            <td> <input type="number" name="monto" value="{{ datos_categoria.monto }}" class="form-control" required> </td>
+            <td> <input type="number" name="monto_prom" value="{{ datos_categoria.monto_prom }}" class="form-control" required> </td>
+            <td> <input type="date" name="fecha" value="{{ datos_categoria.fecha }}" class="form-control" required> </td>
           </tr>
         </tbody>
-      </table>
-    
+      </table>    
       <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
     </div>
 </form>

@@ -1,0 +1,59 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+
+<div class="container">
+  <div class="container">
+    <h3 style="text-decoration: underline;">Licencias Especiales</h3>
+  </div>
+  <div class="table-container">
+    <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Legajo</th>
+            <th>Nombre Completo</th>
+            <th>Descripcion de Licencia</th>
+            <th>Inicio Licencia</th>
+            <th>Fin Licencia</th>
+            <th>Cantidad de dias</th>
+            <th>Ajuste (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in licencias %}
+          <tr>
+            <td class="text-nowrap">{{user.employeeNumber}}</td>
+            <td class="text-nowrap">{{user.fullName}}</td>
+            <td class="text-nowrap">{{ user.license }}</td>
+            <td class="text-nowrap">{{ user.licenseStar }}</td>
+            <td class="text-nowrap">{{ user.licenseEnd }}</td>
+            <td class="text-nowrap">{{ user.licenseDays }}</td>
+            <td class="text-nowrap">{{ user.adjustment }} % </td>
+            <td>
+              <div class="button-group">
+                <a href="{{ url_for('editar_licencia', employeeNumber=user['employeeNumber']) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
+                <form action="{{ url_for('eliminar_licencia', employeeNumber=user.employeeNumber) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar al usuario {{ user.fullName }}?');">
+                  <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          <a href="{{ url_for('agregar_licencia') }}" class="btn btn-outline-primary" title="Agregar Usuario"><i class="fa-solid fa-plus"></i></a>
+          <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

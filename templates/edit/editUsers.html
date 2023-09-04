@@ -16,15 +16,9 @@
         <tbody>
           <tr>
             <td>{{ datos_usuario.legajo }}</td>            
-            <td>
-              <input type="text" name="nombre" value="{{ datos_usuario.nombre }}" class="form-control" required>
-            </td>
-            <td>
-              <input type="text" name="mail" value="{{ datos_usuario.mail }}" class="form-control" required>
-            </td>
-            <td>
-              <input type="text" name="password" value="{{ datos_usuario.password }}" class="form-control" required>
-            </td>
+            <td> <input type="text" name="nombre" value="{{ datos_usuario.nombre }}" class="form-control" required> </td>
+            <td> <input type="text" name="mail" value="{{ datos_usuario.mail }}" class="form-control" required> </td>
+            <td> <input type="text" name="password" value="{{ datos_usuario.password }}" class="form-control" required> </td>
             <td>
               <select name="perfil" required>
                 <option value="Jefe Zonal" {% if datos_usuario.perfil == 'Jefe Zonal' %}selected{% endif %}>Jefe Zonal</option>
@@ -37,8 +31,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
-    
+      </table>    
       <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
     </div>
 </form>

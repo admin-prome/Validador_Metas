@@ -1,7 +1,6 @@
 import json
 import os
 
-from httpcore import request
 
 def number_generator(legajo):
     numerador = 1

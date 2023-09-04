@@ -1,13 +1,55 @@
 import json
 import os
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, redirect, render_template, request, send_file, session, url_for
 from dotenv import load_dotenv
+from openpyxl import Workbook
+from openpyxl.styles import Font, PatternFill
 
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(env_path)
 
 
 
+def export_to_excel(nomina_data):
+    wb = Workbook()
+    ws = wb.active
+    bold_font = Font(bold=True)
+    fill = PatternFill(start_color="9ACD32", end_color="9ACD32", fill_type="solid")
+    columns = ["Legajo", "Nombre EC", "Mail", "Sucursal", "Categoria", "Jefe a Cargo", "meta Q Mes 1", "meta Q Mes 2", "Meta $ mes 1", "Meta $ mes 2", "Descripción Licencias", "Cant Dias Licenc", "Licencias Especiales", "Cant. Dias Lice. Esp.", "es tutor", "Tiene Progresion", "Ajuste Q mes 1", "Ajuste Q mes 2", "Ajuste Monto mes 1", "Ajuste Monto mes 2", "Observaciones"]
+    for col_num, column_title in enumerate(columns, 1):
+        cell = ws.cell(row=1, column=col_num, value=column_title)
+        cell.font = bold_font
+        cell.fill = fill
+    for user in nomina_data:
+        row_data = [
+            user.get("legajo", ""),
+            user.get("Nombre_de_EC", ""),
+            user.get("mail", ""),
+            user.get("Sucursal", ""),
+            user.get("Categoria", ""),
+            user.get("jefe_a_cargo", ""),
+            get_meta_q(user.get("Categoria", "")) / 2,
+            get_meta_q(user.get("Categoria", "")) / 2,
+            get_meta_monto(user.get("Categoria", "")) / 2,
+            get_meta_monto(user.get("Categoria", "")) / 2,
+            user.get("Descripcion_Licencias", ""),
+            user.get("Cant_Dias_Licencia", ""),
+            has_special_licence(user.get("legajo", "")),
+            has_special_licences_days(user.get("legajo", "")),
+            is_tutor(user.get("legajo", "")),
+            has_progresiones(user.get("legajo", "")),
+            ajuste_meta_q(user.get("Categoria", ""), user.get("legajo", ""))/2,
+            ajuste_meta_q(user.get("Categoria", ""), user.get("legajo", ""))/2,
+            ajuste_meta_monto(user.get("Categoria", ""), user.get("legajo", ""))/2,
+            ajuste_meta_monto(user.get("Categoria", ""), user.get("legajo", ""))/2,
+            user.get("Observaciones", "")
+        ]
+        ws.append(row_data)        
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    excel_file_path = os.path.join(current_dir, 'data', 'export', 'nominas.xlsx')
+    excel_file = excel_file_path
+    wb.save(excel_file)
+    return excel_file
 
 def handle_form_submission(jefe_zonal):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +61,6 @@ def handle_form_submission(jefe_zonal):
     return filtered_nomina
 
 def ajuste_meta_q(categoria, legajo):
-    AJUSTE_TUTORES = 0.1
     result = 0
     current_dir = os.path.dirname(os.path.abspath(__file__))
     json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
@@ -27,6 +68,7 @@ def ajuste_meta_q(categoria, legajo):
     json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
     json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
     json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')    
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')    
 
     def meta_real_q(categoria):
         with open(json_path_metas, 'r') as file_metas:
@@ -44,10 +86,8 @@ def ajuste_meta_q(categoria, legajo):
             tutores = data_tutores['Tutores']
         for tutor in tutores:
             if tutor['legajo'] == legajo:
-                if tutor['categoria'] == 'C-JU - EC Junior' or tutor['categoria'] == 'C-JC - EC Junior en Capacitacion':
-                    return AJUSTE_TUTORES
-                else:
-                    return 0
+                return 0.2
+                    
         return 0
     
     def progresion_ec(categoria, legajo):
@@ -75,30 +115,93 @@ def ajuste_meta_q(categoria, legajo):
                 Descripcion_Licencias = user['Descripcion_Licencias']
                 Cant_Dias_Licencia = int(user['Cant_Dias_Licencia'])
                 if Descripcion_Licencias == "3553-Vacaciones":
-                    if Cant_Dias_Licencia < 14:
-                        return 0
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
                     else:
-                        return 0.15
+                        return 0
+                if Descripcion_Licencias == "4110-Licencia por Enfermedad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4070-Licencia por Matrimonio":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "2222-Licencias por Violencia de genero":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "3333-Licencias por Perdida Gestacional":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4104-Licencia por Accidente":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
-                if Descripcion_Licencias == "4110-Licencias por Enfermedad":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                   
+                if Descripcion_Licencias == "11-Licencia Fertilidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4132-Licencia por Maternidad":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4118-Beneficio Paternidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4133-Período de Excedencia":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0               
                 return 0
         return 0
+    
+    def ajuste_licencia_especial(legajo):
+        with open(json_path_licencias, 'r') as file_licencia:
+            data_licencia = json.load(file_licencia)
+            licencia = data_licencia['Licencias']
+        for user in licencia:
+            if user['employeeNumber'] == legajo and 'adjustment' in user:
+                return float(user['adjustment'])        
+        return 0.0
 
     meta_real = meta_real_q(categoria)
     ajuste_tutores = tutores_ec(legajo)
     ajuste_progresion = progresion_ec(categoria, legajo)
-    ajuste_licencias = ajuste_licencias(legajo)
-    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias
+    ajuste_de_licencias = ajuste_licencias(legajo)
+    ajuste_de_licencia_especial = ajuste_licencia_especial(legajo)
+    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_de_licencias + ajuste_de_licencia_especial
     ajustes = 1 - ajuste_total
     if ajuste_total >= 1:
         ajustes = 0
@@ -106,7 +209,6 @@ def ajuste_meta_q(categoria, legajo):
     return result
     
 def ajuste_meta_monto(categoria, legajo):
-    AJUSTE_TUTORES = 0.1
     result = 0    
     current_dir = os.path.dirname(os.path.abspath(__file__))
     json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
@@ -114,6 +216,7 @@ def ajuste_meta_monto(categoria, legajo):
     json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
     json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
     json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
 
     def meta_real_monto(categoria):
         with open(json_path_metas, 'r') as file_metas:
@@ -131,10 +234,8 @@ def ajuste_meta_monto(categoria, legajo):
             tutores = data_tutores['Tutores']
         for tutor in tutores:
             if tutor['legajo'] == legajo:
-                if tutor['categoria'] == 'C-JU - EC Junior' or tutor['categoria'] == 'C-JC - EC Junior en Capacitacion':
-                    return AJUSTE_TUTORES
-                else:
-                    return 0
+                    return 0.2
+                
         return 0
 
     def progresion_ec(categoria, legajo):  
@@ -162,34 +263,97 @@ def ajuste_meta_monto(categoria, legajo):
                 Descripcion_Licencias = user['Descripcion_Licencias']
                 Cant_Dias_Licencia = int(user['Cant_Dias_Licencia'])
                 if Descripcion_Licencias == "3553-Vacaciones":
-                    if Cant_Dias_Licencia < 14:
-                        return 0
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
                     else:
-                        return 0.15
+                        return 0
+                if Descripcion_Licencias == "4110-Licencia por Enfermedad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4070-Licencia por Matrimonio":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "2222-Licencias por Violencia de genero":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "3333-Licencias por Perdida Gestacional":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4104-Licencia por Accidente":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
-                if Descripcion_Licencias == "4110-Licencias por Enfermedad":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                   
+                if Descripcion_Licencias == "11-Licencia Fertilidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4132-Licencia por Maternidad":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                    
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4118-Beneficio Paternidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
                 if Descripcion_Licencias == "4133-Período de Excedencia":
-                    if Cant_Dias_Licencia > 10:
-                        return 1.0                
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0               
                 return 0
         return 0
+    
+    def ajuste_licencia_especial(legajo):
+        with open(json_path_licencias, 'r') as file_licencia:
+            data_licencia = json.load(file_licencia)
+            licencia = data_licencia['Licencias']
+        for user in licencia:
+            if user['employeeNumber'] == legajo and 'adjustment' in user:
+                return float(user['adjustment'])        
+        return 0.0
 
     meta_real = meta_real_monto(categoria)
     ajuste_tutores = tutores_ec(legajo)
     ajuste_progresion = progresion_ec(categoria, legajo)
     ajuste_licencias = ajuste_licencias(legajo)
-    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias
+    ajuste_licencia_especial = ajuste_licencia_especial(legajo)
+    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias + ajuste_licencia_especial
     ajustes = 1 - ajuste_total
     if ajuste_total >= 1:
         ajustes = 0
-    result = meta_real * ajustes
+    result = round(meta_real * ajustes, 2)
     return result
 
 def get_meta_q(categoria):
@@ -220,6 +384,16 @@ def read_tutores():
         # print(legajo)
     return result
 
+def read_licencias_especiales():
+    with open('data/json/licenciasEspeciales.json') as file_licencias:
+        data_licencias = json.load(file_licencias)
+    result = []
+    for obj in data_licencias['Licencias']:
+        result.append(obj)
+        legajo = obj['employeeNumber']
+        # print(legajo)
+    return result
+
 def read_progresiones():
     with open('data/json/progresionOfUsers.json') as file_progression:
         data_progression = json.load(file_progression)
@@ -236,7 +410,21 @@ def is_tutor(legajo):
     if legajo in tutores_legajos:
         return "SI"
     else:
-        return "NO"
+        return "No"
+    
+def has_special_licence(legajo):
+    licencias_data = read_licencias_especiales()
+    for licencia in licencias_data:
+        if licencia['employeeNumber'] == legajo:
+            return licencia['license']
+    return ""
+
+def has_special_licences_days(legajo):
+    licencias_data = read_licencias_especiales()
+    for licencia in licencias_data:
+        if licencia['employeeNumber'] == legajo:
+            return licencia['licenseDays']
+    return ""
       
 def has_progresiones(legajo):
     progresiones_data = read_progresiones() 
@@ -244,15 +432,12 @@ def has_progresiones(legajo):
     if legajo in legajos_con_progresiones:
         return "SI"
     else:
-        return "NO"
+        return "No"
 
 
 app = Flask(__name__, static_folder='public')
 app.secret_key = 'tu_clave_secreta'
-
-# TODO----------LOGIN----------------------------------------------------------------------------------------------
-
-
+# TODO----------LOGIN--------------------------------------------------------------------------------------------------
 @app.route('/', methods=['GET', 'POST'])
 def login():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -275,8 +460,6 @@ def login():
     error_message = session.pop('error_message', None)   
     return render_template('login.html', error_message=error_message)
 
-
-
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     usuario = session.get('usuario')
@@ -290,18 +473,13 @@ def index():
         perfil = next((usr['perfil'] for usr in usuarios if usr['legajo'] == usuario['legajo']), None)
         nombre = usuario['nombre']
         return render_template('index.html', nombre=nombre, perfil=perfil)
-    
-    
-
+      
 @app.route('/logout', methods=['POST'])
 def logout():
     session.pop('usuario', None)
     return redirect(url_for('login'))
 
-
-
 # TODO----------NOMINA-------------------------------------------------------------------------------------------------
-
 @app.route('/nomina', methods=['GET', 'POST'])
 def nomina():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -313,10 +491,9 @@ def nomina():
     if request.method == 'POST':
         jefe_zonal = request.form['user']
         filtered_nomina = handle_form_submission(jefe_zonal)
-        return render_template('nomina.html', nomina=filtered_nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
+        return render_template('nomina.html', nomina=filtered_nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
     else:
-        return render_template('nomina.html', nomina=nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
-
+        return render_template('nomina.html', nomina=nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
 
 @app.route('/edit_observacion/<legajo>', methods=['GET', 'POST'])
 def edit_observacion(legajo):
@@ -334,7 +511,6 @@ def edit_observacion(legajo):
         return redirect(url_for('nomina'))
     
     return render_template('edit/editObservacion.html', usuario=usuario)
-
 
 @app.route('/delete_observacion', methods=['POST'])
 def delete_observacion():
@@ -355,11 +531,7 @@ def delete_observacion():
             
     return redirect('/nomina')
 
-
-
 # TODO-----------METAS------------------------------------------------------------------------------------------------
-
-
 @app.route('/metas', methods=['GET', 'POST'])
 def metas():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -368,8 +540,6 @@ def metas():
         data = json.load(json_file)
         metas = data["Metas"]
     return render_template('metas.html', metas=metas)
-
-
 
 @app.route('/editar-meta/<categoria>', methods=['GET', 'POST'])
 def editar_meta(categoria):
@@ -393,8 +563,6 @@ def editar_meta(categoria):
         return redirect(url_for('metas'))
     return render_template('edit/editMetas.html', datos_categoria=datos_categoria)
 
-
-
 @app.route('/eliminar-meta/<categoria>', methods=['POST'])
 def eliminar_meta(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -412,8 +580,6 @@ def eliminar_meta(categoria):
     with open(json_path, 'w') as json_file:
         json.dump(data, json_file, indent=2)
     return redirect(url_for('metas'))
-
-
 
 @app.route('/agregar-meta', methods=['GET', 'POST'])
 def agregar_meta():
@@ -445,10 +611,7 @@ def agregar_meta():
         return redirect(url_for('metas'))    
     return render_template('add/addMetas.html')
 
-
 # TODO-----------PROGRESIONES-----------------------------------------------------------------------------------------
-
-
 @app.route('/progresiones', methods=['GET', 'POST'])
 def progresiones():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -457,8 +620,6 @@ def progresiones():
         data = json.load(json_file)
         progresiones = data["Progresiones"]
     return render_template('progresiones.html', progresiones=progresiones)
-
-
 
 @app.route('/editar-progresion/<categoria>', methods=['GET', 'POST'])
 def editar_progresion(categoria):
@@ -480,8 +641,6 @@ def editar_progresion(categoria):
         return redirect(url_for('progresiones'))
     return render_template('edit/editProgresiones.html', datos_progresion=datos_progresion)
 
-
-
 @app.route('/eliminar-progresion/<categoria>', methods=['POST'])
 def eliminar_progresion(categoria):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -499,8 +658,6 @@ def eliminar_progresion(categoria):
     with open(json_path, 'w') as json_file:
         json.dump(data, json_file, indent=2)
     return redirect(url_for('progresiones'))
-
-
 
 @app.route('/agregar-progresion', methods=['GET', 'POST'])
 def agregar_progresion():
@@ -536,10 +693,7 @@ def agregar_progresion():
         return redirect(url_for('progresiones'))    
     return render_template('add/addProgresiones.html')
 
-
 # TODO------------USERS------------------------------------------------------------------------------------------
-
-
 @app.route('/users', methods=['GET', 'POST'])
 def users():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -549,8 +703,6 @@ def users():
         users = data["Users"]        
     selected_user = request.form.get('user')
     return render_template('users.html', users=users, selected_user=selected_user)
-
-
 
 @app.route('/eliminar-user/<legajo>', methods=['POST'])
 def eliminar_user(legajo):
@@ -570,8 +722,6 @@ def eliminar_user(legajo):
         json.dump(data, json_file, indent=2)        
     return redirect(url_for('users'))    
                
-
-
 @app.route('/editar-usuario/<legajo>', methods=['GET', 'POST'])
 def editar_usuario(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -593,8 +743,6 @@ def editar_usuario(legajo):
             json.dump(data, json_file, indent=2)        
         return redirect(url_for('users'))
     return render_template('edit/editUsers.html', datos_usuario=datos_usuario)
-
-
 
 @app.route('/agregar-usuario', methods=['GET', 'POST'])
 def agregar_usuario():
@@ -627,10 +775,7 @@ def agregar_usuario():
         return redirect(url_for('users'))
     return render_template('add/addUsers.html')
 
-
 # TODO-------------USUARIOS_CON_PROGRESIONES---------------------------------------------------------------------------
-
-
 @app.route('/usuariosConProgresiones')
 def usuarios_con_progresion():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -639,8 +784,6 @@ def usuarios_con_progresion():
         data = json.load(json_file)
         usuarios = data['Progresion_Users']
     return render_template('usuariosConProgresiones.html', usuarios=usuarios)
-
-
 
 @app.route('/editar-usuarioConProgresiones/<legajo>', methods=['GET', 'POST'])
 def editar_usuario_con_progresiones(legajo):
@@ -663,8 +806,6 @@ def editar_usuario_con_progresiones(legajo):
         return redirect(url_for('usuarios_con_progresion'))
     return render_template('edit/editUsuariosConProgresiones.html', datos_usuarioConProgresiones=datos_usuarioConProgresiones)
 
-
-
 @app.route('/eliminar-usuarioConProgresiones/<legajo>', methods=['POST'])
 def eliminar_usuario_con_progresiones(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -678,8 +819,6 @@ def eliminar_usuario_con_progresiones(legajo):
         with open(json_path, 'w') as json_file:
             json.dump(data, json_file, indent=2)
     return redirect(url_for('usuarios_con_progresion'))
-
-
 
 @app.route('/agregar-usuarioConProgresion', methods=['GET', 'POST'])
 def agregar_usuario_con_progresion():
@@ -712,10 +851,7 @@ def agregar_usuario_con_progresion():
         return redirect(url_for('usuarios_con_progresion'))
     return render_template('add/addUsuarioConProgresion.html', error_message=None)
 
-
 # TODO-------------TUTORES------------------------------------------------------------------------------------
-
-
 @app.route('/tutores')
 def tutores():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -724,8 +860,6 @@ def tutores():
         data = json.load(json_file)
         usuarios = data['Tutores']
     return render_template('tutores.html', usuarios=usuarios)
-
-
 
 @app.route('/editar-Tutores/<legajo>', methods=['GET', 'POST'])
 def editar_tutores(legajo):
@@ -745,9 +879,7 @@ def editar_tutores(legajo):
             json.dump(data, json_file, indent=2)
         return redirect(url_for('tutores'))
     return render_template('edit/editTutores.html', datos_tutores=datos_tutores)
-    
-    
-    
+         
 @app.route('/eliminar-tutores/<legajo>', methods=['POST'])
 def eliminar_tutores(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -761,8 +893,6 @@ def eliminar_tutores(legajo):
         with open(json_path, 'w') as json_file:
             json.dump(data, json_file, indent=2)
     return redirect(url_for('tutores'))
-
-  
 
 @app.route('/agregar-Tutor', methods=['GET', 'POST'])
 def agregar_tutor():
@@ -791,22 +921,94 @@ def agregar_tutor():
         return redirect(url_for('tutores'))
     return render_template('add/addTutores.html', error_message=None)
 
+#TODO--------LICENCIAS ESPECIALES--------------------------------------------------------
+@app.route('/licenciasEspeciales')
+def licencias_especiales():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        licencias = data['Licencias']
+    return render_template('licenciasEspeciales.html', licencias=licencias)
 
+@app.route('/editar-Licencia/<employeeNumber>', methods=['GET', 'POST'])
+def editar_licencia(employeeNumber):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        usuarios = data['Licencias']
+    datos_licencia = next((usuario for usuario in usuarios if usuario['employeeNumber'] == int(employeeNumber)), None)
+    if request.method == 'POST':
+        datos_licencia['fullName'] = request.form.get('fullName')
+        datos_licencia['license'] = request.form.get('license')
+        datos_licencia['licenseStar'] = request.form.get('licenseStar')
+        datos_licencia['licenseEnd'] = request.form.get('licenseEnd')
+        datos_licencia['licenseDays'] = request.form.get('licenseDays')
+        datos_licencia['adjustment'] = float(request.form.get('adjustment'))
+        with open(json_path, 'w') as json_file:
+            json.dump(data, json_file, indent=2)
+        return redirect(url_for('licencias_especiales'))
+    return render_template('edit/editLicencias.html', datos_licencia=datos_licencia)
+
+@app.route('/eliminar-Licencia/<employeeNumber>', methods=['POST'])
+def eliminar_licencia(employeeNumber):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+    usuarios = data['Licencias']
+    licencia_a_eliminar = next((usuario for usuario in usuarios if usuario['employeeNumber'] == int(employeeNumber)), None)
+    if licencia_a_eliminar:
+        usuarios.remove(licencia_a_eliminar)
+        with open(json_path, 'w') as json_file:
+            json.dump(data, json_file, indent=2)
+    return redirect(url_for('licencias_especiales'))
+
+@app.route('/agregar-Licencia', methods=['GET', 'POST'])
+def agregar_licencia():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        licencias = data['Licencias']
+    if request.method == 'POST':
+        employeeNumber = int(request.form.get('employeeNumber'))
+        if any(licen['employeeNumber'] == employeeNumber for licen in licencias):
+            error_message = 'El legajo ya existe. No se permite agregar una licencia con el mismo legajo.'
+            return render_template('add/addLicencias.html', error_message=error_message)        
+        nueva_licencia = {
+            'employeeNumber': employeeNumber,
+            'fullName': request.form.get('fullName'),
+            'license': request.form.get('license'),
+            'licenseStar': request.form.get('licenseStar'),
+            'licenseEnd': request.form.get('licenseEnd'),
+            'licenseDays': request.form.get('licenseDays'),
+            'adjustment': float(request.form.get('adjustment'))
+        }
+        licencias.append(nueva_licencia)
+        with open(json_path, 'w') as json_file:
+            json.dump(data, json_file, indent=2)
+        return redirect(url_for('licencias_especiales'))
+    return render_template('add/addLicencias.html', error_message=None)
 
 #TODO--------VALIDACION_DE_USUARIO_LOGUEADO--------------------------------------------------------
-
 @app.before_request
 def before_request():
     if request.endpoint != 'login' and 'usuario' not in session:
         return redirect(url_for('login'))
 
+#TODO--------EXPORT_TO_EXCEL----------------------------------------------------------------------
+@app.route('/export_excel', methods=['POST'])
+def export_excel():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        nomina = data["Nomina"]
+    
+    excel_file = export_to_excel(nomina)
+    return send_file(excel_file, as_attachment=True)
 
 if __name__ == '__main__':    
     app.run()
-    # app.run(port=3000, debug=True)
-    
-    # app.run(ssl_context='adhoc', debug=True)
-    
-    
-    
-    

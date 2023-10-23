@@ -1,6 +1,7 @@
 import json
 import os
 from flask import Flask, redirect, render_template, request, send_file, session, url_for
+from datetime import datetime
 from dotenv import load_dotenv
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
@@ -23,7 +24,7 @@ def export_to_excel(nomina_data):
         row_data = [
             user.get("legajo", ""),
             user.get("Nombre_de_EC", ""),
-            user.get("mail", ""),
+            # user.get("mail", ""),
             user.get("Sucursal", ""),
             user.get("Categoria", ""),
             user.get("jefe_a_cargo", ""),
@@ -31,16 +32,16 @@ def export_to_excel(nomina_data):
             get_meta_q(user.get("Categoria", "")) / 2,
             get_meta_monto(user.get("Categoria", "")) / 2,
             get_meta_monto(user.get("Categoria", "")) / 2,
-            user.get("Descripcion_Licencias", ""),
-            user.get("Cant_Dias_Licencia", ""),
+            descripcion_licencias(user.get("legajo", "")),
+            cantidad_licencias(user.get("legajo", "")),
             has_special_licence(user.get("legajo", "")),
             has_special_licences_days(user.get("legajo", "")),
             is_tutor(user.get("legajo", "")),
             has_progresiones(user.get("legajo", "")),
-            ajuste_meta_q(user.get("Categoria", ""), user.get("legajo", ""))/2,
-            ajuste_meta_q(user.get("Categoria", ""), user.get("legajo", ""))/2,
-            ajuste_meta_monto(user.get("Categoria", ""), user.get("legajo", ""))/2,
-            ajuste_meta_monto(user.get("Categoria", ""), user.get("legajo", ""))/2,
+            ajuste_meta_q_mes_uno(user.get("Categoria", ""), user.get("legajo", "")),
+            ajuste_meta_q_mes_dos(user.get("Categoria", ""), user.get("legajo", "")),
+            ajuste_meta_monto_m1(user.get("Categoria", ""), user.get("legajo", ""))/2,
+            ajuste_meta_monto_m2(user.get("Categoria", ""), user.get("legajo", ""))/2,
             user.get("Observaciones", "")
         ]
         ws.append(row_data)        
@@ -59,15 +60,191 @@ def handle_form_submission(jefe_zonal):
     filtered_nomina = [entry for entry in nomina if entry['jefe_a_cargo'] == jefe_zonal]
     return filtered_nomina
 
-def ajuste_meta_q(categoria, legajo):
+def ajuste_meta_q_mes_uno(categoria, legajo):
+    result_qm1 = 0
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
+    json_path_tutores = os.path.join(current_dir, 'data', 'json', 'tutores.json')
+    json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
+    json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licencias.json')    
+    json_path_licencias_especiales = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')    
+
+    def meta_real_q_qm1(categoria):
+        with open(json_path_metas, 'r') as file_metas:
+            data_metas = json.load(file_metas)
+            metas = data_metas['Metas']
+        for meta in metas:
+            if meta['categoria'] == categoria:
+                meta_q = meta['cantidad']
+                return meta_q
+        return 0
+    
+    def tutores_ec_qm1(legajo):
+        with open(json_path_tutores, 'r') as file_tutores:
+            data_tutores = json.load(file_tutores)
+            tutores = data_tutores['Tutores']
+        for tutor in tutores:
+            if tutor['legajo'] == legajo:
+                return 0.2                    
+        return 0
+    
+    def progresion_ec_qm1(categoria, legajo):
+        with open(json_path_progresiones, 'r') as file_progresiones:
+            data_progresiones = json.load(file_progresiones)
+            progresiones = data_progresiones['Progresiones']        
+        with open(json_path_progresionOfUsers, 'r') as file_progresionOfUsers:
+            data_progresionOfUsers = json.load(file_progresionOfUsers)
+            progresionOfUsers = data_progresionOfUsers['Progresion_Users']        
+            for user in progresionOfUsers:
+                if user['legajo'] == legajo:
+                    mes_progresion = user['mes_progresion']
+                    for progresion in progresiones:
+                        if progresion['categoria'] == categoria:
+                            ajuste = progresion[mes_progresion]
+                            return ajuste
+        return 0
+    
+    def cantidad_dias_licencia_mes_uno_qm1(legajo):
+        with open(json_path_licencias, 'r') as file_licencias:
+            data_licencias = json.load(file_licencias)
+        licenses = data_licencias.get('Licenses', [])
+        licencias_filtradas = [licencia for licencia in licenses if licencia.get('legajo') == legajo]
+        bim_uno = [1,3,5,7,9,11]
+        mes_con_31 = [1,3,5,7,11]
+        mes_con_30 = [9]
+        total_diferencia_dias = 0
+        for licencia in licencias_filtradas:
+            desde_str = licencia.get('Desde')
+            hasta_str = licencia.get('Hasta')
+            fecha_desde = datetime.strptime(desde_str, "%d/%m/%Y")
+            fecha_hasta = datetime.strptime(hasta_str, "%d/%m/%Y")
+            mes_desde = fecha_desde.month
+            mes_hasta = fecha_hasta.month
+            dia_desde = fecha_desde.day
+            dia_hasta = fecha_hasta.day
+            if mes_desde in bim_uno and mes_hasta in bim_uno:
+                total_diferencia_dias += (dia_hasta - dia_desde)+1
+            else:
+                if mes_desde in mes_con_31:
+                    total_diferencia_dias += (31 - dia_desde)+1
+                elif mes_desde in mes_con_30:
+                    total_diferencia_dias += (30 - dia_desde)+1
+        return total_diferencia_dias
+      
+    def ajuste_licencias_qm1(legajo):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licencias.json')
+        with open(json_path_licencias, 'r') as file_nomina:
+            data_nomina = json.load(file_nomina)
+            licencia = data_nomina['Licenses']
+        for user in licencia:
+            if user['legajo'] == legajo:
+                Descripcion_Licencias = user['Descripcion_Licencias']
+                Cant_Dias_Licencia = cantidad_dias_licencia_mes_uno_qm1(legajo)
+                if Descripcion_Licencias == "3553-Vacaciones":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0
+                if Descripcion_Licencias == "4110-Licencia por Enfermedad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4070-Licencia por Matrimonio":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "2222-Licencias por Violencia de genero":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "3333-Licencias por Perdida Gestacional":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4104-Licencia por Accidente":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                   
+                if Descripcion_Licencias == "11-Licencia Fertilidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4132-Licencia por Maternidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4118-Beneficio Paternidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4133-Período de Excedencia":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0               
+                return 0
+        return 0
+    
+    def ajuste_licencia_especial_qm1(legajo):
+        with open(json_path_licencias_especiales, 'r') as file_licencia:
+            data_licencia = json.load(file_licencia)
+            licencia = data_licencia['Licencias']
+        for user in licencia:
+            if user['employeeNumber'] == legajo and 'adjustment' in user:
+                return float(user['adjustment'])        
+        return 0.0
+    
+    meta_real = meta_real_q_qm1(categoria)
+    ajuste_tutores = tutores_ec_qm1(legajo)
+    ajuste_progresion = progresion_ec_qm1(categoria, legajo)
+    ajuste_de_licencias = ajuste_licencias_qm1(legajo)
+    ajuste_de_licencia_especial = ajuste_licencia_especial_qm1(legajo)
+    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_de_licencias + ajuste_de_licencia_especial
+    ajustes = 1 - ajuste_total
+    if ajuste_total >= 1:
+        ajustes = 0
+    result_qm1 = round(meta_real * ajustes)
+    return result_qm1/2
+
+def ajuste_meta_q_mes_dos(categoria, legajo):
     result = 0
     current_dir = os.path.dirname(os.path.abspath(__file__))
     json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
     json_path_tutores = os.path.join(current_dir, 'data', 'json', 'tutores.json')
     json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
     json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
-    json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')    
-    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')    
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licencias.json')    
+    json_path_licencias_especiales = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')    
 
     def meta_real_q(categoria):
         with open(json_path_metas, 'r') as file_metas:
@@ -78,6 +255,7 @@ def ajuste_meta_q(categoria, legajo):
                 meta_q = meta['cantidad']
                 return meta_q
         return 0
+    print(f'meta_q: {meta_real_q(categoria)}')
     
     def tutores_ec(legajo):
         with open(json_path_tutores, 'r') as file_tutores:
@@ -85,9 +263,9 @@ def ajuste_meta_q(categoria, legajo):
             tutores = data_tutores['Tutores']
         for tutor in tutores:
             if tutor['legajo'] == legajo:
-                return 0.2
-                    
+                return 0.2                    
         return 0
+    print(f'tutores: {tutores_ec(legajo)}')
     
     def progresion_ec(categoria, legajo):
         with open(json_path_progresiones, 'r') as file_progresiones:
@@ -104,15 +282,48 @@ def ajuste_meta_q(categoria, legajo):
                             ajuste = progresion[mes_progresion]
                             return ajuste
         return 0
+    print(f'progresion: {progresion_ec(categoria, legajo)}')
     
+    def cantidad_dias_licencia_mes_dos(legajo):
+        with open(json_path_licencias, 'r') as file_licencias:
+            data_licencias = json.load(file_licencias)
+        licenses = data_licencias.get('Licenses', [])
+        licencias_filtradas = [licencia for licencia in licenses if licencia.get('legajo') == legajo]
+        bim_dos = [2,4,6,8,10,12]
+        mes_con_31_b2 = [8,10,12]
+        mes_con_30_b2 = [4,6]
+        mes_feb = [2]
+        total_diferencia_dias = 0
+        for licencia in licencias_filtradas:
+            desde_str = licencia.get('Desde')
+            hasta_str = licencia.get('Hasta')
+            fecha_desde = datetime.strptime(desde_str, "%d/%m/%Y")
+            fecha_hasta = datetime.strptime(hasta_str, "%d/%m/%Y")
+            mes_desde = fecha_desde.month
+            mes_hasta = fecha_hasta.month
+            dia_desde = fecha_desde.day
+            dia_hasta = fecha_hasta.day
+            if mes_desde in bim_dos and mes_hasta in bim_dos:
+                total_diferencia_dias += (dia_hasta - dia_desde)+1
+            else:
+                if mes_desde in mes_con_31_b2:
+                    total_diferencia_dias += (31 - dia_desde)+1
+                elif mes_desde in mes_con_30_b2:
+                    total_diferencia_dias += (30 - dia_desde)+1
+                elif mes_desde in mes_feb:
+                    total_diferencia_dias += (28 - dia_desde)+1
+        return total_diferencia_dias
+      
     def ajuste_licencias(legajo):
-        with open(json_path_nomina, 'r') as file_nomina:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licencias.json')
+        with open(json_path_licencias, 'r') as file_nomina:
             data_nomina = json.load(file_nomina)
-            nomina = data_nomina['Nomina']
-        for user in nomina:
+            licencia = data_nomina['Licenses']
+        for user in licencia:
             if user['legajo'] == legajo:
                 Descripcion_Licencias = user['Descripcion_Licencias']
-                Cant_Dias_Licencia = int(user['Cant_Dias_Licencia'])
+                Cant_Dias_Licencia = cantidad_dias_licencia_mes_dos(legajo)
                 if Descripcion_Licencias == "3553-Vacaciones":
                     if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
                         return 0.01 * Cant_Dias_Licencia
@@ -185,16 +396,18 @@ def ajuste_meta_q(categoria, legajo):
                         return 0               
                 return 0
         return 0
+    print(f'ajuste_licencia: {ajuste_licencias(legajo)}')
     
     def ajuste_licencia_especial(legajo):
-        with open(json_path_licencias, 'r') as file_licencia:
+        with open(json_path_licencias_especiales, 'r') as file_licencia:
             data_licencia = json.load(file_licencia)
             licencia = data_licencia['Licencias']
         for user in licencia:
             if user['employeeNumber'] == legajo and 'adjustment' in user:
                 return float(user['adjustment'])        
         return 0.0
-
+    print(f'licencia_especial: {ajuste_licencia_especial(legajo)}')
+    
     meta_real = meta_real_q(categoria)
     ajuste_tutores = tutores_ec(legajo)
     ajuste_progresion = progresion_ec(categoria, legajo)
@@ -205,17 +418,19 @@ def ajuste_meta_q(categoria, legajo):
     if ajuste_total >= 1:
         ajustes = 0
     result = round(meta_real * ajustes)
-    return result
+    print(f'ajustes: {ajuste_total}')
+    print(f'resultado: {result}')
+    return result / 2
     
-def ajuste_meta_monto(categoria, legajo):
+def ajuste_meta_monto_m1(categoria, legajo):
     result = 0    
     current_dir = os.path.dirname(os.path.abspath(__file__))
     json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
     json_path_tutores = os.path.join(current_dir, 'data', 'json', 'tutores.json')
     json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
     json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
-    json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')
-    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licencias.json')
+    json_path_licencias_especiales = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
 
     def meta_real_monto(categoria):
         with open(json_path_metas, 'r') as file_metas:
@@ -225,7 +440,8 @@ def ajuste_meta_monto(categoria, legajo):
             if meta['categoria'] == categoria:
                 meta_monto = meta['monto']
                 return meta_monto
-        return 1    
+        return 0    
+    print(f'meta $: {meta_real_monto(categoria)}')
 
     def tutores_ec(legajo):
         with open(json_path_tutores, 'r') as file_tutores:
@@ -233,9 +449,9 @@ def ajuste_meta_monto(categoria, legajo):
             tutores = data_tutores['Tutores']
         for tutor in tutores:
             if tutor['legajo'] == legajo:
-                    return 0.2
-                
+                    return 0.2                
         return 0
+    print(f'tutores $: {tutores_ec(legajo)}')
 
     def progresion_ec(categoria, legajo):  
         with open(json_path_progresiones, 'r') as file_progresiones:
@@ -252,15 +468,44 @@ def ajuste_meta_monto(categoria, legajo):
                             ajuste = progresion[mes_progresion]
                             return ajuste
         return 0
+    print(f'progresiones $: {progresion_ec(categoria, legajo)}')
+    
+    def cantidad_dias_licencia_mes_uno_mm1(legajo):
+        with open(json_path_licencias, 'r') as file_licencias:
+            data_licencias = json.load(file_licencias)
+        licenses = data_licencias.get('Licenses', [])
+        licencias_filtradas = [licencia for licencia in licenses if licencia.get('legajo') == legajo]
+        bim_uno = [1,3,5,7,9,11]
+        mes_con_31 = [1,3,5,7,11]
+        mes_con_30 = [9]
+        total_diferencia_dias = 0
+        for licencia in licencias_filtradas:
+            desde_str = licencia.get('Desde')
+            hasta_str = licencia.get('Hasta')
+            fecha_desde = datetime.strptime(desde_str, "%d/%m/%Y")
+            fecha_hasta = datetime.strptime(hasta_str, "%d/%m/%Y")
+            mes_desde = fecha_desde.month
+            mes_hasta = fecha_hasta.month
+            dia_desde = fecha_desde.day
+            dia_hasta = fecha_hasta.day
+            if mes_desde in bim_uno and mes_hasta in bim_uno:
+                total_diferencia_dias += (dia_hasta - dia_desde)+1
+            else:
+                if mes_desde in mes_con_31:
+                    total_diferencia_dias += (31 - dia_desde)+1
+                elif mes_desde in mes_con_30:
+                    total_diferencia_dias += (30 - dia_desde)+1
+        return total_diferencia_dias
+    print(f'cantidad de dias de licencia: {cantidad_dias_licencia_mes_uno_mm1(legajo)}')
     
     def ajuste_licencias(legajo):
-        with open(json_path_nomina, 'r') as file_nomina:
-            data_nomina = json.load(file_nomina)
-            nomina = data_nomina['Nomina']
-        for user in nomina:
+        with open(json_path_licencias, 'r') as file_licen:
+            data_licencias = json.load(file_licen)
+            licenn = data_licencias['Licenses']
+        for user in licenn:
             if user['legajo'] == legajo:
                 Descripcion_Licencias = user['Descripcion_Licencias']
-                Cant_Dias_Licencia = int(user['Cant_Dias_Licencia'])
+                Cant_Dias_Licencia = cantidad_dias_licencia_mes_uno_mm1(legajo)
                 if Descripcion_Licencias == "3553-Vacaciones":
                     if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
                         return 0.01 * Cant_Dias_Licencia
@@ -333,27 +578,237 @@ def ajuste_meta_monto(categoria, legajo):
                         return 0               
                 return 0
         return 0
+    print(f'ajuste licencia: {ajuste_licencias(legajo)}')
     
     def ajuste_licencia_especial(legajo):
-        with open(json_path_licencias, 'r') as file_licencia:
+        with open(json_path_licencias_especiales, 'r') as file_licencia:
             data_licencia = json.load(file_licencia)
             licencia = data_licencia['Licencias']
         for user in licencia:
             if user['employeeNumber'] == legajo and 'adjustment' in user:
                 return float(user['adjustment'])        
         return 0.0
+    print(f'ajuste licencia especial: {ajuste_licencia_especial(legajo)}')
 
     meta_real = meta_real_monto(categoria)
     ajuste_tutores = tutores_ec(legajo)
     ajuste_progresion = progresion_ec(categoria, legajo)
-    ajuste_licencias = ajuste_licencias(legajo)
+    ajuste_licencia = ajuste_licencias(legajo)
     ajuste_licencia_especial = ajuste_licencia_especial(legajo)
-    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencias + ajuste_licencia_especial
+    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencia + ajuste_licencia_especial
     ajustes = 1 - ajuste_total
     if ajuste_total >= 1:
         ajustes = 0
     result = round(meta_real * ajustes, 2)
-    return result
+    return result/2
+
+def ajuste_meta_monto_m2(categoria, legajo):
+    result = 0    
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path_metas = os.path.join(current_dir, 'data', 'json', 'metas.json')
+    json_path_tutores = os.path.join(current_dir, 'data', 'json', 'tutores.json')
+    json_path_progresiones = os.path.join(current_dir, 'data', 'json', 'progresiones.json')    
+    json_path_progresionOfUsers = os.path.join(current_dir, 'data', 'json', 'progresionOfUsers.json')
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licencias.json')
+    json_path_licencias_especiales = os.path.join(current_dir, 'data', 'json', 'licenciasEspeciales.json')
+
+    def meta_real_monto(categoria):
+        with open(json_path_metas, 'r') as file_metas:
+            data_metas = json.load(file_metas)
+            metas = data_metas['Metas']
+        for meta in metas:
+            if meta['categoria'] == categoria:
+                meta_monto = meta['monto']
+                return meta_monto
+        return 0    
+    print(f'meta $: {meta_real_monto(categoria)}')
+
+    def tutores_ec(legajo):
+        with open(json_path_tutores, 'r') as file_tutores:
+            data_tutores = json.load(file_tutores)
+            tutores = data_tutores['Tutores']
+        for tutor in tutores:
+            if tutor['legajo'] == legajo:
+                    return 0.2                
+        return 0
+    print(f'tutores $: {tutores_ec(legajo)}')
+
+    def progresion_ec(categoria, legajo):  
+        with open(json_path_progresiones, 'r') as file_progresiones:
+            data_progresiones = json.load(file_progresiones)
+            progresiones = data_progresiones['Progresiones']        
+        with open(json_path_progresionOfUsers, 'r') as file_progresionOfUsers:
+            data_progresionOfUsers = json.load(file_progresionOfUsers)
+            progresionOfUsers = data_progresionOfUsers['Progresion_Users']        
+            for user in progresionOfUsers:
+                if user['legajo'] == legajo:
+                    mes_progresion = user['mes_progresion']
+                    for progresion in progresiones:
+                        if progresion['categoria'] == categoria:
+                            ajuste = progresion[mes_progresion]
+                            return ajuste
+        return 0
+    print(f'progresiones $: {progresion_ec(categoria, legajo)}')
+    
+    def cantidad_dias_licencia_mes_mm2(legajo):
+        with open(json_path_licencias, 'r') as file_licencias:
+            data_licencias = json.load(file_licencias)
+        licenses = data_licencias.get('Licenses', [])
+        licencias_filtradas = [licencia for licencia in licenses if licencia.get('legajo') == legajo]
+        bim_dos = [2,4,6,8,10,12]
+        mes_con_31_b2 = [8,10,12]
+        mes_con_30_b2 = [4,6]
+        mes_feb = [2]
+        total_diferencia_dias = 0
+        for licencia in licencias_filtradas:
+            desde_str = licencia.get('Desde')
+            hasta_str = licencia.get('Hasta')
+            fecha_desde = datetime.strptime(desde_str, "%d/%m/%Y")
+            fecha_hasta = datetime.strptime(hasta_str, "%d/%m/%Y")
+            mes_desde = fecha_desde.month
+            mes_hasta = fecha_hasta.month
+            dia_desde = fecha_desde.day
+            dia_hasta = fecha_hasta.day
+            if mes_desde in bim_dos and mes_hasta in bim_dos:
+                total_diferencia_dias += (dia_hasta - dia_desde)+1
+            else:
+                if mes_desde in mes_con_31_b2:
+                    total_diferencia_dias += (31 - dia_desde)+1
+                elif mes_desde in mes_con_30_b2:
+                    total_diferencia_dias += (30 - dia_desde)+1
+                elif mes_desde in mes_feb:
+                    total_diferencia_dias += (28 - dia_desde)+1
+        return total_diferencia_dias
+    print(f'cantidad de dias de licencia: {cantidad_dias_licencia_mes_mm2(legajo)}')
+    
+    def ajuste_licencias(legajo):
+        with open(json_path_licencias, 'r') as file_licen:
+            data_licencias = json.load(file_licen)
+            licenn = data_licencias['Licenses']
+        for user in licenn:
+            if user['legajo'] == legajo:
+                Descripcion_Licencias = user['Descripcion_Licencias']
+                Cant_Dias_Licencia = cantidad_dias_licencia_mes_mm2(legajo)
+                if Descripcion_Licencias == "3553-Vacaciones":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0
+                if Descripcion_Licencias == "4110-Licencia por Enfermedad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4070-Licencia por Matrimonio":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "2222-Licencias por Violencia de genero":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "3333-Licencias por Perdida Gestacional":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4104-Licencia por Accidente":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                   
+                if Descripcion_Licencias == "11-Licencia Fertilidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4132-Licencia por Maternidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4118-Beneficio Paternidad":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0                    
+                if Descripcion_Licencias == "4133-Período de Excedencia":
+                    if Cant_Dias_Licencia >= 7 and Cant_Dias_Licencia <=21:
+                        return 0.01 * Cant_Dias_Licencia
+                    elif Cant_Dias_Licencia > 21:
+                        return 1.0
+                    else:
+                        return 0               
+                return 0
+        return 0
+    print(f'ajuste licencia: {ajuste_licencias(legajo)}')
+    
+    def ajuste_licencia_especial(legajo):
+        with open(json_path_licencias_especiales, 'r') as file_licencia:
+            data_licencia = json.load(file_licencia)
+            licencia = data_licencia['Licencias']
+        for user in licencia:
+            if user['employeeNumber'] == legajo and 'adjustment' in user:
+                return float(user['adjustment'])        
+        return 0.0
+    print(f'ajuste licencia especial: {ajuste_licencia_especial(legajo)}')
+
+    meta_real = meta_real_monto(categoria)
+    ajuste_tutores = tutores_ec(legajo)
+    ajuste_progresion = progresion_ec(categoria, legajo)
+    ajuste_licencia = ajuste_licencias(legajo)
+    ajuste_licencia_especial = ajuste_licencia_especial(legajo)
+    ajuste_total = ajuste_tutores + ajuste_progresion + ajuste_licencia + ajuste_licencia_especial
+    ajustes = 1 - ajuste_total
+    if ajuste_total >= 1:
+        ajustes = 0
+    result = round(meta_real * ajustes, 2)
+    return result/2
+
+def cantidad_licencias(legajo):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licencias.json')  
+    with open(json_path_licencias, 'r') as file_licencias:
+        data_licencias = json.load(file_licencias)
+    licenses = data_licencias.get('Licenses', [])
+    total_dias = 0    
+    for licencia in licenses:
+        if licencia.get('legajo') == legajo:
+            total_dias += int(licencia.get('Cant_Dias_Licencia'))    
+    return total_dias
+
+def descripcion_licencias(legajo):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path_licencias = os.path.join(current_dir, 'data', 'json', 'licencias.json')  
+    with open(json_path_licencias, 'r') as file_licencias:
+        data_licencias = json.load(file_licencias)
+    licenses = data_licencias.get('Licenses', [])
+    descripciones = set()    
+    for licencia in licenses:
+        if licencia.get('legajo') == legajo:
+            descripciones.add(licencia.get('Descripcion_Licencias'))    
+    descripcion_final = ', '.join(descripciones)
+    return descripcion_final
 
 def get_meta_q(categoria):
     with open('data/json/metas.json') as file_metas:
@@ -490,9 +945,9 @@ def nomina():
     if request.method == 'POST':
         jefe_zonal = request.form['user']
         filtered_nomina = handle_form_submission(jefe_zonal)
-        return render_template('nomina.html', nomina=filtered_nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
+        return render_template('nomina.html', nomina=filtered_nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q_mes_uno=ajuste_meta_q_mes_uno, ajuste_meta_q_mes_dos=ajuste_meta_q_mes_dos, ajuste_meta_monto_m1=ajuste_meta_monto_m1, ajuste_meta_monto_m2=ajuste_meta_monto_m2, handle_form_submission=handle_form_submission, cantidad_licencias=cantidad_licencias, descripcion_licencias=descripcion_licencias)
     else:
-        return render_template('nomina.html', nomina=nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q=ajuste_meta_q, ajuste_meta_monto=ajuste_meta_monto, handle_form_submission=handle_form_submission)
+        return render_template('nomina.html', nomina=nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q_mes_uno=ajuste_meta_q_mes_uno, ajuste_meta_q_mes_dos=ajuste_meta_q_mes_dos, ajuste_meta_monto_m1=ajuste_meta_monto_m1, ajuste_meta_monto_m2=ajuste_meta_monto_m2, handle_form_submission=handle_form_submission, cantidad_licencias=cantidad_licencias, descripcion_licencias=descripcion_licencias)
 
 @app.route('/edit_observacion/<legajo>', methods=['GET', 'POST'])
 def edit_observacion(legajo):
@@ -529,6 +984,16 @@ def delete_observacion():
             json.dump(data, json_file, indent=2)
             
     return redirect('/nomina')
+
+# TODO----------Licencias-------------------------------------------------------------------------------------------------
+@app.route('/licencias', methods=['GET', 'POST'])
+def licencias():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'licencias.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        licenses = data["Licenses"]
+    return render_template('licencias.html', licenses=licenses)
 
 # TODO-----------METAS------------------------------------------------------------------------------------------------
 @app.route('/metas', methods=['GET', 'POST'])

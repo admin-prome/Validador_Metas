@@ -908,7 +908,7 @@ def nomina():
     else:
         connection = conexion.connect()
         cursor = connection.cursor()
-        query = "SELECT employeeNumber, fullName, branch, category, Observations FROM dbo.tec_payrollVM"
+        query = "SELECT employeeNumber, fullName, branch, category, Observations FROM dbo.tec_payrollVM where category in ('C-JC - EC Junior en Capacitacion', 'C-JU - EC Junior', 'C-SE - EC Senior', 'C-SS - EC Semi Senior')"
         cursor.execute(query)
         rows = cursor.fetchall()
         nomina = []

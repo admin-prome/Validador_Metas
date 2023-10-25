@@ -1,2193 +1,1663 @@
 {
   "Nomina": [
     {
-      "legajo": 2242,
-      "Nombre_de_EC": "TORRICELLI MARIA EUGENIA",
-      "mail": "mtorricelli@provinciamicrocreditos.com",
-      "Sucursal": "6443 - Sucursal Chivilcoy",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": 14,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2396,
-      "Nombre_de_EC": "MARTURANO RICARDO MARTIN",
-      "mail": "rmarturano@provinciamicrocreditos.com",
-      "Sucursal": "7169 - Sucursal Lujan",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "4110-Licencias por Enfermedad",
-      "Cant_Dias_Licencia": 21,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2400,
-      "Nombre_de_EC": "BONAVENA OMAR EMILIO",
-      "mail": "obonavena@provinciamicrocreditos.com",
-      "Sucursal": "7103 - Sucursal Zarate",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": "Prueba tst"
-    },
-    {
-      "legajo": 2406,
-      "Nombre_de_EC": "HORMAZABAL MARIA EVANGELINA",
-      "mail": "mhormazabal@provinciamicrocreditos.com",
-      "Sucursal": "6599 - Sucursal San Nicolas",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2447,
-      "Nombre_de_EC": "CAPRA JESSICA LORENA",
-      "mail": "jcapra@provinciamicrocreditos.com",
-      "Sucursal": "6599 - Sucursal San Nicolas",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5055,
-      "Nombre_de_EC": "ROS\u00d3N MARIO LUCIANO",
-      "mail": "mroson@provinciamicrocreditos.com",
-      "Sucursal": "7175 - Sucursal Mercedes",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5070,
-      "Nombre_de_EC": "BACARINI MANUELA MARIA",
-      "mail": "mbacarini@provinciamicrocreditos.com",
-      "Sucursal": "7175 - Sucursal Mercedes",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5085,
-      "Nombre_de_EC": "ABDALA VALERIA",
-      "mail": "vabdala@provinciamicrocreditos.com",
-      "Sucursal": "6584 - Sucursal Pergamino",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5123,
-      "Nombre_de_EC": "PONCE ALEJANDRA SOLEDAD",
-      "mail": "asponce@provinciamicrocreditos.com",
-      "Sucursal": "7159 - Sucursal Escobar",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5124,
-      "Nombre_de_EC": "FIORINI LUCIANO",
-      "mail": "lfiorini@provinciamicrocreditos.com",
-      "Sucursal": "6662 - Sucursal Junin",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5126,
-      "Nombre_de_EC": "ABALOS MARIA SOLEDAD",
-      "mail": "aabalos@provinciamicrocreditos.com",
-      "Sucursal": "7159 - Sucursal Escobar",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5154,
-      "Nombre_de_EC": "VALENTINI MARIA PAULA",
-      "mail": "mpvalentini@provinciamicrocreditos.com",
-      "Sucursal": "7136 - Sucursal Campana",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5183,
-      "Nombre_de_EC": "GUZZI ADRIANA MARIA",
-      "mail": "amguzzi@provinciamicrocreditos.com",
-      "Sucursal": "7037 - Sucursal Ca\u00f1uelas",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5189,
-      "Nombre_de_EC": "SILVA ANTONELA",
-      "mail": "antsilva@provinciamicrocreditos.com",
-      "Sucursal": "6531 - Sucursal Baradero",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5191,
-      "Nombre_de_EC": "VALENTINI  MARIA LUZ",
-      "mail": "mlvalentini@provinciamicrocreditos.com",
-      "Sucursal": "6443 - Sucursal Chivilcoy",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5199,
-      "Nombre_de_EC": "ZAPATA FRANCO AYELEN",
-      "mail": "azapatafranco@provinciamicrocreditos.com",
-      "Sucursal": "7103 - Sucursal Zarate",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5237,
-      "Nombre_de_EC": "HERNANDEZ OLIVA JOSE GABRIEL",
-      "mail": "jghernandezoliva@provinciamicrocreditos.com",
-      "Sucursal": "7136 - Sucursal Campana",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5258,
-      "Nombre_de_EC": "CASTELUCCI FABRICIO OSCAR",
-      "mail": "fcastelucci@provinciamicrocreditos.com",
-      "Sucursal": "6531 - Sucursal Baradero",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5263,
-      "Nombre_de_EC": "AHAMENDABURU MARIA LUZ",
-      "mail": "mlahamendaburu@provinciamicrocreditos.com",
-      "Sucursal": "7037 - Sucursal Ca\u00f1uelas",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5272,
-      "Nombre_de_EC": "ZUCHINI  CINTIA NOELIA",
-      "mail": "czuchini@provinciamicrocreditos.com",
-      "Sucursal": "6443 - Sucursal Chivilcoy",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5282,
-      "Nombre_de_EC": "AIUB YAMILA BEL\u00c9N",
-      "mail": "ybaiub@provinciamicrocreditos.com",
-      "Sucursal": "6584 - Sucursal Pergamino",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5362,
-      "Nombre_de_EC": "ALLENDE MARIA ALEJANDRA",
-      "mail": "maallende@provinciamicrocreditos.com",
-      "Sucursal": "6584 - Sucursal Pergamino",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5374,
-      "Nombre_de_EC": "ROLANDO MARIELA LUJAN",
-      "mail": "mrolando@provinciamicrocreditos.com",
-      "Sucursal": "6531 - Sucursal Baradero",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5392,
-      "Nombre_de_EC": "SISTER CARLOS MANUEL",
-      "mail": "csister@provinciamicrocreditos.com",
-      "Sucursal": "7159 - Sucursal Escobar",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5399,
-      "Nombre_de_EC": "ALONSO ADRIANA",
-      "mail": "aalonso@provinciamicrocreditos.com",
-      "Sucursal": "7037 - Sucursal Ca\u00f1uelas",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5412,
-      "Nombre_de_EC": "ZUBELDIA PAOLA MARIEL",
-      "mail": "pzubeldia@provinciamicrocreditos.com",
-      "Sucursal": "6478 - Sucursal 9 de Julio",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5429,
-      "Nombre_de_EC": "STROPPIANA MELISA",
-      "mail": "mstroppiana@provinciamicrocreditos.com",
-      "Sucursal": "6572 - Sucursal Salto",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5488,
-      "Nombre_de_EC": "SIRONI MARIA EUGENIA",
-      "mail": "msironi@provinciamicrocreditos.com",
-      "Sucursal": "7175 - Sucursal Mercedes",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "4132-Licencia por Maternidad",
-      "Cant_Dias_Licencia": "91",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5517,
-      "Nombre_de_EC": "CAVO JOSE IGNACIO",
-      "mail": "jcavo@provinciamicrocreditos.com",
-      "Sucursal": "6662 - Sucursal Junin",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5555,
-      "Nombre_de_EC": "ZAPATA FRANCO AILIN ABIGAIL",
-      "mail": "azapata@provinciamicrocreditos.com",
-      "Sucursal": "7103 - Sucursal Zarate",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5576,
-      "Nombre_de_EC": "DIAZ MERLINA LUCIA",
-      "mail": "mldiaz@provinciamicrocreditos.com",
-      "Sucursal": "7169 - Sucursal Lujan",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5596,
-      "Nombre_de_EC": "ACOSTA MARIA BELEN",
-      "mail": "mbacosta@provinciamicrocreditos.com",
-      "Sucursal": "7067 - Sucursal Lobos",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5597,
-      "Nombre_de_EC": "RICOTTA ANALIA BEATRIZ",
-      "mail": "aricotta@provinciamicrocreditos.com",
-      "Sucursal": "7067 - Sucursal Lobos",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5619,
-      "Nombre_de_EC": "MU\u00d1OZ LUDMILA",
-      "mail": "lmunoz@provinciamicrocreditos.com",
-      "Sucursal": "6665 - Sucursal Lincoln",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5642,
-      "Nombre_de_EC": "CHAMI GISELA",
-      "mail": "gchami@provinciamicrocreditos.com",
-      "Sucursal": "6662 - Sucursal Junin",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5673,
-      "Nombre_de_EC": "ALAO MELANY DAIANA",
-      "mail": "mdalao@provinciamicrocreditos.com",
-      "Sucursal": "6572 - Sucursal Salto",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5710,
-      "Nombre_de_EC": "CALDERAN FRANCO LUCIANO SALVADOR",
-      "mail": "fcalderan@provinciamicrocreditos.com",
-      "Sucursal": "6478 - Sucursal 9 de Julio",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5773,
-      "Nombre_de_EC": "RONCONI MERCAU ROCIO",
-      "mail": "roronconi@provinciamicrocreditos.com",
-      "Sucursal": "7169 - Sucursal Lujan",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5797,
-      "Nombre_de_EC": "BENGOCHEA MARIA FLORENCIA",
-      "mail": "mfbengochea@provinciamicrocreditos.com",
-      "Sucursal": "7169 - Sucursal Lujan",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "4132-Licencia por Maternidad",
-      "Cant_Dias_Licencia": "92",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5817,
-      "Nombre_de_EC": "MURGIA VALERIA JOSEFINA",
-      "mail": "vmurgia@provinciamicrocreditos.com",
-      "Sucursal": "6599 - Sucursal San Nicolas",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5892,
-      "Nombre_de_EC": "DE GIACOMO CAROLINA",
-      "mail": "cdegiacomo@provinciamicrocreditos.com",
-      "Sucursal": "6584 - Sucursal Pergamino",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 6002,
-      "Nombre_de_EC": "RASO MARIANELA",
-      "mail": "mraso@provinciamicrocreditos.com",
-      "Sucursal": "6572 - Sucursal Salto",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "ROLDAN FATIMA ELIZABETH",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5088,
-      "Nombre_de_EC": "DUR\u00c1 FEDERICO ALBERTO",
-      "mail": "fdura@provinciamicrocreditos.com",
-      "Sucursal": "6302 - Sucursal Tandil",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": "Holalalala"
-    },
-    {
-      "legajo": 5089,
-      "Nombre_de_EC": "BLANCO MAR\u00cdA FERNANDA",
-      "mail": "mfblanco@provinciamicrocreditos.com",
-      "Sucursal": "6302 - Sucursal Tandil",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5136,
-      "Nombre_de_EC": "CRUCER VICTOR EUGENIO",
-      "mail": "vecrucer@provinciamicrocreditos.com",
-      "Sucursal": "6328 - Sucursal Azul",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5140,
-      "Nombre_de_EC": "SALVATORE CARLOS REYNALDO",
-      "mail": "csalvatore@provinciamicrocreditos.com",
-      "Sucursal": "6379 - Sucursal Olavarr\u00eda",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5155,
-      "Nombre_de_EC": "MERLO DONADIO NATALIA LORENA",
-      "mail": "nmerlo@provinciamicrocreditos.com",
-      "Sucursal": "6379 - Sucursal Olavarr\u00eda",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5190,
-      "Nombre_de_EC": "JENSEN CARINA INES",
-      "mail": "cijensen@provinciamicrocreditos.com",
-      "Sucursal": "6177 - Sucursal Necochea",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "4132-Licencia por Maternidad",
-      "Cant_Dias_Licencia": "92",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5192,
-      "Nombre_de_EC": "VENTURA LUCIA",
-      "mail": "luventura@provinciamicrocreditos.com",
-      "Sucursal": "6229 - Sucursal Bahia Blanca",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5216,
-      "Nombre_de_EC": "SALOM EMILIA SOLEDAD",
-      "mail": "essalom@provinciamicrocreditos.com",
-      "Sucursal": "6734 - Sucursal Bolivar",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5236,
-      "Nombre_de_EC": "NEMET LLOPIS JAVIER PABLO",
-      "mail": "jpnemet@provinciamicrocreditos.com",
-      "Sucursal": "6205 - Sucursal Tres Arroyos",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5240,
-      "Nombre_de_EC": "CABRERA MARIO OSCAR",
-      "mail": "mocabrera@provinciamicrocreditos.com",
-      "Sucursal": "6205 - Sucursal Tres Arroyos",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5245,
-      "Nombre_de_EC": "PAPALEO ROBERTO NAZARENO",
-      "mail": "rnpapaleo@provinciamicrocreditos.com",
-      "Sucursal": "6734 - Sucursal Bolivar",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "14",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5248,
-      "Nombre_de_EC": "VACCANI ALFONSINA",
-      "mail": "avaccani@provinciamicrocreditos.com",
-      "Sucursal": "6205 - Sucursal Tres Arroyos",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5295,
-      "Nombre_de_EC": "CIANCAGLINI AGUSTIN",
-      "mail": "aciancaglini@provinciamicrocreditos.com",
-      "Sucursal": "6302 - Sucursal Tandil",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5353,
-      "Nombre_de_EC": "SOLODUJIN MARIELA NOEMI",
-      "mail": "msolodujin@provinciamicrocreditos.com",
-      "Sucursal": "6704 - Sucursal Trenque Lauquen",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5356,
-      "Nombre_de_EC": "ARRUBE MARIA LAURA",
-      "mail": "larrube@provinciamicrocreditos.com",
-      "Sucursal": "6990 - Sucursal Villa Gesell",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5400,
-      "Nombre_de_EC": "PONCHIONE YESICA IVANA",
-      "mail": "yiponchione@provinciamicrocreditos.com",
-      "Sucursal": "6177 - Sucursal Necochea",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5487,
-      "Nombre_de_EC": "ANDERSCH ARIEL HERNAN",
-      "mail": "ahandersch@provinciamicrocreditos.com",
-      "Sucursal": "6847 - Sucursal Coronel Suarez",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5490,
-      "Nombre_de_EC": "STREITENBERGER FLORENCIA",
-      "mail": "fstreitenberger@provinciamicrocreditos.com",
-      "Sucursal": "6847 - Sucursal Coronel Suarez",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5498,
-      "Nombre_de_EC": "BERTHET SHEILA MARILYN",
-      "mail": "sberthet@provinciamicrocreditos.com",
-      "Sucursal": "6949 - Sucursal Dolores",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5520,
-      "Nombre_de_EC": "SANCHEZ PENINO MARTIN MIGUEL",
-      "mail": "msanchez@provinciamicrocreditos.com",
-      "Sucursal": "6990 - Sucursal Villa Gesell",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5533,
-      "Nombre_de_EC": "MARCHI ESTEBAN EMANUEL",
-      "mail": "emarchi@provinciamicrocreditos.com",
-      "Sucursal": "6901 - Sucursal Santa Teresita",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5563,
-      "Nombre_de_EC": "LOPEZ YANINA LUJAN",
-      "mail": "ylopez@provinciamicrocreditos.com",
-      "Sucursal": "6130 - Sucursal Balcarce",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "4133-Per\u00edodo de Excedencia",
-      "Cant_Dias_Licencia": "180",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5564,
-      "Nombre_de_EC": "ZUCHINI LUCIANA MICAELA",
-      "mail": "lzuchini@provinciamicrocreditos.com",
-      "Sucursal": "7092 - Sucursal Saladillo",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5565,
-      "Nombre_de_EC": "SERRITELLA ANALIA SOLEDAD",
-      "mail": "aserritella@provinciamicrocreditos.com",
-      "Sucursal": "6130 - Sucursal Balcarce",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "4110-Licencias por Enfermedad",
-      "Cant_Dias_Licencia": "30",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5682,
-      "Nombre_de_EC": "GARCIA ANA PAULA",
-      "mail": "agarcia@provinciamicrocreditos.com",
-      "Sucursal": "6229 - Sucursal Bahia Blanca",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5683,
-      "Nombre_de_EC": "SALIN SILVANA ALEJANDRA",
-      "mail": "sasalin@provinciamicrocreditos.com",
-      "Sucursal": "6177 - Sucursal Necochea",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5708,
-      "Nombre_de_EC": "BLANCO JIMENA YANEL",
-      "mail": "jyblanco@provinciamicrocreditos.com",
-      "Sucursal": "6229 - Sucursal Bahia Blanca",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5728,
-      "Nombre_de_EC": "TODARO LAURA LILIANA",
-      "mail": "ltodaro@provinciamicrocreditos.com",
-      "Sucursal": "6300 - Sucursal Tandil Villa Italia",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5731,
-      "Nombre_de_EC": "KONDRATIUK SKOREWSKI EVELYN NOELI",
-      "mail": "ekondratiuk@provinciamicrocreditos.com",
-      "Sucursal": "6901 - Sucursal Santa Teresita",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "4132-Licencia por Maternidad",
-      "Cant_Dias_Licencia": "91",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5741,
-      "Nombre_de_EC": "UVIEDO AGOSTINA AILEN",
-      "mail": "auviedo@provinciamicrocreditos.com",
-      "Sucursal": "6949 - Sucursal Dolores",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "4110-Licencias por Enfermedad",
-      "Cant_Dias_Licencia": "3",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5756,
-      "Nombre_de_EC": "AGUIRRE AGUSTINA BELEN",
-      "mail": "abaguirre@provinciamicrocreditos.com",
-      "Sucursal": "6300 - Sucursal Tandil Villa Italia",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5844,
-      "Nombre_de_EC": "LICEAGA DEBORA",
-      "mail": "dliceaga@provinciamicrocreditos.com",
-      "Sucursal": "6100 - Sucursal Mar del Plata-Luro",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5863,
-      "Nombre_de_EC": "GALLEGO OREGUI MARIA SOLEDAD",
-      "mail": "mgallego@provinciamicrocreditos.com",
-      "Sucursal": "6202 - Sucursal Bahia Blanca 3 Almafuerte",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5866,
-      "Nombre_de_EC": "LAFALCE MATIAS ARIEL",
-      "mail": "mlafalce@provinciamicrocreditos.com",
-      "Sucursal": "6100 - Sucursal Mar del Plata-Luro",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "14",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5873,
-      "Nombre_de_EC": "GONZALEZ LOPEZ NADIA SABRINA",
-      "mail": "nsgonzalez@provinciamicrocreditos.com",
-      "Sucursal": "6200 - Sucursal Bahia Blanca 2",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5894,
-      "Nombre_de_EC": "RODRIGUEZ MARIA VIRGINIA",
-      "mail": "mrodriguez@provinciamicrocreditos.com",
-      "Sucursal": "7092 - Sucursal Saladillo",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5920,
-      "Nombre_de_EC": "RODRIGUEZ MERCEDES ELENA",
-      "mail": "merodriguez@provinciamicrocreditos.com",
-      "Sucursal": "6704 - Sucursal Trenque Lauquen",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5922,
-      "Nombre_de_EC": "ESPINOSA MATIAS EMANUEL",
-      "mail": "mespinosa@provinciamicrocreditos.com",
-      "Sucursal": "6990 - Sucursal Villa Gesell",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5968,
-      "Nombre_de_EC": "STRADA DAIANA",
-      "mail": "dstrada@provinciamicrocreditos.com",
-      "Sucursal": "6190 - Sucursal Mar del Plata 2-Martillo",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5970,
-      "Nombre_de_EC": "VILLAFRANCA AGUST\u00cdN",
-      "mail": "avillafranca@provinciamicrocreditos.com",
-      "Sucursal": "6190 - Sucursal Mar del Plata 2-Martillo",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5979,
-      "Nombre_de_EC": "DORTONA JAZMIN",
-      "mail": "jdortona@provinciamicrocreditos.com",
-      "Sucursal": "6406 - Sucursal 25 de Mayo",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "PEREZ ESTEFANIA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5981,
-      "Nombre_de_EC": "BONFIGLI ANA PAULA",
-      "mail": "abonfigli@provinciamicrocreditos.com",
-      "Sucursal": "6782 - Sucursal Pehuaj\u00f3",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "FAROLA AGUSTIN LUCAS",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5989,
-      "Nombre_de_EC": "COTRONEO PAROLIN DAIANA",
-      "mail": "dcotroneo@provinciamicrocreditos.com",
-      "Sucursal": "6901 - Sucursal Santa Teresita",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5990,
-      "Nombre_de_EC": "CALLAU FLORENCIA AGUSTINA",
-      "mail": "fcallau@provinciamicrocreditos.com",
-      "Sucursal": "6190 - Sucursal Mar del Plata 2-Martillo",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5991,
-      "Nombre_de_EC": "PIRRO NAYLA YANET",
-      "mail": "npirro@provinciamicrocreditos.com",
-      "Sucursal": "6100 - Sucursal Mar del Plata-Luro",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "COHEN PATRICIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 6005,
-      "Nombre_de_EC": "GOTTE LEONARDO MARTIN",
-      "mail": "lgotte@provinciamicrocreditos.com",
-      "Sucursal": "6328 - Sucursal Azul",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "ZANUZZI FLAVIA ROMINA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2367,
-      "Nombre_de_EC": "MU\u00d1OZ ARIEL FABIAN",
-      "mail": "amunoz@provinciamicrocreditos.com",
-      "Sucursal": "5097 - Sucursal San Mart\u00edn",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2446,
-      "Nombre_de_EC": "GUEVARA NAYLA LUDMILA",
-      "mail": "nguevara@provinciamicrocreditos.com",
-      "Sucursal": "5097 - Sucursal San Mart\u00edn",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5063,
-      "Nombre_de_EC": "LOPEZ KARINA VANESA",
-      "mail": "kvlopez@provinciamicrocreditos.com",
-      "Sucursal": "7185 - Sucursal Pilar",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5138,
-      "Nombre_de_EC": "REHERMANN JAVIER OSVALDO",
-      "mail": "jorehermann@provinciamicrocreditos.com",
-      "Sucursal": "5055 - Sucursal San Miguel",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5139,
-      "Nombre_de_EC": "TOLEDO VERONICA SOLEDAD",
-      "mail": "vtoledo@provinciamicrocreditos.com",
-      "Sucursal": "5055 - Sucursal San Miguel",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5177,
-      "Nombre_de_EC": "DIAZ AGUSTINA HEBE",
-      "mail": "ahdiaz@provinciamicrocreditos.com",
-      "Sucursal": "7185 - Sucursal Pilar",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5232,
-      "Nombre_de_EC": "BENITEZ ERICA SOLEDAD",
-      "mail": "eribenitez@provinciamicrocreditos.com",
-      "Sucursal": "5018 - Sucursal Jos\u00e9 C Paz",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5250,
-      "Nombre_de_EC": "ARAUJO PRISCILA MARIA NOELIA",
-      "mail": "mmaraujo@provinciamicrocreditos.com",
-      "Sucursal": "4011 - Sucursal Chacarita",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5380,
-      "Nombre_de_EC": "COSTILLA VIRGINIA SOLEDAD",
-      "mail": "vcostilla@provinciamicrocreditos.com",
-      "Sucursal": "7102 - Sucursal Gar\u00edn",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5417,
-      "Nombre_de_EC": "ZOCINE MARIANO CARLOS",
-      "mail": "mzocine@provinciamicrocreditos.com",
-      "Sucursal": "4011 - Sucursal Chacarita",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5524,
-      "Nombre_de_EC": "GARCIA FLORENCIA NOELIA",
-      "mail": "fgarcia@provinciamicrocreditos.com",
-      "Sucursal": "7184 - Sucursal Del Viso",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5561,
-      "Nombre_de_EC": "REQUEJO LUPO MARIA",
-      "mail": "mrequejolupo@provinciamicrocreditos.com",
-      "Sucursal": "5014 - Sucursal Bellavista",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "21",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5562,
-      "Nombre_de_EC": "ALVIDE DIEGO OSCAR",
-      "mail": "dalvide@provinciamicrocreditos.com",
-      "Sucursal": "5153 - Sucursal Munro",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5645,
-      "Nombre_de_EC": "HABERLE ALBANA NOEMI",
-      "mail": "ahaberle@provinciamicrocreditos.com",
-      "Sucursal": "5018 - Sucursal Jos\u00e9 C Paz",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5648,
-      "Nombre_de_EC": "PINCIN YANINA ANTONELA",
-      "mail": "ypincin@provinciamicrocreditos.com",
-      "Sucursal": "7185 - Sucursal Pilar",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5649,
-      "Nombre_de_EC": "ALANIZ BARBARA JOSELINA",
-      "mail": "balaniz@provinciamicrocreditos.com",
-      "Sucursal": "5012 - Sucursal Boulogne",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5761,
-      "Nombre_de_EC": "GREGORI MARTIN EDUARDO",
-      "mail": "mgregori@provinciamicrocreditos.com",
-      "Sucursal": "5008 - Sucursal Pacheco",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5789,
-      "Nombre_de_EC": "VARELA CARLA MARISA",
-      "mail": "cvarela@provinciamicrocreditos.com",
-      "Sucursal": "5012 - Sucursal Boulogne",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5795,
-      "Nombre_de_EC": "SALLERES MONTERO ROXANA ALICIA",
-      "mail": "rsalleres@provinciamicrocreditos.com",
-      "Sucursal": "5096 - Sucursal San Isidro",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5800,
-      "Nombre_de_EC": "BLANCO YAMILA LAURA",
-      "mail": "ylblanco@provinciamicrocreditos.com",
-      "Sucursal": "5144 - Sucursal Grand Bourg",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5822,
-      "Nombre_de_EC": "CORIA WALTER RODRIGO",
-      "mail": "wcoria@provinciamicrocreditos.com",
-      "Sucursal": "5008 - Sucursal Pacheco",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5834,
-      "Nombre_de_EC": "SAGARI NATALIA ROMINA",
-      "mail": "nsagari@provinciamicrocreditos.com",
-      "Sucursal": "5055 - Sucursal San Miguel",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5853,
-      "Nombre_de_EC": "VANNUCCHI DINA SHIRLEY",
-      "mail": "dvannucchi@provinciamicrocreditos.com",
-      "Sucursal": "5138 - Sucursal Tigre",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "14",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5854,
-      "Nombre_de_EC": "ROMERO MACARENA ABIGAIL",
-      "mail": "mromero@provinciamicrocreditos.com",
-      "Sucursal": "5144 - Sucursal Grand Bourg",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5855,
-      "Nombre_de_EC": "BEASCOECHEA GONZALO XAVIER",
-      "mail": "gbeascoechea@provinciamicrocreditos.com",
-      "Sucursal": "5097 - Sucursal San Mart\u00edn",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5879,
-      "Nombre_de_EC": "BASABE JUAN GABRIEL",
-      "mail": "jbasabe@provinciamicrocreditos.com",
-      "Sucursal": "7184 - Sucursal Del Viso",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5900,
-      "Nombre_de_EC": "PARRONDO SOFIA AYELEN",
-      "mail": "sparrondo@provinciamicrocreditos.com",
-      "Sucursal": "5080 - Sucursal Olivos",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "4104-Licencia por Accidente",
-      "Cant_Dias_Licencia": "37",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5901,
-      "Nombre_de_EC": "PIEDRABUENA ARIEL ALBERTO",
-      "mail": "apiedrabuena@provinciamicrocreditos.com",
-      "Sucursal": "5095 - Sucursal San Fernando",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5902,
-      "Nombre_de_EC": "BENITEZ VANINA ALEJANDRA",
-      "mail": "vbenitez@provinciamicrocreditos.com",
-      "Sucursal": "5055 - Sucursal San Miguel",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5919,
-      "Nombre_de_EC": "ESPOSITO CINTHIA GABRIELA",
-      "mail": "cesposito@provinciamicrocreditos.com",
-      "Sucursal": "5095 - Sucursal San Fernando",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5959,
-      "Nombre_de_EC": "PICCHIO FERNANDO GABRIEL",
-      "mail": "fpicchio@provinciamicrocreditos.com",
-      "Sucursal": "5080 - Sucursal Olivos",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "POLESCHI MARIANELA IVANA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5986,
-      "Nombre_de_EC": "GOMEZ ANA LAURA",
-      "mail": "algomez@provinciamicrocreditos.com",
-      "Sucursal": "7102 - Sucursal Gar\u00edn",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 6006,
-      "Nombre_de_EC": "LOPEZ GUADALUPE INES",
-      "mail": "guilopez@provinciamicrocreditos.com",
-      "Sucursal": "5012 - Sucursal Boulogne",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 6007,
-      "Nombre_de_EC": "DOMENCH DAIANA",
-      "mail": "ddomench@provinciamicrocreditos.com",
-      "Sucursal": "7184 - Sucursal Del Viso",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 6009,
-      "Nombre_de_EC": "LEAL MARIA ELENA",
-      "mail": "mleal@provinciamicrocreditos.com",
-      "Sucursal": "7102 - Sucursal Gar\u00edn",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2285,
-      "Nombre_de_EC": "GOMEZ MARGARITA",
-      "mail": "mgomez@provinciamicrocreditos.com",
-      "Sucursal": "7137 - Sucursal Gral. Rodriguez",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2288,
-      "Nombre_de_EC": "FLORESTA ANDREA PAOLA",
-      "mail": "afloresta@provinciamicrocreditos.com",
-      "Sucursal": "5003 - Sucursal Caseros",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "4110-Licencias por Enfermedad",
-      "Cant_Dias_Licencia": "2",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5061,
-      "Nombre_de_EC": "RODRIGUEZ PABLO ANDR\u00c9S",
-      "mail": "parodriguez@provinciamicrocreditos.com",
-      "Sucursal": "5126 - Sucursal Moreno",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5071,
-      "Nombre_de_EC": "ECCOS DANIELA ALEJANDRA",
-      "mail": "deccos@provinciamicrocreditos.com",
-      "Sucursal": "5040 - Sucursal Hurlingham",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5090,
-      "Nombre_de_EC": "DEL ARCO CLAUDIA SOLEDAD",
-      "mail": "cdelarco@provinciamicrocreditos.com",
-      "Sucursal": "5118 - Sucursal Merlo",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5110,
-      "Nombre_de_EC": "MEDINA LORENA BEATRIZ",
-      "mail": "lmedina@provinciamicrocreditos.com",
-      "Sucursal": "5058 - Sucursal Gregorio de Laferrere",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5133,
-      "Nombre_de_EC": "IANNICCO ALEJANDRO NICOLAS",
-      "mail": "aiannico@provinciamicrocreditos.com",
-      "Sucursal": "5120 - Sucursal San Justo",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5148,
-      "Nombre_de_EC": "CESARI ANALIA BETTINA",
-      "mail": "abcesari@provinciamicrocreditos.com",
-      "Sucursal": "5183 - Sucursal Villa Insuperable",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5162,
-      "Nombre_de_EC": "GONZALEZ PATRICIA ALEJANDRA",
-      "mail": "pgonzalez@provinciamicrocreditos.com",
-      "Sucursal": "4004 - Sucursal Once",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": "holaolaolaolaolaolaolaola"
-    },
-    {
-      "legajo": 5163,
-      "Nombre_de_EC": "DIAZ NORMA NOEMI",
-      "mail": "nndiaz@provinciamicrocreditos.com",
-      "Sucursal": "4004 - Sucursal Once",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5233,
-      "Nombre_de_EC": "FRANCELLA  OSVALDO JAVIER",
-      "mail": "ofrancella@provinciamicrocreditos.com",
-      "Sucursal": "4005 - Sucursal Flores",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5251,
-      "Nombre_de_EC": "NAVARRO HECTOR RICARDO",
-      "mail": "hrnavarro@provinciamicrocreditos.com",
-      "Sucursal": "4010 - Sucursal Parque Patricios",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5271,
-      "Nombre_de_EC": "STABILE DAVID",
-      "mail": "dstabile@provinciamicrocreditos.com",
-      "Sucursal": "5126 - Sucursal Moreno",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5299,
-      "Nombre_de_EC": "VELILLA OROZCO AUGUSTO JOSE",
-      "mail": "avelillaorozco@provinciamicrocreditos.com",
-      "Sucursal": "4010 - Sucursal Parque Patricios",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5329,
-      "Nombre_de_EC": "MIGUENS   MARTIN ARIEL",
-      "mail": "mmiguens@provinciamicrocreditos.com",
-      "Sucursal": "4013 - Sucursal Mataderos",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5455,
-      "Nombre_de_EC": "LACOSTE MARCOS SEBASTIAN",
-      "mail": "mslacoste@provinciamicrocreditos.com",
-      "Sucursal": "5118 - Sucursal Merlo",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5464,
-      "Nombre_de_EC": "I\u00d1IGUEZ CYNTHIA NOEMI",
-      "mail": "ciniguez@provinciamicrocreditos.com",
-      "Sucursal": "5040 - Sucursal Hurlingham",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5484,
-      "Nombre_de_EC": "SPANEVELLO ELIANA MARIA",
-      "mail": "espanevello@provinciamicrocreditos.com",
-      "Sucursal": "7101 - Sucursal Marcos Paz",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5493,
-      "Nombre_de_EC": "BERNAY NATALIA",
-      "mail": "nbernay@provinciamicrocreditos.com",
-      "Sucursal": "4010 - Sucursal Parque Patricios",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5502,
-      "Nombre_de_EC": "CORTEZ MONICA EDITH",
-      "mail": "mecortez@provinciamicrocreditos.com",
-      "Sucursal": "5120 - Sucursal San Justo",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5567,
-      "Nombre_de_EC": "GONZALEZ LUCIANA ANDREA",
-      "mail": "lgonzalez@provinciamicrocreditos.com",
-      "Sucursal": "7101 - Sucursal Marcos Paz",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5583,
-      "Nombre_de_EC": "GRAND EMILIANO JUAN",
-      "mail": "egrand@provinciamicrocreditos.com",
-      "Sucursal": "7101 - Sucursal Marcos Paz",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5650,
-      "Nombre_de_EC": "BUZEME CINTIA LORENA",
-      "mail": "cbuzeme@provinciamicrocreditos.com",
-      "Sucursal": "5003 - Sucursal Caseros",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5655,
-      "Nombre_de_EC": "CASTA\u00d1O CAMILA BELEN",
-      "mail": "cbcastano@provinciamicrocreditos.com",
-      "Sucursal": "4013 - Sucursal Mataderos",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5664,
-      "Nombre_de_EC": "VARELA LAURA NORMA",
-      "mail": "lvarela@provinciamicrocreditos.com",
-      "Sucursal": "5010 - Sucursal Isidro Casanova",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5665,
-      "Nombre_de_EC": "CASTILLO MARIA LOURDES",
-      "mail": "mcastillo@provinciamicrocreditos.com",
-      "Sucursal": "5183 - Sucursal Villa Insuperable",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5796,
-      "Nombre_de_EC": "ACOSTA RUBEN DARIO",
-      "mail": "racosta@provinciamicrocreditos.com",
-      "Sucursal": "7137 - Sucursal Gral. Rodriguez",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5836,
-      "Nombre_de_EC": "NAVARRO MARIA FLORENCIA",
-      "mail": "mnavarro@provinciamicrocreditos.com",
-      "Sucursal": "5118 - Sucursal Merlo",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5837,
-      "Nombre_de_EC": "GUARDIA YULIANA ANABEL",
-      "mail": "yguardia@provinciamicrocreditos.com",
-      "Sucursal": "5126 - Sucursal Moreno",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5839,
-      "Nombre_de_EC": "CAPRARA MARIANA",
-      "mail": "mcaprara@provinciamicrocreditos.com",
-      "Sucursal": "5120 - Sucursal San Justo",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5850,
-      "Nombre_de_EC": "GONZALEZ NATALIA VANINA",
-      "mail": "ngonzalez@provinciamicrocreditos.com",
-      "Sucursal": "5010 - Sucursal Isidro Casanova",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5884,
-      "Nombre_de_EC": "CABANES GABRIELA GISELE",
-      "mail": "gcabanes@provinciamicrocreditos.com",
-      "Sucursal": "5126 - Sucursal Moreno",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5886,
-      "Nombre_de_EC": "BELLANZA FABIAN CESAR",
-      "mail": "fbellanza@provinciamicrocreditos.com",
-      "Sucursal": "5098 - Sucursal Moron",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5895,
-      "Nombre_de_EC": "CABA\u00d1AS NOELIA RAQUEL",
-      "mail": "ncabanas@provinciamicrocreditos.com",
-      "Sucursal": "5058 - Sucursal Gregorio de Laferrere",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5914,
-      "Nombre_de_EC": "KARAWAN DOS SANTOS NATALI ELISABETH",
-      "mail": "nkarawan@provinciamicrocreditos.com",
-      "Sucursal": "7137 - Sucursal Gral. Rodriguez",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5954,
-      "Nombre_de_EC": "GONZALEZ BENITEZ TAMARA SABRINA VALERIA",
-      "mail": "tgonzalez@provinciamicrocreditos.com",
-      "Sucursal": "5098 - Sucursal Moron",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5957,
-      "Nombre_de_EC": "RIOS ROCIO NATALIA",
-      "mail": "rrios@provinciamicrocreditos.com",
-      "Sucursal": "5040 - Sucursal Hurlingham",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5973,
-      "Nombre_de_EC": "LOPEZ ORIANA GISELLE",
-      "mail": "olopez@provinciamicrocreditos.com",
-      "Sucursal": "5023 - Sucursal Ituzaing\u00f3",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "CASTRILLO LORENA YAEL",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5975,
-      "Nombre_de_EC": "CASTILLO DANIELA",
-      "mail": "dacastillo@provinciamicrocreditos.com",
-      "Sucursal": "4005 - Sucursal Flores",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "MONTEAGUDO RODRIGO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5976,
-      "Nombre_de_EC": "SANTOS CINTIA",
-      "mail": "csantos@provinciamicrocreditos.com",
-      "Sucursal": "5058 - Sucursal Gregorio de Laferrere",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "LEMBEYE VALERIA FERNANDA",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2286,
-      "Nombre_de_EC": "GRATTONI MARIELA",
-      "mail": "mgrattoni@provinciamicrocreditos.com",
-      "Sucursal": "5206 - Sucursal La Plata 2",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2340,
-      "Nombre_de_EC": "QUINTANA PAMELA VALERIA",
-      "mail": "pquintana@provinciamicrocreditos.com",
-      "Sucursal": "5063 - Sucursal Lanus",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 2389,
-      "Nombre_de_EC": "BARONE MARCOS",
-      "mail": "mbarone@provinciamicrocreditos.com",
-      "Sucursal": "5053 - Sucursal La Plata",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5018,
-      "Nombre_de_EC": "HANECK MARTIN EMANUEL",
-      "mail": "mhaneck@provinciamicrocreditos.com",
-      "Sucursal": "5210 - Sucursal Lisandro Olmos",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5022,
-      "Nombre_de_EC": "ROSSETTI LUCAS GERMAN",
-      "mail": "lrossetti@provinciamicrocreditos.com",
-      "Sucursal": "5001 - Sucursal Monte Grande",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5028,
-      "Nombre_de_EC": "CAMBAS CAROLINA",
-      "mail": "ccambas@provinciamicrocreditos.com",
-      "Sucursal": "5068 - Sucursal Lomas",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5029,
-      "Nombre_de_EC": "POSE SOLEDAD",
-      "mail": "spose@provinciamicrocreditos.com",
-      "Sucursal": "5029 - Sucursal Burzaco",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5179,
-      "Nombre_de_EC": "MARTINEZ VERONICA ESTHER",
-      "mail": "vermartinez@provinciamicrocreditos.com",
-      "Sucursal": "5087 - Sucursal Quilmes",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "14",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5253,
-      "Nombre_de_EC": "MAC LOUGHLIN JOS\u00c9 MATIAS",
-      "mail": "jmmacloughlin@provinciamicrocreditos.com",
-      "Sucursal": "5032 - Sucursal Berazategui",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5350,
-      "Nombre_de_EC": "DIAZ GARZON CARLOS ALI",
-      "mail": "cadiaz@provinciamicrocreditos.com",
-      "Sucursal": "5026 - Sucursal Avellaneda",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5584,
-      "Nombre_de_EC": "MARTINO MARIA CECILIA",
-      "mail": "cmartino@provinciamicrocreditos.com",
-      "Sucursal": "5114 - Sucursal Florencio Varela",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "4106-Licencia por 1/2 tr\u00e1mite",
-      "Cant_Dias_Licencia": "1",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5601,
-      "Nombre_de_EC": "LOPEZ PAULA ALEJANDRA",
-      "mail": "plopez@provinciamicrocreditos.com",
-      "Sucursal": "5026 - Sucursal Avellaneda",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5668,
-      "Nombre_de_EC": "FEDAK SEBASTIAN GABRIEL",
-      "mail": "sfedak@provinciamicrocreditos.com",
-      "Sucursal": "5029 - Sucursal Burzaco",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5670,
-      "Nombre_de_EC": "HERNANDEZ FACUNDO NAHUEL",
-      "mail": "fhernandez@provinciamicrocreditos.com",
-      "Sucursal": "5032 - Sucursal Berazategui",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5701,
-      "Nombre_de_EC": "DE VITA YESICA ELIANA",
-      "mail": "yvita@provinciamicrocreditos.com",
-      "Sucursal": "5068 - Sucursal Lomas",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5719,
-      "Nombre_de_EC": "ROLANDO SOFIA NADIA",
-      "mail": "srolando@provinciamicrocreditos.com",
-      "Sucursal": "5063 - Sucursal Lanus",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5751,
-      "Nombre_de_EC": "SOTO ANDREA VANINA",
-      "mail": "asoto@provinciamicrocreditos.com",
-      "Sucursal": "5087 - Sucursal Quilmes",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "21",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5770,
-      "Nombre_de_EC": "GONZALEZ DABOIN ARIANA CAROLINA",
-      "mail": "agonzalez@provinciamicrocreditos.com",
-      "Sucursal": "5063 - Sucursal Lanus",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "4110-Licencias por Enfermedad",
-      "Cant_Dias_Licencia": "14",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5775,
-      "Nombre_de_EC": "MARTELLETTI DALL ASTA ANTONELA",
-      "mail": "amartelletti@provinciamicrocreditos.com",
-      "Sucursal": "5184 - Sucursal Ezeiza",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5819,
-      "Nombre_de_EC": "TORCHIA ANA BELEN",
-      "mail": "atorchia@provinciamicrocreditos.com",
-      "Sucursal": "5206 - Sucursal La Plata 2",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5826,
-      "Nombre_de_EC": "PASCUAL DULCICH LIONEL SANTIAGO",
-      "mail": "lpascual@provinciamicrocreditos.com",
-      "Sucursal": "5068 - Sucursal Lomas",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5828,
-      "Nombre_de_EC": "MUNDO CHAVES STEFANIA SOLEDAD",
-      "mail": "smundo@provinciamicrocreditos.com",
-      "Sucursal": "5068 - Sucursal Lomas",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5849,
-      "Nombre_de_EC": "GARCIA CAMBON NAHUEL FEDERICO",
-      "mail": "ngarcia@provinciamicrocreditos.com",
-      "Sucursal": "7002 - Sucursal Alejandro Korn",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5859,
-      "Nombre_de_EC": "MICUDA CLAUDIO GABRIEL",
-      "mail": "cmicuda@provinciamicrocreditos.com",
-      "Sucursal": "5087 - Sucursal Quilmes",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5876,
-      "Nombre_de_EC": "MALVANO DITRANI LORENA VANINA",
-      "mail": "lmalvano@provinciamicrocreditos.com",
-      "Sucursal": "7002 - Sucursal Alejandro Korn",
-      "Categoria": "C-SS - EC Semi Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5880,
-      "Nombre_de_EC": "UBIETA FERNANDO",
-      "mail": "fubieta@provinciamicrocreditos.com",
-      "Sucursal": "5068 - Sucursal Lomas",
-      "Categoria": "C-SE - EC Senior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "14",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5890,
-      "Nombre_de_EC": "ALLEN JULIETA HUILEN",
-      "mail": "jallen@provinciamicrocreditos.com",
-      "Sucursal": "5053 - Sucursal La Plata",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "3553-Vacaciones",
-      "Cant_Dias_Licencia": "7",
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5939,
-      "Nombre_de_EC": "NEILA MACARENA",
-      "mail": "mneila@provinciamicrocreditos.com",
-      "Sucursal": "5206 - Sucursal La Plata 2",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5940,
-      "Nombre_de_EC": "LOPEZ DANIELA ESTEFANIA",
-      "mail": "dlopez@provinciamicrocreditos.com",
-      "Sucursal": "5026 - Sucursal Avellaneda",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5951,
-      "Nombre_de_EC": "ROLDAN MAXIMILIANO EZEQUIEL",
-      "mail": "mroldan@provinciamicrocreditos.com",
-      "Sucursal": "5114 - Sucursal Florencio Varela",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5971,
-      "Nombre_de_EC": "MONSERRAT CRISTIAN",
-      "mail": "cmonserrat@provinciamicrocreditos.com",
-      "Sucursal": "5001 - Sucursal Monte Grande",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5972,
-      "Nombre_de_EC": "BARRIOS ALAN EXEQUIEL",
-      "mail": "abarrios@provinciamicrocreditos.com",
-      "Sucursal": "5032 - Sucursal Berazategui",
-      "Categoria": "C-JU - EC Junior",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5985,
-      "Nombre_de_EC": "GARCIA CORIA ALEJANDRA SARA",
-      "mail": "agarciacoria@provinciamicrocreditos.com",
-      "Sucursal": "5029 - Sucursal Burzaco",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 5988,
-      "Nombre_de_EC": "MACHADO JAZMIN ANGELES",
-      "mail": "amachado@provinciamicrocreditos.com",
-      "Sucursal": "7002 - Sucursal Alejandro Korn",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "NIEVES GISELLE",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 6008,
-      "Nombre_de_EC": "RABI YANINA GABRIELA",
-      "mail": "yrabi@provinciamicrocreditos.com",
-      "Sucursal": "5184 - Sucursal Ezeiza",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
-    },
-    {
-      "legajo": 6011,
-      "Nombre_de_EC": "BANCES LINARES CAROLINA CYNTHIA",
-      "mail": "cbances@provinciamicrocreditos.com",
-      "Sucursal": "5053 - Sucursal La Plata",
-      "Categoria": "C-JC - EC Junior en Capacitacion",
-      "jefe_a_cargo": "DIAZ ENRIQUE ANTONIO",
-      "Descripcion_Licencias": "",
-      "Cant_Dias_Licencia": 0,
-      "Observaciones": ""
+      "employeeNumber": 2242,
+      "fullName": "TORRICELLI MARIA EUGENIA",
+      "branch": "6443 - Sucursal Chivilcoy",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2263,
+      "fullName": "DIAZ ENRIQUE ANTONIO",
+      "branch": "102 - Subgerencia  Zonal Sur",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2285,
+      "fullName": "GOMEZ MARGARITA",
+      "branch": "7137 - Sucursal Gral. Rodriguez",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2286,
+      "fullName": "GRATTONI MARIELA",
+      "branch": "5206 - Sucursal La Plata 2",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2288,
+      "fullName": "FLORESTA ANDREA PAOLA",
+      "branch": "5003 - Sucursal Caseros",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2340,
+      "fullName": "QUINTANA PAMELA VALERIA",
+      "branch": "5063 - Sucursal Lanus",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2367,
+      "fullName": "MU\u00d1OZ ARIEL FABIAN",
+      "branch": "5097 - Sucursal San Mart\u00edn",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2382,
+      "fullName": "FAROLA AGUSTIN LUCAS",
+      "branch": "104 - Subgerencia Zonal Interior Centro",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2389,
+      "fullName": "BARONE MARCOS",
+      "branch": "5053 - Sucursal La Plata",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2394,
+      "fullName": "CASTRILLO LORENA YAEL",
+      "branch": "100 - Subgerencia Zonal Norte",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2396,
+      "fullName": "MARTURANO RICARDO MARTIN",
+      "branch": "7169 - Sucursal Lujan",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2400,
+      "fullName": "BONAVENA OMAR EMILIO",
+      "branch": "7103 - Sucursal Zarate",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2406,
+      "fullName": "HORMAZABAL MARIA EVANGELINA",
+      "branch": "6599 - Sucursal San Nicolas",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2443,
+      "fullName": "POLESCHI MARIANELA IVANA",
+      "branch": "100 - Subgerencia Zonal Norte",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2446,
+      "fullName": "GUEVARA NAYLA LUDMILA",
+      "branch": "5097 - Sucursal San Mart\u00edn",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2447,
+      "fullName": "CAPRA JESSICA LORENA",
+      "branch": "6599 - Sucursal San Nicolas",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 2459,
+      "fullName": "ROLDAN FATIMA ELIZABETH",
+      "branch": "104 - Subgerencia Zonal Interior Centro",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5012,
+      "fullName": "MONTEAGUDO RODRIGO",
+      "branch": "101 - Subgerencia Zonal Oeste",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5016,
+      "fullName": "COHEN PATRICIO",
+      "branch": "105 - Subgerencia Zonal Interior Sur",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5017,
+      "fullName": "GIULIANI CECILIA TERESA",
+      "branch": "064 - Red de Sucursales",
+      "category": "GZ - Gerente Zonal",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5018,
+      "fullName": "HANECK MARTIN EMANUEL",
+      "branch": "5210 - Sucursal Lisandro Olmos",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5019,
+      "fullName": "LEMBEYE VALERIA FERNANDA",
+      "branch": "101 - Subgerencia Zonal Oeste",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5022,
+      "fullName": "ROSSETTI LUCAS GERMAN",
+      "branch": "5184 - Sucursal Ezeiza",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5027,
+      "fullName": "BARRAZA CELSA ELISABETH",
+      "branch": "076 - Canal Centralizado y Atenci\u00f3n al Cliente",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5028,
+      "fullName": "CAMBAS CAROLINA",
+      "branch": "5068 - Sucursal Lomas",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5055,
+      "fullName": "ROS\u00d3N MARIO LUCIANO",
+      "branch": "7175 - Sucursal Mercedes",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5061,
+      "fullName": "RODRIGUEZ PABLO ANDR\u00c9S",
+      "branch": "5126 - Sucursal Moreno",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5063,
+      "fullName": "LOPEZ KARINA VANESA",
+      "branch": "7185 - Sucursal Pilar",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5070,
+      "fullName": "BACARINI MANUELA MARIA",
+      "branch": "7175 - Sucursal Mercedes",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5071,
+      "fullName": "ECCOS DANIELA ALEJANDRA",
+      "branch": "5040 - Sucursal Hurlingham",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5085,
+      "fullName": "ABDALA VALERIA",
+      "branch": "6584 - Sucursal Pergamino",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5088,
+      "fullName": "DUR\u00c1 FEDERICO ALBERTO",
+      "branch": "6302 - Sucursal Tandil",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5089,
+      "fullName": "BLANCO MAR\u00cdA FERNANDA",
+      "branch": "6302 - Sucursal Tandil",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5090,
+      "fullName": "DEL ARCO CLAUDIA SOLEDAD",
+      "branch": "5118 - Sucursal Merlo",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5110,
+      "fullName": "MEDINA LORENA BEATRIZ",
+      "branch": "5058 - Sucursal Gregorio de Laferrere",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5121,
+      "fullName": "ZANUZZI FLAVIA ROMINA",
+      "branch": "105 - Subgerencia Zonal Interior Sur",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5123,
+      "fullName": "PONCE ALEJANDRA SOLEDAD",
+      "branch": "7159 - Sucursal Escobar",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5124,
+      "fullName": "FIORINI LUCIANO",
+      "branch": "6662 - Sucursal Junin",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5126,
+      "fullName": "ABALOS MARIA SOLEDAD",
+      "branch": "7159 - Sucursal Escobar",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5133,
+      "fullName": "IANNICCO ALEJANDRO NICOLAS",
+      "branch": "5120 - Sucursal San Justo",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5136,
+      "fullName": "CRUCER VICTOR EUGENIO",
+      "branch": "6328 - Sucursal Azul",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5138,
+      "fullName": "REHERMANN JAVIER OSVALDO",
+      "branch": "5055 - Sucursal San Miguel",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5139,
+      "fullName": "TOLEDO VERONICA SOLEDAD",
+      "branch": "5055 - Sucursal San Miguel",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5140,
+      "fullName": "SALVATORE CARLOS REYNALDO",
+      "branch": "6379 - Sucursal Olavarr\u00eda",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5148,
+      "fullName": "CESARI ANALIA BETTINA",
+      "branch": "5183 - Sucursal Villa Insuperable",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5154,
+      "fullName": "VALENTINI MARIA PAULA",
+      "branch": "7136 - Sucursal Campana",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5155,
+      "fullName": "MERLO DONADIO NATALIA LORENA",
+      "branch": "6379 - Sucursal Olavarr\u00eda",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5162,
+      "fullName": "GONZALEZ PATRICIA ALEJANDRA",
+      "branch": "4004 - Sucursal Once",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5163,
+      "fullName": "DIAZ NORMA NOEMI",
+      "branch": "4004 - Sucursal Once",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5177,
+      "fullName": "DIAZ AGUSTINA HEBE",
+      "branch": "7185 - Sucursal Pilar",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5179,
+      "fullName": "MARTINEZ VERONICA ESTHER",
+      "branch": "5087 - Sucursal Quilmes",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5183,
+      "fullName": "GUZZI ADRIANA MARIA",
+      "branch": "7037 - Sucursal Ca\u00f1uelas",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5189,
+      "fullName": "SILVA ANTONELA",
+      "branch": "6531 - Sucursal Baradero",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5190,
+      "fullName": "JENSEN CARINA INES",
+      "branch": "6177 - Sucursal Necochea",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5191,
+      "fullName": "VALENTINI  MARIA LUZ",
+      "branch": "6443 - Sucursal Chivilcoy",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5192,
+      "fullName": "VENTURA LUCIA",
+      "branch": "6229 - Sucursal Bahia Blanca",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5199,
+      "fullName": "ZAPATA FRANCO AYELEN",
+      "branch": "7103 - Sucursal Zarate",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5216,
+      "fullName": "SALOM EMILIA SOLEDAD",
+      "branch": "6734 - Sucursal Bolivar",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5232,
+      "fullName": "BENITEZ ERICA SOLEDAD",
+      "branch": "5018 - Sucursal Jos\u00e9 C Paz",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5233,
+      "fullName": "FRANCELLA  OSVALDO JAVIER",
+      "branch": "4005 - Sucursal Flores",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5236,
+      "fullName": "NEMET LLOPIS JAVIER PABLO",
+      "branch": "6205 - Sucursal Tres Arroyos",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5237,
+      "fullName": "HERNANDEZ OLIVA JOSE GABRIEL",
+      "branch": "7136 - Sucursal Campana",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5240,
+      "fullName": "CABRERA MARIO OSCAR",
+      "branch": "6205 - Sucursal Tres Arroyos",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5245,
+      "fullName": "PAPALEO ROBERTO NAZARENO",
+      "branch": "6734 - Sucursal Bolivar",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5248,
+      "fullName": "VACCANI ALFONSINA",
+      "branch": "6205 - Sucursal Tres Arroyos",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5250,
+      "fullName": "ARAUJO PRISCILA MARIA NOELIA",
+      "branch": "4011 - Sucursal Chacarita",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5251,
+      "fullName": "NAVARRO HECTOR RICARDO",
+      "branch": "4010 - Sucursal Parque Patricios",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5253,
+      "fullName": "MAC LOUGHLIN JOS\u00c9 MATIAS",
+      "branch": "5032 - Sucursal Berazategui",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5258,
+      "fullName": "CASTELUCCI FABRICIO OSCAR",
+      "branch": "6531 - Sucursal Baradero",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5260,
+      "fullName": "MU\u00d1OZ LEONARDO ARIEL",
+      "branch": "064 - Red de Sucursales",
+      "category": "GZ - Gerente Zonal",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5263,
+      "fullName": "AHAMENDABURU MARIA LUZ",
+      "branch": "7037 - Sucursal Ca\u00f1uelas",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5271,
+      "fullName": "STABILE DAVID",
+      "branch": "5126 - Sucursal Moreno",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5272,
+      "fullName": "ZUCHINI  CINTIA NOELIA",
+      "branch": "6443 - Sucursal Chivilcoy",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5282,
+      "fullName": "AIUB YAMILA BEL\u00c9N",
+      "branch": "6584 - Sucursal Pergamino",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5294,
+      "fullName": "CLERGUE EMILIANO",
+      "branch": "105 - Subgerencia Zonal Interior Sur",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5295,
+      "fullName": "CIANCAGLINI AGUSTIN",
+      "branch": "6302 - Sucursal Tandil",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5299,
+      "fullName": "VELILLA OROZCO AUGUSTO JOSE",
+      "branch": "4010 - Sucursal Parque Patricios",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5329,
+      "fullName": "MIGUENS   MARTIN ARIEL",
+      "branch": "4013 - Sucursal Mataderos",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5350,
+      "fullName": "DIAZ GARZON CARLOS ALI",
+      "branch": "5026 - Sucursal Avellaneda",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5353,
+      "fullName": "SOLODUJIN MARIELA NOEMI",
+      "branch": "6704 - Sucursal Trenque Lauquen",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5356,
+      "fullName": "ARRUBE MARIA LAURA",
+      "branch": "6990 - Sucursal Villa Gesell",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5362,
+      "fullName": "ALLENDE MARIA ALEJANDRA",
+      "branch": "6584 - Sucursal Pergamino",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5374,
+      "fullName": "ROLANDO MARIELA LUJAN",
+      "branch": "6531 - Sucursal Baradero",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5380,
+      "fullName": "COSTILLA VIRGINIA SOLEDAD",
+      "branch": "7102 - Sucursal Gar\u00edn",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5392,
+      "fullName": "SISTER CARLOS MANUEL",
+      "branch": "7159 - Sucursal Escobar",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5399,
+      "fullName": "ALONSO ADRIANA",
+      "branch": "7037 - Sucursal Ca\u00f1uelas",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5400,
+      "fullName": "PONCHIONE YESICA IVANA",
+      "branch": "6177 - Sucursal Necochea",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5412,
+      "fullName": "ZUBELDIA PAOLA MARIEL",
+      "branch": "6478 - Sucursal 9 de Julio",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5429,
+      "fullName": "STROPPIANA MELISA",
+      "branch": "6441 - Sucursal Chacabuco",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5455,
+      "fullName": "LACOSTE MARCOS SEBASTIAN",
+      "branch": "5118 - Sucursal Merlo",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5464,
+      "fullName": "I\u00d1IGUEZ CYNTHIA NOEMI",
+      "branch": "5040 - Sucursal Hurlingham",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5484,
+      "fullName": "SPANEVELLO ELIANA MARIA",
+      "branch": "7101 - Sucursal Marcos Paz",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5487,
+      "fullName": "ANDERSCH ARIEL HERNAN",
+      "branch": "6847 - Sucursal Coronel Suarez",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5488,
+      "fullName": "SIRONI MARIA EUGENIA",
+      "branch": "7175 - Sucursal Mercedes",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5490,
+      "fullName": "STREITENBERGER FLORENCIA",
+      "branch": "6847 - Sucursal Coronel Suarez",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5493,
+      "fullName": "BERNAY NATALIA",
+      "branch": "4010 - Sucursal Parque Patricios",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5498,
+      "fullName": "BERTHET SHEILA MARILYN",
+      "branch": "6949 - Sucursal Dolores",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5502,
+      "fullName": "CORTEZ MONICA EDITH",
+      "branch": "5120 - Sucursal San Justo",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5517,
+      "fullName": "CAVO JOSE IGNACIO",
+      "branch": "6662 - Sucursal Junin",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5520,
+      "fullName": "SANCHEZ PENINO MARTIN MIGUEL",
+      "branch": "6990 - Sucursal Villa Gesell",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5524,
+      "fullName": "GARCIA FLORENCIA NOELIA",
+      "branch": "7184 - Sucursal Del Viso",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5533,
+      "fullName": "MARCHI ESTEBAN EMANUEL",
+      "branch": "6901 - Sucursal Santa Teresita",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5555,
+      "fullName": "ZAPATA FRANCO AILIN ABIGAIL",
+      "branch": "7103 - Sucursal Zarate",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5561,
+      "fullName": "REQUEJO LUPO MARIA",
+      "branch": "5014 - Sucursal Bellavista",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5562,
+      "fullName": "ALVIDE DIEGO OSCAR",
+      "branch": "5153 - Sucursal Munro",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5563,
+      "fullName": "LOPEZ YANINA LUJAN",
+      "branch": "6130 - Sucursal Balcarce",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5564,
+      "fullName": "ZUCHINI LUCIANA MICAELA",
+      "branch": "7092 - Sucursal Saladillo",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5565,
+      "fullName": "SERRITELLA ANALIA SOLEDAD",
+      "branch": "6130 - Sucursal Balcarce",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5567,
+      "fullName": "GONZALEZ LUCIANA ANDREA",
+      "branch": "7101 - Sucursal Marcos Paz",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5576,
+      "fullName": "DIAZ MERLINA LUCIA",
+      "branch": "7169 - Sucursal Lujan",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5583,
+      "fullName": "GRAND EMILIANO JUAN",
+      "branch": "5118 - Sucursal Merlo",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5584,
+      "fullName": "MARTINO MARIA CECILIA",
+      "branch": "5114 - Sucursal Florencio Varela",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5596,
+      "fullName": "ACOSTA MARIA BELEN",
+      "branch": "7067 - Sucursal Lobos",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5597,
+      "fullName": "RICOTTA ANALIA BEATRIZ",
+      "branch": "7067 - Sucursal Lobos",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5598,
+      "fullName": "PEREZ ESTEFANIA",
+      "branch": "104 - Subgerencia Zonal Interior Centro",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5601,
+      "fullName": "LOPEZ PAULA ALEJANDRA",
+      "branch": "5026 - Sucursal Avellaneda",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5614,
+      "fullName": "NIEVES GISELLE",
+      "branch": "100 - Subgerencia Zonal Norte",
+      "category": "JC - Jefatura Comercial",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5619,
+      "fullName": "MU\u00d1OZ LUDMILA",
+      "branch": "6665 - Sucursal Lincoln",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5642,
+      "fullName": "CHAMI GISELA",
+      "branch": "6662 - Sucursal Junin",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5645,
+      "fullName": "HABERLE ALBANA NOEMI",
+      "branch": "5018 - Sucursal Jos\u00e9 C Paz",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5648,
+      "fullName": "PINCIN YANINA ANTONELA",
+      "branch": "5014 - Sucursal Bellavista",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5649,
+      "fullName": "ALANIZ BARBARA JOSELINA",
+      "branch": "5012 - Sucursal Boulogne",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5650,
+      "fullName": "BUZEME CINTIA LORENA",
+      "branch": "5003 - Sucursal Caseros",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5655,
+      "fullName": "CASTA\u00d1O CAMILA BELEN",
+      "branch": "4013 - Sucursal Mataderos",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5664,
+      "fullName": "VARELA LAURA NORMA",
+      "branch": "5010 - Sucursal Isidro Casanova",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5665,
+      "fullName": "CASTILLO MARIA LOURDES",
+      "branch": "5183 - Sucursal Villa Insuperable",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5668,
+      "fullName": "FEDAK SEBASTIAN GABRIEL",
+      "branch": "5029 - Sucursal Burzaco",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5670,
+      "fullName": "HERNANDEZ FACUNDO NAHUEL",
+      "branch": "5032 - Sucursal Berazategui",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5673,
+      "fullName": "ALAO MELANY DAIANA",
+      "branch": "6572 - Sucursal Salto",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5682,
+      "fullName": "GARCIA ANA PAULA",
+      "branch": "6229 - Sucursal Bahia Blanca",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5683,
+      "fullName": "SALIN SILVANA ALEJANDRA",
+      "branch": "6177 - Sucursal Necochea",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5701,
+      "fullName": "DE VITA YESICA ELIANA",
+      "branch": "5068 - Sucursal Lomas",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5708,
+      "fullName": "BLANCO JIMENA YANEL",
+      "branch": "6229 - Sucursal Bahia Blanca",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5710,
+      "fullName": "CALDERAN FRANCO LUCIANO SALVADOR",
+      "branch": "6478 - Sucursal 9 de Julio",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5719,
+      "fullName": "ROLANDO SOFIA NADIA",
+      "branch": "5063 - Sucursal Lanus",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5725,
+      "fullName": "FERNANDEZ EMILIANO",
+      "branch": "072 - BI y Gesti\u00f3n Estrat\u00e9gica",
+      "category": "SG - Subgerente",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5728,
+      "fullName": "TODARO LAURA LILIANA",
+      "branch": "6300 - Sucursal Tandil Villa Italia",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5731,
+      "fullName": "KONDRATIUK SKOREWSKI EVELYN NOELI",
+      "branch": "6901 - Sucursal Santa Teresita",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5732,
+      "fullName": "GIMENEZ ARANDA MARIA SOLEDAD",
+      "branch": "7072 - Sucursal Navarro",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5741,
+      "fullName": "UVIEDO AGOSTINA AILEN",
+      "branch": "6949 - Sucursal Dolores",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5751,
+      "fullName": "SOTO ANDREA VANINA",
+      "branch": "5087 - Sucursal Quilmes",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5756,
+      "fullName": "AGUIRRE AGUSTINA BELEN",
+      "branch": "6300 - Sucursal Tandil Villa Italia",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5761,
+      "fullName": "GREGORI MARTIN EDUARDO",
+      "branch": "5008 - Sucursal Pacheco",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5770,
+      "fullName": "GONZALEZ DABOIN ARIANA CAROLINA",
+      "branch": "5063 - Sucursal Lanus",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5773,
+      "fullName": "RONCONI MERCAU ROCIO",
+      "branch": "7169 - Sucursal Lujan",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5775,
+      "fullName": "MARTELLETTI DALL ASTA ANTONELA",
+      "branch": "6106 - Sucursal Mar del Plata El Gaucho",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5789,
+      "fullName": "VARELA CARLA MARISA",
+      "branch": "5012 - Sucursal Boulogne",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5795,
+      "fullName": "SALLERES MONTERO ROXANA ALICIA",
+      "branch": "5138 - Sucursal Tigre",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5796,
+      "fullName": "ACOSTA RUBEN DARIO",
+      "branch": "7137 - Sucursal Gral. Rodriguez",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5797,
+      "fullName": "BENGOCHEA MARIA FLORENCIA",
+      "branch": "7169 - Sucursal Lujan",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5800,
+      "fullName": "BLANCO YAMILA LAURA",
+      "branch": "5144 - Sucursal Grand Bourg",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5803,
+      "fullName": "ROJAS JARAMILLO CARMEN EUGENIA",
+      "branch": "070 - Compliance y Procesos",
+      "category": "SG - Subgerente",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5817,
+      "fullName": "MURGIA VALERIA JOSEFINA",
+      "branch": "6599 - Sucursal San Nicolas",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5819,
+      "fullName": "TORCHIA ANA BELEN",
+      "branch": "5206 - Sucursal La Plata 2",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5822,
+      "fullName": "CORIA WALTER RODRIGO",
+      "branch": "5008 - Sucursal Pacheco",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5826,
+      "fullName": "PASCUAL DULCICH LIONEL SANTIAGO",
+      "branch": "5068 - Sucursal Lomas",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5828,
+      "fullName": "MUNDO CHAVES STEFANIA SOLEDAD",
+      "branch": "5068 - Sucursal Lomas",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5834,
+      "fullName": "SAGARI NATALIA ROMINA",
+      "branch": "5055 - Sucursal San Miguel",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5836,
+      "fullName": "NAVARRO MARIA FLORENCIA",
+      "branch": "5118 - Sucursal Merlo",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5837,
+      "fullName": "GUARDIA YULIANA ANABEL",
+      "branch": "5126 - Sucursal Moreno",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5839,
+      "fullName": "CAPRARA MARIANA",
+      "branch": "5120 - Sucursal San Justo",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5844,
+      "fullName": "LICEAGA DEBORA",
+      "branch": "6100 - Sucursal Mar del Plata-Luro",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5849,
+      "fullName": "GARCIA CAMBON NAHUEL FEDERICO",
+      "branch": "7002 - Sucursal Alejandro Korn",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5850,
+      "fullName": "GONZALEZ NATALIA VANINA",
+      "branch": "5010 - Sucursal Isidro Casanova",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5853,
+      "fullName": "VANNUCCHI DINA SHIRLEY",
+      "branch": "5138 - Sucursal Tigre",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5854,
+      "fullName": "ROMERO MACARENA ABIGAIL",
+      "branch": "5144 - Sucursal Grand Bourg",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5855,
+      "fullName": "BEASCOECHEA GONZALO XAVIER",
+      "branch": "5097 - Sucursal San Mart\u00edn",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5856,
+      "fullName": "MENDIZABAL MARTIN",
+      "branch": "102 - Subgerencia  Zonal Sur",
+      "category": "JCC - Jefatura Coordinadora",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5859,
+      "fullName": "MICUDA CLAUDIO GABRIEL",
+      "branch": "5087 - Sucursal Quilmes",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5863,
+      "fullName": "GALLEGO OREGUI MARIA SOLEDAD",
+      "branch": "6202 - Sucursal Bahia Blanca 3 Almafuerte",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5866,
+      "fullName": "LAFALCE MATIAS ARIEL",
+      "branch": "6100 - Sucursal Mar del Plata-Luro",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5873,
+      "fullName": "GONZALEZ LOPEZ NADIA SABRINA",
+      "branch": "6200 - Sucursal Bahia Blanca 2",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5876,
+      "fullName": "MALVANO DITRANI LORENA VANINA",
+      "branch": "7002 - Sucursal Alejandro Korn",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5879,
+      "fullName": "BASABE JUAN GABRIEL",
+      "branch": "7134 - Sucursal Capilla del Se\u00f1or",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5880,
+      "fullName": "UBIETA FERNANDO",
+      "branch": "5068 - Sucursal Lomas",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5884,
+      "fullName": "CABANES GABRIELA GISELE",
+      "branch": "5126 - Sucursal Moreno",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5886,
+      "fullName": "BELLANZA FABIAN CESAR",
+      "branch": "5098 - Sucursal Moron",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5892,
+      "fullName": "DE GIACOMO CAROLINA",
+      "branch": "6584 - Sucursal Pergamino",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5894,
+      "fullName": "RODRIGUEZ MARIA VIRGINIA",
+      "branch": "7092 - Sucursal Saladillo",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5895,
+      "fullName": "CABA\u00d1AS NOELIA RAQUEL",
+      "branch": "5129 - Sucursal Ramos Mej\u00eda",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5900,
+      "fullName": "PARRONDO SOFIA AYELEN",
+      "branch": "5080 - Sucursal Olivos",
+      "category": "C-SE - EC Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5901,
+      "fullName": "PIEDRABUENA ARIEL ALBERTO",
+      "branch": "5095 - Sucursal San Fernando",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5902,
+      "fullName": "BENITEZ VANINA ALEJANDRA",
+      "branch": "5055 - Sucursal San Miguel",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5914,
+      "fullName": "KARAWAN DOS SANTOS NATALI ELISABETH",
+      "branch": "7137 - Sucursal Gral. Rodriguez",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5919,
+      "fullName": "ESPOSITO CINTHIA GABRIELA",
+      "branch": "5095 - Sucursal San Fernando",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5920,
+      "fullName": "RODRIGUEZ MERCEDES ELENA",
+      "branch": "6704 - Sucursal Trenque Lauquen",
+      "category": "C-SS - EC Semi Senior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5922,
+      "fullName": "ESPINOSA MATIAS EMANUEL",
+      "branch": "6990 - Sucursal Villa Gesell",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5939,
+      "fullName": "NEILA MACARENA",
+      "branch": "5053 - Sucursal La Plata ",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5940,
+      "fullName": "LOPEZ DANIELA ESTEFANIA",
+      "branch": "5026 - Sucursal Avellaneda",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5951,
+      "fullName": "ROLDAN MAXIMILIANO EZEQUIEL",
+      "branch": "5114 - Sucursal Florencio Varela",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5954,
+      "fullName": "GONZALEZ BENITEZ TAMARA SABRINA VALERIA",
+      "branch": "5098 - Sucursal Moron",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5957,
+      "fullName": "RIOS ROCIO NATALIA",
+      "branch": "5040 - Sucursal Hurlingham",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5959,
+      "fullName": "PICCHIO FERNANDO GABRIEL",
+      "branch": "5080 - Sucursal Olivos",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5968,
+      "fullName": "STRADA DAIANA",
+      "branch": "6190 - Sucursal Mar del Plata 2-Martillo",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5970,
+      "fullName": "VILLAFRANCA AGUST\u00cdN",
+      "branch": "6190 - Sucursal Mar del Plata 2-Martillo",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5971,
+      "fullName": "MONSERRAT CRISTIAN",
+      "branch": "5001 - Sucursal Monte Grande",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5972,
+      "fullName": "BARRIOS ALAN EXEQUIEL",
+      "branch": "5032 - Sucursal Berazategui",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5973,
+      "fullName": "LOPEZ ORIANA GISELLE",
+      "branch": "5023 - Sucursal Ituzaing\u00f3",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5975,
+      "fullName": "CASTILLO DANIELA",
+      "branch": "4005 - Sucursal Flores",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5976,
+      "fullName": "SANTOS CINTIA",
+      "branch": "5058 - Sucursal Gregorio de Laferrere",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5979,
+      "fullName": "DORTONA JAZMIN",
+      "branch": "6406 - Sucursal 25 de Mayo",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5981,
+      "fullName": "BONFIGLI ANA PAULA",
+      "branch": "6782 - Sucursal Pehuaj\u00f3",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5985,
+      "fullName": "GARCIA CORIA ALEJANDRA SARA",
+      "branch": "5029 - Sucursal Burzaco",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5986,
+      "fullName": "GOMEZ ANA LAURA",
+      "branch": "7185 - Sucursal Pilar",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5988,
+      "fullName": "MACHADO JAZMIN ANGELES",
+      "branch": "5001 - Sucursal Monte Grande",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5989,
+      "fullName": "COTRONEO PAROLIN DAIANA",
+      "branch": "6902 - Sucursal Mar de Aj\u00f3",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5990,
+      "fullName": "CALLAU FLORENCIA AGUSTINA",
+      "branch": "6100 - Sucursal Mar del Plata-Luro",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5991,
+      "fullName": "PIRRO NAYLA YANET",
+      "branch": "6189 - Sucursal Mar del Plata Independencia",
+      "category": "C-JU - EC Junior",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 5999,
+      "fullName": "BARTOLOME SAMANTA CINTIA",
+      "branch": "5114 - Sucursal Florencio Varela",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6000,
+      "fullName": "FICICCHIA PAMELA",
+      "branch": "7194 - Sucursal San Antonio de Areco",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6002,
+      "fullName": "RASO MARIANELA",
+      "branch": "6572 - Sucursal Salto",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6003,
+      "fullName": "ORO\u00d1O JUAN CRUZ",
+      "branch": "6738 - Sucursal Carlos Casares",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6004,
+      "fullName": "GIOIA PAULINA",
+      "branch": "7064 - Sucursal Las Flores",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6005,
+      "fullName": "GOTTE LEONARDO MARTIN",
+      "branch": "6328 - Sucursal Azul",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6006,
+      "fullName": "LOPEZ GUADALUPE INES",
+      "branch": "5012 - Sucursal Boulogne",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6007,
+      "fullName": "DOMENCH DAIANA",
+      "branch": "7184 - Sucursal Del Viso",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6008,
+      "fullName": "RABI YANINA GABRIELA",
+      "branch": "5184 - Sucursal Ezeiza",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6009,
+      "fullName": "LEAL MARIA ELENA",
+      "branch": "7102 - Sucursal Gar\u00edn",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6010,
+      "fullName": "ZANETTA ESTEBAN ALEXIS",
+      "branch": "7013 - Sucursal San Miguel del Monte",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6011,
+      "fullName": "BANCES LINARES CAROLINA CYNTHIA",
+      "branch": "5053 - Sucursal La Plata",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6016,
+      "fullName": "HERRERA LILIANA SOLEDAD",
+      "branch": "5003 - Sucursal Caseros",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6017,
+      "fullName": "NUNES BISPO PAOLA SOLEDAD",
+      "branch": "5010 - Sucursal Isidro Casanova",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6018,
+      "fullName": "NAVARRO JULIAN",
+      "branch": "5087 - Sucursal Quilmes",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6019,
+      "fullName": "BARRIENTOS JOHANA EDITH",
+      "branch": "5058 - Sucursal Gregorio de Laferrere",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6020,
+      "fullName": "CENTURION MARIANELA",
+      "branch": "5029 - Sucursal Burzaco",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6021,
+      "fullName": "MORAGA DANIELA SOLEDAD",
+      "branch": "5068 - Sucursal Lomas",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6022,
+      "fullName": "VARRETTO IGNACIO",
+      "branch": "6229 - Sucursal Bahia Blanca",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6023,
+      "fullName": "FIORE MELINA DANIELA",
+      "branch": "5003 - Sucursal Caseros",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6024,
+      "fullName": "GRANADA CALABRES I\u00d1AKI",
+      "branch": "4005 - Sucursal Flores",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6025,
+      "fullName": "MORENO MARIA VICTORIA",
+      "branch": "5129 - Sucursal Ramos Mej\u00eda",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6027,
+      "fullName": "CORTEZ MARIA FERNANDA",
+      "branch": "5053 - Sucursal La Plata",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6028,
+      "fullName": "SCHIANO JOHANA SOLEDAD",
+      "branch": "5114 - Sucursal Florencio Varela",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6029,
+      "fullName": "ITURRALDE ROCIO MANUELA",
+      "branch": "5210 - Sucursal Lisandro Olmos",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6030,
+      "fullName": "DORSI FRANCO",
+      "branch": "4011 - Sucursal Chacarita",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6031,
+      "fullName": "AGUILAR EMMANUEL CRISTOBAL",
+      "branch": "4004 - Sucursal Once",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6032,
+      "fullName": "BENEFU MAGALI",
+      "branch": "6379 - Sucursal Olavarr\u00eda",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
+    },
+    {
+      "employeeNumber": 6033,
+      "fullName": "VILLAR DAIANA SOLANGE",
+      "branch": "5096 - Sucursal San Isidro",
+      "category": "C-JC - EC Junior en Capacitacion",
+      "Observations": ""
     }
   ]
 }

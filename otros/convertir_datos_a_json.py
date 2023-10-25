@@ -14,4 +14,4 @@ def csv_to_json(csv_file, json_file):
     except Exception as er:
         print(er)
 
-csv_to_json('datos.csv', 'datos.json')
+csv_to_json('otros/datos.csv', 'otros/datos.json')

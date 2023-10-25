@@ -1,14 +1,16 @@
 {% extends 'partials/layout.html' %}
 
 {% block body %}
-<form action="{{ url_for('edit_observacion', legajo=usuario.legajo) }}" method="POST">    
+<form action="{{ url_for('edit_observacion', legajo=observacion_actual.employeeNumber) }}" method="POST">    
     <div class="form-group">
-        <h1> Quieres agregar una observacion para: </h1> <h2>{{ usuario.Nombre_de_EC }}</h2>        
+        <h1> Queres agregar una observacion para: </h1> <h2>{{ observacion_actual.fullName }}</h2>        
     </div>
+    <br>
     <div class="form-group">
         <label for="Observaciones" class="align-middle">Observación:</label>
-        <textarea id="Observaciones" name="Observaciones" rows="3" cols="80"></textarea>
+        <textarea id="Observaciones" name="Observaciones" rows="3" cols="80">{{ observacion_actual.Observations }}</textarea>
     </div>
+    <br>
     <div class="form-group">
         <button type="submit" class="btn btn-outline-primary">Guardar Observaciones</button>
     </div>

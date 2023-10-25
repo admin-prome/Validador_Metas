@@ -1,43 +1,18 @@
 {% extends 'partials/layout.html' %}
 
 {% block body %}
-<form action="/nomina" method="POST">
-  <div class="mt-3 mb-3">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="form-group">
-          <select class="form-control" name="user">
-            <option>Seleccione Jefe Zonal</option>
-            <option>FAROLA AGUSTIN LUCAS</option>
-            <option>ROLDAN FATIMA ELIZABETH</option>
-            <option>PEREZ ESTEFANIA</option>
-            <option>COHEN PATRICIO</option>
-            <option>ZANUZZI FLAVIA ROMINA</option>
-            <option>CASTRILLO LORENA YAEL</option>
-            <option>POLESCHI MARIANELA IVANA</option>
-            <option>NIEVES GISELLE</option>
-            <option>MONTEAGUDO RODRIGO</option>
-            <option>LEMBEYE VALERIA FERNANDA</option>
-            <option>DIAZ ENRIQUE ANTONIO</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <button type="submit" class="btn btn-warning">Seleccionar</button>
-      </div>
-    </div>
-  </div>
-</form>
+
+<br>
+<h1>Nomina</h1>
+<hr>
 <div class="table-responsive" style="max-height: 430px; overflow: auto;">
   <table class="table table-bordered border-primary table-hover">
     <thead class="thead-dark table-primary">
       <tr>
         <th class="sticky-top text-nowrap">legajo</th>
         <th class="sticky-top text-nowrap">Nombre EC</th>
-        <!-- <th class="sticky-top text-nowrap">Mail</th> -->
         <th class="sticky-top text-nowrap">Sucursal</th>
         <th class="sticky-top text-nowrap">Categoria</th>
-        <th class="sticky-top text-nowrap">Jefe a Cargo</th>
         <th class="sticky-top text-nowrap">meta Q Mes 1</th>
         <th class="sticky-top text-nowrap">meta Q Mes 2</th>
         <th class="sticky-top text-nowrap">Meta $ mes 1</th>
@@ -59,32 +34,30 @@
     <tbody>
       {% for user in nomina %}
       <tr>
-        <td class="text-nowrap">{{ user.legajo }}</td>
-        <td class="text-nowrap">{{ user.Nombre_de_EC }}</td>
-        <!-- <td class="text-nowrap">{{ user.mail }}</td> -->
-        <td class="text-nowrap">{{ user.Sucursal }}</td>
-        <td class="text-nowrap">{{ user.Categoria }}</td>
-        <td class="text-nowrap">{{ user.jefe_a_cargo }}</td>
-        <td class="text-nowrap">{{ get_meta_q(user.Categoria) / 2 }}</td>
-        <td class="text-nowrap">{{ get_meta_q(user.Categoria) / 2 }}</td>
-        <td class="text-nowrap">$ {{ get_meta_monto(user.Categoria) / 2 }}</td>
-        <td class="text-nowrap">$ {{ get_meta_monto(user.Categoria) / 2 }}</td>
-        <td class="text-nowrap">{{ descripcion_licencias(user.legajo) }}</td>
-        <td class="text-nowrap">{{ cantidad_licencias(user.legajo) }}</td>
-        <td class="text-nowrap">{{ has_special_licence(user.legajo) }}</td>
-        <td class="text-nowrap">{{ has_special_licences_days(user.legajo) }}</td>
-        <td class="text-nowrap">{{ is_tutor(user.legajo) }}</td>
-        <td class="text-nowrap">{{ has_progresiones(user.legajo) }}</td>
-        <td class="text-nowrap">{{ ajuste_meta_q_mes_uno(user.Categoria, user.legajo) }}</td>
-        <td class="text-nowrap">{{ ajuste_meta_q_mes_dos(user.Categoria, user.legajo) }}</td>
-        <td class="text-nowrap">$ {{ ajuste_meta_monto_m1(user.Categoria, user.legajo) }}</td>
-        <td class="text-nowrap">$ {{ ajuste_meta_monto_m2(user.Categoria, user.legajo) }}</td>
-        <td class="text-nowrap">{{ user.Observaciones }}</td>
+        <td class="text-nowrap">{{ user.employeeNumber }}</td>
+        <td class="text-nowrap">{{ user.fullName }}</td>
+        <td class="text-nowrap">{{ user.branch }}</td>
+        <td class="text-nowrap">{{ user.category }}</td>
+        <td class="text-nowrap">{{ get_meta_q(user.category) }}</td>
+        <td class="text-nowrap">{{ get_meta_q(user.category) }}</td>
+        <td class="text-nowrap">$ {{ get_meta_monto(user.category) }}</td>
+        <td class="text-nowrap">$ {{ get_meta_monto(user.category) }}</td>
+        <td class="text-nowrap">{{ descripcion_licencias(user.employeeNumber) }}</td>
+        <td class="text-nowrap">{{ cantidad_licencias(user.employeeNumber) }}</td>
+        <td class="text-nowrap">{{ has_special_licence(user.employeeNumber) }}</td>
+        <td class="text-nowrap">{{ has_special_licences_days(user.employeeNumber) }}</td>
+        <td class="text-nowrap">{{ is_tutor(user.employeeNumber) }}</td>
+        <td class="text-nowrap">{{ has_progresiones(user.employeeNumber) }}</td>
+        <td class="text-nowrap">{{ ajuste_meta_q_mes_uno(user.category, user.employeeNumber) }}</td>
+        <td class="text-nowrap">{{ ajuste_meta_q_mes_dos(user.category, user.employeeNumber) }}</td>
+        <td class="text-nowrap">$ {{ ajuste_meta_monto_m1(user.category, user.employeeNumber) }}</td>
+        <td class="text-nowrap">$ {{ ajuste_meta_monto_m2(user.category, user.employeeNumber) }}</td>
+        <td class="text-nowrap">{{ user.Observations }}</td>
         <td class="text-nowrap">
           <div class="button-group">
-            <a href="{{ url_for('edit_observacion', legajo=user.legajo) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="{{ url_for('edit_observacion', legajo=user.employeeNumber) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
             <form action="{{ url_for('delete_observacion') }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este Comentario?');">
-              <input type="hidden" name="legajo" value="{{ user.legajo }}">
+              <input type="hidden" name="legajo" value="{{ user.employeeNumber }}">
               <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
             </form>
           </div>

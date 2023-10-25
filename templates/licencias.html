@@ -8,35 +8,29 @@
       <tr>
         <th class="sticky-top text-nowrap">Legajo</th>
         <th class="sticky-top text-nowrap">Nombre EC</th>
-        <th class="sticky-top text-nowrap">Licencias</th>
         <th class="sticky-top text-nowrap">Descripcion</th>
         <th class="sticky-top text-nowrap">desde</th>
         <th class="sticky-top text-nowrap">hasta</th>
         <th class="sticky-top text-nowrap">Cant. Días Filtro</th>
         <th class="sticky-top text-nowrap">Cant. Días Licenc.</th>
-        <th class="sticky-top text-nowrap">Ajustes 1-1</th>
-        <th class="sticky-top text-nowrap">Ajustes 2-1</th>
       </tr>
     </thead>
     <tbody>
-      {% for user in licenses %}
+      {% for user in licencias %}
       <tr>
-        <td class="text-nowrap">{{ user.legajo }}</td>
-        <td class="text-nowrap">{{ user.Nombre_de_EC }}</td>
-        <td class="text-nowrap">{{ user.Licencias }}</td>
-        <td class="text-nowrap">{{ user.Descripcion_Licencias }}</td>
-        <td class="text-nowrap">{{ user.Desde }}</td>
-        <td class="text-nowrap">{{ user.Hasta }}</td>
-        <td class="text-nowrap">{{ user.Cant_dias_filtro }}</td>
-        <td class="text-nowrap">{{ user.Cant_Dias_Licencia }}</td>
-        <td class="text-nowrap">{{ user.Ajustes_1_1 }}</td>
-        <td class="text-nowrap">{{ user.Ajustes_2_1 }}</td>      
+        <td class="text-nowrap">{{ user.employeeNumber }}</td>
+        <td class="text-nowrap">{{ user.fullName }}</td>
+        <td class="text-nowrap">{{ user.descriptions }}</td>
+        <td class="text-nowrap">{{ user.startDay }}</td>
+        <td class="text-nowrap">{{ user.endDay }}</td>
+        <td class="text-nowrap">{{ user.filterDays }}</td>
+        <td class="text-nowrap">{{ user.licenseDays }}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
-<p><b>Número total de registros: {{ licenses|length }}</p>
+<p><b>Número total de registros: {{ licencias|length }}</p>
 <div class="container mt-3">
   <div class="row">
     <div class="col">

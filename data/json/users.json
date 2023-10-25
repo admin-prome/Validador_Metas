@@ -1,20 +1,6 @@
 {
   "Users": [
     {
-      "legajo": 5017,
-      "nombre": "GIULIANI CECILIA TERESA",
-      "mail": "cgiuliani@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 5260,
-      "nombre": "MU\u00d1OZ LEONARDO ARIEL",
-      "mail": "leomunoz@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
       "legajo": 2382,
       "nombre": "FAROLA AGUSTIN LUCAS",
       "mail": "afarola@provinciamicrocreditos.com",

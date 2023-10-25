@@ -1,10 +1,16 @@
 import json
 import os
+import pandas as pd
+from utils.metas import *
+from utils.jefe_zonal import *
+from utils.update import *
+from db.conection import DatabaseConnection 
 from flask import Flask, redirect, render_template, request, send_file, session, url_for
 from datetime import datetime
 from dotenv import load_dotenv
 from openpyxl import Workbook
-from openpyxl.styles import Font, PatternFill
+from openpyxl.styles import Font, PatternFill, Color
+from openpyxl.utils import get_column_letter
 
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(env_path)
@@ -14,51 +20,46 @@ def export_to_excel(nomina_data):
     wb = Workbook()
     ws = wb.active
     bold_font = Font(bold=True)
-    fill = PatternFill(start_color="9ACD32", end_color="9ACD32", fill_type="solid")
-    columns = ["Legajo", "Nombre EC", "Mail", "Sucursal", "Categoria", "Jefe a Cargo", "meta Q Mes 1", "meta Q Mes 2", "Meta $ mes 1", "Meta $ mes 2", "Descripción Licencias", "Cant Dias Licenc", "Licencias Especiales", "Cant. Dias Lice. Esp.", "es tutor", "Tiene Progresion", "Ajuste Q mes 1", "Ajuste Q mes 2", "Ajuste Monto mes 1", "Ajuste Monto mes 2", "Observaciones"]
+    light_green = Color(rgb="C6EFCE")
+    fill = PatternFill(start_color=light_green, end_color=light_green, fill_type="solid")
+    columns = ["Legajo", "Nombre EC", "Sucursal", "Categoria", "meta Q Mes 1", "meta Q Mes 2", "Meta $ mes 1", "Meta $ mes 2", "Descripción Licencias", "Cant Dias Licenc", "Licencias Especiales", "Cant. Dias Lice. Esp.", "es tutor", "Tiene Progresion", "Ajuste Q mes 1", "Ajuste Q mes 2", "Ajuste Monto mes 1", "Ajuste Monto mes 2", "Observaciones"]
     for col_num, column_title in enumerate(columns, 1):
         cell = ws.cell(row=1, column=col_num, value=column_title)
         cell.font = bold_font
         cell.fill = fill
     for user in nomina_data:
         row_data = [
-            user.get("legajo", ""),
-            user.get("Nombre_de_EC", ""),
-            # user.get("mail", ""),
-            user.get("Sucursal", ""),
-            user.get("Categoria", ""),
-            user.get("jefe_a_cargo", ""),
-            get_meta_q(user.get("Categoria", "")) / 2,
-            get_meta_q(user.get("Categoria", "")) / 2,
-            get_meta_monto(user.get("Categoria", "")) / 2,
-            get_meta_monto(user.get("Categoria", "")) / 2,
-            descripcion_licencias(user.get("legajo", "")),
-            cantidad_licencias(user.get("legajo", "")),
-            has_special_licence(user.get("legajo", "")),
-            has_special_licences_days(user.get("legajo", "")),
-            is_tutor(user.get("legajo", "")),
-            has_progresiones(user.get("legajo", "")),
-            ajuste_meta_q_mes_uno(user.get("Categoria", ""), user.get("legajo", "")),
-            ajuste_meta_q_mes_dos(user.get("Categoria", ""), user.get("legajo", "")),
-            ajuste_meta_monto_m1(user.get("Categoria", ""), user.get("legajo", ""))/2,
-            ajuste_meta_monto_m2(user.get("Categoria", ""), user.get("legajo", ""))/2,
-            user.get("Observaciones", "")
+            user.get("employeeNumber", ""),
+            user.get("fullName", ""),
+            user.get("branch", ""),
+            user.get("category", ""),
+            get_meta_q(user.get("category", "")),
+            get_meta_q(user.get("category", "")),
+            get_meta_monto(user.get("category", "")),
+            get_meta_monto(user.get("category", "")),
+            descripcion_licencias(user.get("employeeNumber", "")),
+            cantidad_licencias(user.get("employeeNumber", "")),
+            has_special_licence(user.get("employeeNumber", "")),
+            has_special_licences_days(user.get("employeeNumber", "")),
+            is_tutor(user.get("employeeNumber", "")),
+            has_progresiones(user.get("employeeNumber", "")),
+            ajuste_meta_q_mes_uno(user.get("category", ""), user.get("employeeNumber", "")),
+            ajuste_meta_q_mes_dos(user.get("category", ""), user.get("employeeNumber", "")),
+            ajuste_meta_monto_m1(user.get("category", ""), user.get("employeeNumber", ""))/2,
+            ajuste_meta_monto_m2(user.get("category", ""), user.get("employeeNumber", ""))/2,
+            user.get("Observations", "")
         ]
-        ws.append(row_data)        
+        ws.append(row_data)
+    for col_num, column_title in enumerate(columns, 1):
+        col_letter = get_column_letter(col_num)
+        max_length = max(len(str(cell.value)) for cell in ws[col_letter])
+        adjusted_width = (max_length + 2)
+        ws.column_dimensions[col_letter].width = adjusted_width    
     current_dir = os.path.dirname(os.path.abspath(__file__))
     excel_file_path = os.path.join(current_dir, 'data', 'export', 'nominas.xlsx')
     excel_file = excel_file_path
     wb.save(excel_file)
     return excel_file
-
-def handle_form_submission(jefe_zonal):
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path_nomina = os.path.join(current_dir, 'data', 'json', 'nomina.json')
-    with open(json_path_nomina, 'r') as file_nomina:
-        data_metas = json.load(file_nomina)
-        nomina = data_metas['Nomina']    
-    filtered_nomina = [entry for entry in nomina if entry['jefe_a_cargo'] == jefe_zonal]
-    return filtered_nomina
 
 def ajuste_meta_q_mes_uno(categoria, legajo):
     result_qm1 = 0
@@ -234,7 +235,7 @@ def ajuste_meta_q_mes_uno(categoria, legajo):
     if ajuste_total >= 1:
         ajustes = 0
     result_qm1 = round(meta_real * ajustes)
-    return result_qm1/2
+    return int(result_qm1/2)
 
 def ajuste_meta_q_mes_dos(categoria, legajo):
     result = 0
@@ -255,7 +256,6 @@ def ajuste_meta_q_mes_dos(categoria, legajo):
                 meta_q = meta['cantidad']
                 return meta_q
         return 0
-    print(f'meta_q: {meta_real_q(categoria)}')
     
     def tutores_ec(legajo):
         with open(json_path_tutores, 'r') as file_tutores:
@@ -265,7 +265,6 @@ def ajuste_meta_q_mes_dos(categoria, legajo):
             if tutor['legajo'] == legajo:
                 return 0.2                    
         return 0
-    print(f'tutores: {tutores_ec(legajo)}')
     
     def progresion_ec(categoria, legajo):
         with open(json_path_progresiones, 'r') as file_progresiones:
@@ -282,7 +281,6 @@ def ajuste_meta_q_mes_dos(categoria, legajo):
                             ajuste = progresion[mes_progresion]
                             return ajuste
         return 0
-    print(f'progresion: {progresion_ec(categoria, legajo)}')
     
     def cantidad_dias_licencia_mes_dos(legajo):
         with open(json_path_licencias, 'r') as file_licencias:
@@ -396,7 +394,6 @@ def ajuste_meta_q_mes_dos(categoria, legajo):
                         return 0               
                 return 0
         return 0
-    print(f'ajuste_licencia: {ajuste_licencias(legajo)}')
     
     def ajuste_licencia_especial(legajo):
         with open(json_path_licencias_especiales, 'r') as file_licencia:
@@ -406,7 +403,6 @@ def ajuste_meta_q_mes_dos(categoria, legajo):
             if user['employeeNumber'] == legajo and 'adjustment' in user:
                 return float(user['adjustment'])        
         return 0.0
-    print(f'licencia_especial: {ajuste_licencia_especial(legajo)}')
     
     meta_real = meta_real_q(categoria)
     ajuste_tutores = tutores_ec(legajo)
@@ -418,9 +414,7 @@ def ajuste_meta_q_mes_dos(categoria, legajo):
     if ajuste_total >= 1:
         ajustes = 0
     result = round(meta_real * ajustes)
-    print(f'ajustes: {ajuste_total}')
-    print(f'resultado: {result}')
-    return result / 2
+    return int(result/2)
     
 def ajuste_meta_monto_m1(categoria, legajo):
     result = 0    
@@ -440,8 +434,7 @@ def ajuste_meta_monto_m1(categoria, legajo):
             if meta['categoria'] == categoria:
                 meta_monto = meta['monto']
                 return meta_monto
-        return 0    
-    print(f'meta $: {meta_real_monto(categoria)}')
+        return 0
 
     def tutores_ec(legajo):
         with open(json_path_tutores, 'r') as file_tutores:
@@ -451,7 +444,6 @@ def ajuste_meta_monto_m1(categoria, legajo):
             if tutor['legajo'] == legajo:
                     return 0.2                
         return 0
-    print(f'tutores $: {tutores_ec(legajo)}')
 
     def progresion_ec(categoria, legajo):  
         with open(json_path_progresiones, 'r') as file_progresiones:
@@ -468,7 +460,6 @@ def ajuste_meta_monto_m1(categoria, legajo):
                             ajuste = progresion[mes_progresion]
                             return ajuste
         return 0
-    print(f'progresiones $: {progresion_ec(categoria, legajo)}')
     
     def cantidad_dias_licencia_mes_uno_mm1(legajo):
         with open(json_path_licencias, 'r') as file_licencias:
@@ -496,7 +487,6 @@ def ajuste_meta_monto_m1(categoria, legajo):
                 elif mes_desde in mes_con_30:
                     total_diferencia_dias += (30 - dia_desde)+1
         return total_diferencia_dias
-    print(f'cantidad de dias de licencia: {cantidad_dias_licencia_mes_uno_mm1(legajo)}')
     
     def ajuste_licencias(legajo):
         with open(json_path_licencias, 'r') as file_licen:
@@ -578,7 +568,6 @@ def ajuste_meta_monto_m1(categoria, legajo):
                         return 0               
                 return 0
         return 0
-    print(f'ajuste licencia: {ajuste_licencias(legajo)}')
     
     def ajuste_licencia_especial(legajo):
         with open(json_path_licencias_especiales, 'r') as file_licencia:
@@ -588,7 +577,6 @@ def ajuste_meta_monto_m1(categoria, legajo):
             if user['employeeNumber'] == legajo and 'adjustment' in user:
                 return float(user['adjustment'])        
         return 0.0
-    print(f'ajuste licencia especial: {ajuste_licencia_especial(legajo)}')
 
     meta_real = meta_real_monto(categoria)
     ajuste_tutores = tutores_ec(legajo)
@@ -600,7 +588,7 @@ def ajuste_meta_monto_m1(categoria, legajo):
     if ajuste_total >= 1:
         ajustes = 0
     result = round(meta_real * ajustes, 2)
-    return result/2
+    return int(result/2)
 
 def ajuste_meta_monto_m2(categoria, legajo):
     result = 0    
@@ -620,8 +608,7 @@ def ajuste_meta_monto_m2(categoria, legajo):
             if meta['categoria'] == categoria:
                 meta_monto = meta['monto']
                 return meta_monto
-        return 0    
-    print(f'meta $: {meta_real_monto(categoria)}')
+        return 0
 
     def tutores_ec(legajo):
         with open(json_path_tutores, 'r') as file_tutores:
@@ -631,7 +618,6 @@ def ajuste_meta_monto_m2(categoria, legajo):
             if tutor['legajo'] == legajo:
                     return 0.2                
         return 0
-    print(f'tutores $: {tutores_ec(legajo)}')
 
     def progresion_ec(categoria, legajo):  
         with open(json_path_progresiones, 'r') as file_progresiones:
@@ -648,7 +634,6 @@ def ajuste_meta_monto_m2(categoria, legajo):
                             ajuste = progresion[mes_progresion]
                             return ajuste
         return 0
-    print(f'progresiones $: {progresion_ec(categoria, legajo)}')
     
     def cantidad_dias_licencia_mes_mm2(legajo):
         with open(json_path_licencias, 'r') as file_licencias:
@@ -679,7 +664,6 @@ def ajuste_meta_monto_m2(categoria, legajo):
                 elif mes_desde in mes_feb:
                     total_diferencia_dias += (28 - dia_desde)+1
         return total_diferencia_dias
-    print(f'cantidad de dias de licencia: {cantidad_dias_licencia_mes_mm2(legajo)}')
     
     def ajuste_licencias(legajo):
         with open(json_path_licencias, 'r') as file_licen:
@@ -761,7 +745,6 @@ def ajuste_meta_monto_m2(categoria, legajo):
                         return 0               
                 return 0
         return 0
-    print(f'ajuste licencia: {ajuste_licencias(legajo)}')
     
     def ajuste_licencia_especial(legajo):
         with open(json_path_licencias_especiales, 'r') as file_licencia:
@@ -771,7 +754,6 @@ def ajuste_meta_monto_m2(categoria, legajo):
             if user['employeeNumber'] == legajo and 'adjustment' in user:
                 return float(user['adjustment'])        
         return 0.0
-    print(f'ajuste licencia especial: {ajuste_licencia_especial(legajo)}')
 
     meta_real = meta_real_monto(categoria)
     ajuste_tutores = tutores_ec(legajo)
@@ -783,7 +765,7 @@ def ajuste_meta_monto_m2(categoria, legajo):
     if ajuste_total >= 1:
         ajustes = 0
     result = round(meta_real * ajustes, 2)
-    return result/2
+    return int(result/2)
 
 def cantidad_licencias(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -795,7 +777,7 @@ def cantidad_licencias(legajo):
     for licencia in licenses:
         if licencia.get('legajo') == legajo:
             total_dias += int(licencia.get('Cant_Dias_Licencia'))    
-    return total_dias
+    return int(total_dias)
 
 def descripcion_licencias(legajo):
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -809,24 +791,6 @@ def descripcion_licencias(legajo):
             descripciones.add(licencia.get('Descripcion_Licencias'))    
     descripcion_final = ', '.join(descripciones)
     return descripcion_final
-
-def get_meta_q(categoria):
-    with open('data/json/metas.json') as file_metas:
-        data_metas = json.load(file_metas)
-    metas_q = data_metas['Metas']
-    for meta in metas_q:
-        if meta['categoria'] == categoria:
-            return meta['cantidad']
-    return "0"
-
-def get_meta_monto(categoria):
-    with open('data/json/metas.json') as file_metas:
-        data_metas = json.load(file_metas)
-    metas_q = data_metas['Metas']
-    for meta in metas_q:
-        if meta['categoria'] == categoria:
-            return meta['monto']
-    return "0"
 
 def read_tutores():
     with open('data/json/tutores.json') as file_tutores:
@@ -877,7 +841,7 @@ def has_special_licences_days(legajo):
     licencias_data = read_licencias_especiales()
     for licencia in licencias_data:
         if licencia['employeeNumber'] == legajo:
-            return licencia['licenseDays']
+            return int(licencia['licenseDays'])
     return ""
       
 def has_progresiones(legajo):
@@ -936,64 +900,79 @@ def logout():
 # TODO----------NOMINA-------------------------------------------------------------------------------------------------
 @app.route('/nomina', methods=['GET', 'POST'])
 def nomina():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
-    with open(json_path, 'r') as json_file:
-        data = json.load(json_file)
-        nomina = data["Nomina"]
-    
+    conexion = DatabaseConnection()    
     if request.method == 'POST':
         jefe_zonal = request.form['user']
         filtered_nomina = handle_form_submission(jefe_zonal)
         return render_template('nomina.html', nomina=filtered_nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q_mes_uno=ajuste_meta_q_mes_uno, ajuste_meta_q_mes_dos=ajuste_meta_q_mes_dos, ajuste_meta_monto_m1=ajuste_meta_monto_m1, ajuste_meta_monto_m2=ajuste_meta_monto_m2, handle_form_submission=handle_form_submission, cantidad_licencias=cantidad_licencias, descripcion_licencias=descripcion_licencias)
     else:
+        connection = conexion.connect()
+        cursor = connection.cursor()
+        query = "SELECT employeeNumber, fullName, branch, category, Observations FROM dbo.tec_payrollVM"
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        nomina = []
+        for row in rows:
+            employee_number, full_name, branch, category, observation = row
+            if observation is None:
+                observation = ""
+            nomina.append({
+                "employeeNumber": employee_number,
+                "fullName": full_name,
+                "branch": branch,
+                "category": category,
+                "Observations": observation
+            })        
         return render_template('nomina.html', nomina=nomina, is_tutor=is_tutor, has_progresiones=has_progresiones, get_meta_q=get_meta_q, get_meta_monto=get_meta_monto, has_special_licence=has_special_licence, has_special_licences_days=has_special_licences_days, ajuste_meta_q_mes_uno=ajuste_meta_q_mes_uno, ajuste_meta_q_mes_dos=ajuste_meta_q_mes_dos, ajuste_meta_monto_m1=ajuste_meta_monto_m1, ajuste_meta_monto_m2=ajuste_meta_monto_m2, handle_form_submission=handle_form_submission, cantidad_licencias=cantidad_licencias, descripcion_licencias=descripcion_licencias)
 
 @app.route('/edit_observacion/<legajo>', methods=['GET', 'POST'])
 def edit_observacion(legajo):
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
-    with open(json_path, 'r') as json_file:
-        data = json.load(json_file)
-    nomina = data['Nomina']
-    usuario = next((user for user in nomina if user['legajo'] == int(legajo)), None)
+    observacion_actual = employeeNumberToUpdate(legajo)
     if request.method == 'POST':
         nueva_observacion = request.form.get('Observaciones')
-        usuario['Observaciones'] = nueva_observacion
-        with open(json_path, 'w') as json_file:
-            json.dump(data, json_file, indent=2)
+        conexion = DatabaseConnection()
+        connection = conexion.connect()
+        cursor = connection.cursor()
+        update_query = "UPDATE dbo.tec_payrollVM SET Observations = ? WHERE employeeNumber = ?"
+        cursor.execute(update_query, nueva_observacion, legajo)
+        connection.commit()
         return redirect(url_for('nomina'))
-    
-    return render_template('edit/editObservacion.html', usuario=usuario)
+    return render_template('edit/editObservacion.html', observacion_actual=observacion_actual)
 
 @app.route('/delete_observacion', methods=['POST'])
 def delete_observacion():
     legajo = request.form['legajo']
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
-
-    with open(json_path, 'r') as json_file:
-        data = json.load(json_file)
-    
-    nomina = data['Nomina']
-    usuario = next((user for user in nomina if user['legajo'] == int(legajo)), None)
-    if usuario:
-        usuario['Observaciones'] = ""
-
-        with open(json_path, 'w') as json_file:
-            json.dump(data, json_file, indent=2)
-            
+    nueva_observacion = ""
+    conexion = DatabaseConnection()
+    connection = conexion.connect()
+    cursor = connection.cursor()
+    update_query = "UPDATE dbo.tec_payrollVM SET Observations = ? WHERE employeeNumber = ?"
+    cursor.execute(update_query, nueva_observacion, legajo)
+    connection.commit()
     return redirect('/nomina')
 
 # TODO----------Licencias-------------------------------------------------------------------------------------------------
 @app.route('/licencias', methods=['GET', 'POST'])
 def licencias():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, 'data', 'json', 'licencias.json')
-    with open(json_path, 'r') as json_file:
-        data = json.load(json_file)
-        licenses = data["Licenses"]
-    return render_template('licencias.html', licenses=licenses)
+    conexion = DatabaseConnection() 
+    connection = conexion.connect()
+    cursor = connection.cursor()
+    query = "select employeeNumber, fullName, descriptions, startDay, endDay, filterDays, licenseDays from tec_licenseReports"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    licencias = []
+    for row in rows:
+            employee_number, full_name, description, start_day, end_day, filter_day, license_day = row
+            licencias.append({
+                "employeeNumber": employee_number,
+                "fullName": full_name,
+                "descriptions": description,
+                "startDay": start_day,
+                "endDay": end_day,
+                "filterDays": filter_day,
+                "licenseDays": license_day
+            })        
+    return render_template('licencias.html', licencias=licencias)
 
 # TODO-----------METAS------------------------------------------------------------------------------------------------
 @app.route('/metas', methods=['GET', 'POST'])
@@ -1465,12 +1444,23 @@ def before_request():
 #TODO--------EXPORT_TO_EXCEL----------------------------------------------------------------------
 @app.route('/export_excel', methods=['POST'])
 def export_excel():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
-    with open(json_path, 'r') as json_file:
-        data = json.load(json_file)
-        nomina = data["Nomina"]
-    
+    conexion = DatabaseConnection()
+    connection = conexion.connect()
+    cursor = connection.cursor()
+    query = "SELECT employeeNumber, fullName, branch, category, Observations FROM dbo.tec_payrollVM"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    nomina = []
+    for row in rows:
+        employee_number, full_name, branch,category, observation = row
+        nomina.append({
+            "employeeNumber": employee_number,
+                "fullName": full_name,
+                "branch": branch,
+                "category": category,
+                "Observations": observation
+        })
+    df = pd.DataFrame(nomina)
     excel_file = export_to_excel(nomina)
     return send_file(excel_file, as_attachment=True)
 

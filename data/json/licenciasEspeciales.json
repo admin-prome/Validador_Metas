@@ -2,11 +2,11 @@
   "Licencias": [
     {
       "employeeNumber": 2242,
-      "fullName": "TORRICELLI MARIA EUGENIA\t",
+      "fullName": "TORRICELLI MARIA",
       "license": "Embarazo - Exedencia",
       "licenseStar": "2023-10-23",
-      "licenseEnd": "2023-10-24",
-      "licenseDays": "90",
+      "licenseEnd": "2023-10-29",
+      "licenseDays": "5",
       "adjustment": 1.0
     }
   ]

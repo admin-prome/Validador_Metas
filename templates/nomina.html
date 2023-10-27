@@ -27,6 +27,8 @@
         <th class="sticky-top text-nowrap">Ajuste Q mes 2</th>
         <th class="sticky-top text-nowrap">Ajuste Monto mes 1</th>
         <th class="sticky-top text-nowrap">Ajuste Monto mes 2</th>
+        <th class="sticky-top text-nowrap">Ajuste Total Q</th>
+        <th class="sticky-top text-nowrap">Ajuste Total $</th>
         <th class="sticky-top text-nowrap">Observaciones</th>
         <th class="sticky-top text-nowrap">Acciones</th>
       </tr>
@@ -52,6 +54,8 @@
         <td class="text-nowrap">{{ ajuste_meta_q_mes_dos(user.category, user.employeeNumber) }}</td>
         <td class="text-nowrap">$ {{ ajuste_meta_monto_m1(user.category, user.employeeNumber) }}</td>
         <td class="text-nowrap">$ {{ ajuste_meta_monto_m2(user.category, user.employeeNumber) }}</td>
+        <td class="text-nowrap"> {{ ajuste_total_q(user.category, user.employeeNumber) }}</td>
+        <td class="text-nowrap">$ {{ ajuste_total_monto(user.category, user.employeeNumber) }}</td>
         <td class="text-nowrap">{{ user.Observations }}</td>
         <td class="text-nowrap">
           <div class="button-group">

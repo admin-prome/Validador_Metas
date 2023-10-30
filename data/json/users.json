@@ -1,92 +1,8 @@
 {
   "Users": [
     {
-      "legajo": 2382,
-      "nombre": "FAROLA AGUSTIN LUCAS",
-      "mail": "afarola@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 2459,
-      "nombre": "ROLDAN FATIMA ELIZABETH",
-      "mail": "froldan@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 5598,
-      "nombre": "PEREZ ESTEFANIA",
-      "mail": "eperez@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 5121,
-      "nombre": "ZANUZZI FLAVIA ROMINA",
-      "mail": "frzanuzzi@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 5294,
-      "nombre": "CLERGUE EMILIANO",
-      "mail": "eclergue@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Coordinador"
-    },
-    {
-      "legajo": 2394,
-      "nombre": "CASTRILLO LORENA YAEL",
-      "mail": "lcastrillo@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 2443,
-      "nombre": "POLESCHI MARIANELA IVANA",
-      "mail": "mpoleschi@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 5614,
-      "nombre": "NIEVES GISELLE",
-      "mail": "gnieves@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 5012,
-      "nombre": "MONTEAGUDO RODRIGO",
-      "mail": "rmonteagudo@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 5019,
-      "nombre": "LEMBEYE VALERIA FERNANDA",
-      "mail": "vlembeye@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 2263,
-      "nombre": "DIAZ ENRIQUE ANTONIO",
-      "mail": "ediaz@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Zonal"
-    },
-    {
-      "legajo": 5856,
-      "nombre": "MENDIZABAL MARTIN",
-      "mail": "mmendizabal@provinciamicrocreditos.com",
-      "password": "Prome1",
-      "perfil": "Jefe Coordinador"
-    },
-    {
       "legajo": 5662,
-      "nombre": "Matias",
+      "nombre": "Matias Barreto",
       "mail": "mbarreto@provinciamicrocreditos.com",
       "password": "Prome123",
       "perfil": "Admin"
@@ -95,25 +11,22 @@
       "legajo": 2222,
       "nombre": "BEYRNE GUILLERMO TOMAS",
       "mail": "gbeyrne@provinciamicrocreditos.com",
-      "password": "prome3",
-      "perfil": "Inteligencia Comercial",
-      "apellido": null
+      "password": "Prome111",
+      "perfil": "Inteligencia Comercial"
     },
     {
       "legajo": 3333,
       "nombre": "BELTRAN NORMA GRACIELA",
       "mail": "nbeltran@provinciamicrocreditos.com",
-      "password": "prome3",
-      "perfil": "Personas",
-      "apellido": null
+      "password": "Prome222",
+      "perfil": "Personas"
     },
     {
       "legajo": 5743,
       "nombre": "LOPEZ MARIANA ANDREA",
       "mail": "mmoreno@provinciamicrocreditos.com",
-      "password": "Prome2",
-      "perfil": "Desarrollo de Carrera",
-      "apellido": null
+      "password": "Prome333",
+      "perfil": "Desarrollo de Carrera"
     }
   ]
 }

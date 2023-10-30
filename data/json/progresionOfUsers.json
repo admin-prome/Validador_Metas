@@ -1,14 +1,24 @@
 {
   "Progresion_Users": [
     {
-      "legajo": 5251,
-      "apellido": "NAVARRO HECTOR RICARDO",
-      "nombre": "esteban",
-      "mail": "marchi@marchi",
+      "legajo": 2288,
+      "apellido": "FLORESTA ANDREA PAOLA",
+      "nombre": "FLORESTA ANDREA PAOLA",
+      "mail": "a@a",
+      "categoria": "C-SS - EC Semi Senior",
+      "fecha_desde": "2023-10-02",
+      "fecha_hasta": "2023-10-09",
+      "mes_progresion": "mes_1"
+    },
+    {
+      "legajo": 2389,
+      "apellido": "barone",
+      "nombre": "marcos",
+      "mail": "barone@bora",
       "categoria": "C-SE - EC Senior",
-      "fecha_desde": "2023-05-28",
-      "fecha_hasta": "2023-06-21",
-      "mes_progresion": "mes_4"
+      "fecha_desde": "2023-10-02",
+      "fecha_hasta": "2023-10-24",
+      "mes_progresion": "mes_3"
     }
   ]
 }

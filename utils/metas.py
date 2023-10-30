@@ -9,7 +9,7 @@ def get_meta_q(categoria):
     metas_q = data_metas['Metas']
     for meta in metas_q:
         if meta['categoria'] == categoria:
-            return int(meta['cantidad']/2)
+            return int(meta['cantidad'])
     return ""
 
 
@@ -19,6 +19,8 @@ def get_meta_monto(categoria):
     metas_q = data_metas['Metas']
     for meta in metas_q:
         if meta['categoria'] == categoria:
-            return int(meta['monto']/2)
+            return int(meta['monto'])
     return ""
+
+
 

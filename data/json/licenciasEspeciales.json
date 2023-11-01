@@ -17,15 +17,6 @@
       "licenseEnd": "2023-10-30",
       "licenseDays": "50",
       "adjustment": 0.5
-    },
-    {
-      "employeeNumber": 2389,
-      "fullName": "barone",
-      "license": "prueba",
-      "licenseStar": "2023-10-16",
-      "licenseEnd": "2023-10-25",
-      "licenseDays": "7",
-      "adjustment": 0.1
     }
   ]
 }

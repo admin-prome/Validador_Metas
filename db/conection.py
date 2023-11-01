@@ -15,7 +15,7 @@ class DatabaseConnection:
     def connect(self):
         try:
             conexion = pyodbc.connect(f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={self.sql_server};DATABASE={self.sql_db};UID={self.sql_user};PWD={self.sql_pass}')
-            # print(f'Conexion exitosa a la Base de datos: {self.sql_server}')
+            print(f'Conexion exitosa a la Base de datos: {self.sql_server}')
             return conexion
         except Exception as e:
             print(f'Error al intentar conectarse a la base de "{self.sql_server}"')

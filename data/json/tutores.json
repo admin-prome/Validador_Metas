@@ -1,20 +1,12 @@
 {
   "Tutores": [
     {
-      "legajo": 2286,
-      "nombre": "GRATTONI MARIELA",
-      "apellido": "GRATTONI MARIELA",
-      "categoria": "C-SS - EC Semi Senior",
-      "fecha_inicio_tutoria": "2023-10-30",
-      "fecha_fin_tutoria": "2023-10-30"
-    },
-    {
       "legajo": 2389,
-      "nombre": "marcos",
+      "nombre": "barone",
       "apellido": "barone",
       "categoria": "C-SE - EC Senior",
-      "fecha_inicio_tutoria": "2023-10-23",
-      "fecha_fin_tutoria": "2023-10-24"
+      "fecha_inicio_tutoria": "2023-11-06",
+      "fecha_fin_tutoria": "2023-11-08"
     }
   ]
 }

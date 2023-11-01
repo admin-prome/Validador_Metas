@@ -1,24 +1,3 @@
 {
-  "Progresion_Users": [
-    {
-      "legajo": 2288,
-      "apellido": "FLORESTA ANDREA PAOLA",
-      "nombre": "FLORESTA ANDREA PAOLA",
-      "mail": "a@a",
-      "categoria": "C-SS - EC Semi Senior",
-      "fecha_desde": "2023-10-02",
-      "fecha_hasta": "2023-10-09",
-      "mes_progresion": "mes_1"
-    },
-    {
-      "legajo": 2389,
-      "apellido": "barone",
-      "nombre": "marcos",
-      "mail": "barone@bora",
-      "categoria": "C-SE - EC Senior",
-      "fecha_desde": "2023-10-02",
-      "fecha_hasta": "2023-10-24",
-      "mes_progresion": "mes_3"
-    }
-  ]
+  "Progresion_Users": []
 }

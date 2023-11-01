@@ -52,12 +52,12 @@
         <td class="text-nowrap">$ {{ ajuste_meta_monto_m2(user.category, user.employeeNumber)/2 }}</td>
         <td class="text-nowrap"> {{ ajuste_total_q(user.category, user.employeeNumber) }}</td>
         <td class="text-nowrap">$ {{ ajuste_total_monto(user.category, user.employeeNumber) }}</td>
-        <td class="text-nowrap">{{ user.Observations }}</td>
+        <td class="text-nowrap">{{ user.Observacion }}</td>
         <td class="text-nowrap">
           <div class="button-group">
             <a href="{{ url_for('edit_observacion', legajo=user.employeeNumber) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
             <form action="{{ url_for('delete_observacion') }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este Comentario?');">
-              <input type="hidden" name="legajo" value="{{ user.employeeNumber }}">
+              <input type="hidden" name="employeeNumber" value="{{ user.employeeNumber }}">
               <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
             </form>
           </div>

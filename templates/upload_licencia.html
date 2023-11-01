@@ -1,0 +1,13 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+
+<div class="table-responsive h100" style="max-height: 500px; overflow: auto;">
+    <h1>Subir archivo Excel de licencias</h1>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="submit" value="Subir">
+    </form>
+</div>
+
+{% endblock %}

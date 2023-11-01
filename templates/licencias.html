@@ -1,0 +1,44 @@
+{% extends 'partials/layout.html' %}
+
+{% block body %}
+
+<div class="table-responsive h100" style="max-height: 500px; overflow: auto;">
+  <table class="table table-bordered border-primary table-hover">
+    <thead class="thead-dark table-primary">
+      <tr>
+        <th class="sticky-top text-nowrap">Legajo</th>
+        <th class="sticky-top text-nowrap">Nombre EC</th>
+        <th class="sticky-top text-nowrap">Descripcion</th>
+        <th class="sticky-top text-nowrap">desde</th>
+        <th class="sticky-top text-nowrap">hasta</th>
+        <th class="sticky-top text-nowrap">Cant. Días Filtro</th>
+        <th class="sticky-top text-nowrap">Cant. Días Licenc.</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in licencias %}
+      <tr>
+        <td class="text-nowrap">{{ user.employeeNumber }}</td>
+        <td class="text-nowrap">{{ user.fullName }}</td>
+        <td class="text-nowrap">{{ user.descriptions }}</td>
+        <td class="text-nowrap">{{ user.startDay }}</td>
+        <td class="text-nowrap">{{ user.endDay }}</td>
+        <td class="text-nowrap">{{ user.filterDays }}</td>
+        <td class="text-nowrap">{{ user.licenseDays }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p><b>Número total de registros: {{ licencias|length }}</p>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

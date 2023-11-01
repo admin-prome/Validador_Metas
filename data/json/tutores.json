@@ -1,36 +1,12 @@
 {
   "Tutores": [
     {
-      "legajo": 5894,
-      "nombre": "Rodriguez ",
-      "apellido": "Maria Virginia",
-      "categoria": "C-JU - EC Junior",
-      "fecha_inicio_tutoria": "2023-05-30",
-      "fecha_fin_tutoria": "2023-06-09"
-    },
-    {
-      "legajo": 5520,
-      "nombre": "SANCHEZ PENINO ",
-      "apellido": "MARTIN MIGUEL",
-      "categoria": "C-SS - EC Semi Senior",
-      "fecha_inicio_tutoria": "2023-05-29",
-      "fecha_fin_tutoria": "2023-06-09"
-    },
-    {
-      "legajo": 5399,
-      "nombre": "alonso",
-      "apellido": "adriana",
+      "legajo": 2389,
+      "nombre": "barone",
+      "apellido": "barone",
       "categoria": "C-SE - EC Senior",
-      "fecha_inicio_tutoria": "2023-06-12",
-      "fecha_fin_tutoria": "2023-06-12"
-    },
-    {
-      "legajo": 2396,
-      "nombre": "Marturano",
-      "apellido": "Ricardo",
-      "categoria": "C-SE - EC Senior",
-      "fecha_inicio_tutoria": "2023-09-04",
-      "fecha_fin_tutoria": "2023-09-27"
+      "fecha_inicio_tutoria": "2023-11-06",
+      "fecha_fin_tutoria": "2023-11-08"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "Progresion_Users": [
     {
-      "legajo": 5251,
-      "apellido": "NAVARRO HECTOR RICARDO",
-      "nombre": "esteban",
-      "mail": "marchi@marchi",
+      "legajo": 1111,
+      "apellido": "prueba",
+      "nombre": "prueba",
+      "mail": "prueba@prueba",
       "categoria": "C-SE - EC Senior",
-      "fecha_desde": "2023-05-28",
-      "fecha_hasta": "2023-06-21",
-      "mes_progresion": "mes_5"
+      "fecha_desde": "2023-11-08",
+      "fecha_hasta": "2023-11-08",
+      "mes_progresion": "mes_1"
     }
   ]
 }

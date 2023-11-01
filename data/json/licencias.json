@@ -1,22 +1,22 @@
 {
   "Licenses": [
     {
-      "employeeNumber": 2234,
-      "fullName": "ALTILIO SOLANGE",
+      "employeeNumber": 1111,
+      "fullName": "prueba gonza",
       "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
+      "startDay": "05-09-2023",
+      "endDay": "11-09-2023",
       "filterDays": 7,
-      "licenseDays": 7
+      "licenseDays": 1
     },
     {
-      "employeeNumber": 2241,
-      "fullName": "COSENTINO ARIEL",
-      "descriptions": "3560-Beneficio Vacaciones Gerencia",
-      "startDay": "30-10-2023",
-      "endDay": "05-11-2023",
-      "filterDays": 2,
-      "licenseDays": 7
+      "employeeNumber": 1111,
+      "fullName": "prueba",
+      "descriptions": "3553-Vacaciones",
+      "startDay": "06-10-2023",
+      "endDay": "13-10-2023",
+      "filterDays": 8,
+      "licenseDays": 1
     },
     {
       "employeeNumber": 2242,
@@ -82,38 +82,11 @@
       "licenseDays": 1
     },
     {
-      "employeeNumber": 2363,
-      "fullName": "MAGGI JUAN PABLO",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "31-10-2023",
-      "endDay": "06-11-2023",
-      "filterDays": 1,
-      "licenseDays": 7
-    },
-    {
       "employeeNumber": 2389,
       "fullName": "BARONE MARCOS",
       "descriptions": "3553-Vacaciones",
       "startDay": "17-10-2023",
       "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 2394,
-      "fullName": "CASTRILLO LORENA YAEL",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 2394,
-      "fullName": "CASTRILLO LORENA YAEL",
-      "descriptions": "3560-Beneficio Vacaciones Jefatura",
-      "startDay": "24-10-2023",
-      "endDay": "30-10-2023",
       "filterDays": 7,
       "licenseDays": 7
     },
@@ -208,63 +181,9 @@
       "licenseDays": 7
     },
     {
-      "employeeNumber": 5012,
-      "fullName": "MONTEAGUDO RODRIGO",
-      "descriptions": "4102-Licencia Fallec. Fliar. Directo",
-      "startDay": "20-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 4,
-      "licenseDays": 4
-    },
-    {
-      "employeeNumber": 5012,
-      "fullName": "MONTEAGUDO RODRIGO",
-      "descriptions": "3560-Beneficio Vacaciones Jefatura",
-      "startDay": "24-10-2023",
-      "endDay": "30-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5016,
-      "fullName": "COHEN PATRICIO",
-      "descriptions": "3560-Beneficio Vacaciones Jefatura",
-      "startDay": "23-10-2023",
-      "endDay": "29-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5017,
-      "fullName": "GIULIANI CECILIA TERESA",
-      "descriptions": "3560-Beneficio Vacaciones Gerencia",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
       "employeeNumber": 5018,
       "fullName": "HANECK MARTIN EMANUEL",
       "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5019,
-      "fullName": "LEMBEYE VALERIA FERNANDA",
-      "descriptions": "18-Dia Promesa",
-      "startDay": "11-10-2023",
-      "endDay": "11-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5019,
-      "fullName": "LEMBEYE VALERIA FERNANDA",
-      "descriptions": "3560-Beneficio Vacaciones Jefatura",
       "startDay": "17-10-2023",
       "endDay": "23-10-2023",
       "filterDays": 7,
@@ -307,24 +226,6 @@
       "licenseDays": 7
     },
     {
-      "employeeNumber": 5067,
-      "fullName": "BELTRAN NORMA GRACIELA",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "06-10-2023",
-      "endDay": "12-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5067,
-      "fullName": "BELTRAN NORMA GRACIELA",
-      "descriptions": "3560-Beneficio Vacaciones Jefatura",
-      "startDay": "23-10-2023",
-      "endDay": "29-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
       "employeeNumber": 5089,
       "fullName": "BLANCO MAR\u00cdA FERNANDA",
       "descriptions": "18-Dia Promesa",
@@ -339,33 +240,6 @@
       "descriptions": "18-Dia Promesa",
       "startDay": "12-10-2023",
       "endDay": "12-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5119,
-      "fullName": "GOTUZZO DARDO ELIO",
-      "descriptions": "4111-Licencia por cumplea\u00f1os",
-      "startDay": "17-10-2023",
-      "endDay": "17-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5119,
-      "fullName": "GOTUZZO DARDO ELIO",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "26-10-2023",
-      "endDay": "01-11-2023",
-      "filterDays": 6,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5121,
-      "fullName": "ZANUZZI FLAVIA ROMINA",
-      "descriptions": "18-Dia Promesa",
-      "startDay": "26-10-2023",
-      "endDay": "26-10-2023",
       "filterDays": 1,
       "licenseDays": 1
     },
@@ -631,15 +505,6 @@
       "licenseDays": 14
     },
     {
-      "employeeNumber": 5260,
-      "fullName": "MU\u00d1OZ LEONARDO ARIEL",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
       "employeeNumber": 5263,
       "fullName": "AHAMENDABURU MARIA LUZ",
       "descriptions": "3553-Vacaciones",
@@ -667,33 +532,6 @@
       "licenseDays": 1
     },
     {
-      "employeeNumber": 5277,
-      "fullName": "PAREDES LEANDRO NAHUEL",
-      "descriptions": "4111-Licencia por cumplea\u00f1os",
-      "startDay": "06-10-2023",
-      "endDay": "06-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5288,
-      "fullName": "FACHADO LAUREANO JULIAN",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "30-10-2023",
-      "endDay": "05-11-2023",
-      "filterDays": 2,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5294,
-      "fullName": "CLERGUE EMILIANO",
-      "descriptions": "3560-Beneficio Vacaciones Jefatura",
-      "startDay": "06-10-2023",
-      "endDay": "12-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
       "employeeNumber": 5295,
       "fullName": "CIANCAGLINI AGUSTIN",
       "descriptions": "4106-Licencia por 1/2 tr\u00e1mite",
@@ -719,15 +557,6 @@
       "endDay": "05-11-2023",
       "filterDays": 9,
       "licenseDays": 14
-    },
-    {
-      "employeeNumber": 5312,
-      "fullName": "SERRA ANAHI BELEN",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "02-10-2023",
-      "endDay": "08-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
     },
     {
       "employeeNumber": 5329,
@@ -811,15 +640,6 @@
       "licenseDays": 14
     },
     {
-      "employeeNumber": 5393,
-      "fullName": "CICIONI LUIS FRANCISCO",
-      "descriptions": "4110-Licencias por Enfermedad",
-      "startDay": "10-10-2023",
-      "endDay": "11-10-2023",
-      "filterDays": 2,
-      "licenseDays": 2
-    },
-    {
       "employeeNumber": 5400,
       "fullName": "PONCHIONE YESICA IVANA",
       "descriptions": "18-Dia Promesa",
@@ -854,33 +674,6 @@
       "endDay": "27-10-2023",
       "filterDays": 1,
       "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5442,
-      "fullName": "CANEPA JUAN CARLOS",
-      "descriptions": "3560-Beneficio Vacaciones Gerencia",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5446,
-      "fullName": "CUEVAS SEBASTIAN CARLOS",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "04-10-2023",
-      "endDay": "10-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5446,
-      "fullName": "CUEVAS SEBASTIAN CARLOS",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "31-10-2023",
-      "endDay": "06-11-2023",
-      "filterDays": 1,
-      "licenseDays": 7
     },
     {
       "employeeNumber": 5484,
@@ -944,42 +737,6 @@
       "endDay": "12-10-2023",
       "filterDays": 12,
       "licenseDays": 14
-    },
-    {
-      "employeeNumber": 5541,
-      "fullName": "VELAZQUEZ LUCIANO FEDERICO",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "02-10-2023",
-      "endDay": "08-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5541,
-      "fullName": "VELAZQUEZ LUCIANO FEDERICO",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "25-10-2023",
-      "endDay": "31-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5548,
-      "fullName": "PITTALUGA PABLO HECTOR",
-      "descriptions": "18-Dia Promesa",
-      "startDay": "12-10-2023",
-      "endDay": "12-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5548,
-      "fullName": "PITTALUGA PABLO HECTOR",
-      "descriptions": "18-Dia Promesa",
-      "startDay": "17-10-2023",
-      "endDay": "17-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
     },
     {
       "employeeNumber": 5555,
@@ -1072,33 +829,6 @@
       "licenseDays": 1
     },
     {
-      "employeeNumber": 5589,
-      "fullName": "TARDITO ARIEL IGNACIO",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "02-10-2023",
-      "endDay": "08-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5598,
-      "fullName": "PEREZ ESTEFANIA",
-      "descriptions": "4070-Licencia por Matrimonio",
-      "startDay": "22-09-2023",
-      "endDay": "03-10-2023",
-      "filterDays": 3,
-      "licenseDays": 12
-    },
-    {
-      "employeeNumber": 5598,
-      "fullName": "PEREZ ESTEFANIA",
-      "descriptions": "3560-Beneficio Vacaciones Jefatura",
-      "startDay": "23-10-2023",
-      "endDay": "29-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
       "employeeNumber": 5630,
       "fullName": "APAZA RODRIGUEZ NOELIA SOLEDAD",
       "descriptions": "3553-Vacaciones",
@@ -1122,15 +852,6 @@
       "descriptions": "3553-Vacaciones",
       "startDay": "17-10-2023",
       "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5662,
-      "fullName": "BARRETO MATIAS GABRIEL",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "06-10-2023",
-      "endDay": "12-10-2023",
       "filterDays": 7,
       "licenseDays": 7
     },
@@ -1191,15 +912,6 @@
     {
       "employeeNumber": 5683,
       "fullName": "SALIN SILVANA ALEJANDRA",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5693,
-      "fullName": "BIANCHI SANTIAGO JOSE",
       "descriptions": "3553-Vacaciones",
       "startDay": "17-10-2023",
       "endDay": "23-10-2023",
@@ -1279,15 +991,6 @@
       "licenseDays": 7
     },
     {
-      "employeeNumber": 5735,
-      "fullName": "DOMINGUEZ NAVONE LUIS MARIA",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "06-10-2023",
-      "endDay": "12-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
       "employeeNumber": 5743,
       "fullName": "MORENO MARIELA YANINA",
       "descriptions": "3553-Vacaciones",
@@ -1340,15 +1043,6 @@
       "endDay": "17-10-2023",
       "filterDays": 1,
       "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5779,
-      "fullName": "SPAGNUOLO JUAN PABLO",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
     },
     {
       "employeeNumber": 5789,
@@ -1567,24 +1261,6 @@
       "licenseDays": 7
     },
     {
-      "employeeNumber": 5912,
-      "fullName": "FITZ HERBERT MARCELA MARIA",
-      "descriptions": "4111-Licencia por cumplea\u00f1os",
-      "startDay": "12-10-2023",
-      "endDay": "12-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5912,
-      "fullName": "FITZ HERBERT MARCELA MARIA",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "30-10-2023",
-      "filterDays": 14,
-      "licenseDays": 14
-    },
-    {
       "employeeNumber": 5914,
       "fullName": "KARAWAN DOS SANTOS NATALI ELISABETH",
       "descriptions": "3553-Vacaciones",
@@ -1657,15 +1333,6 @@
       "licenseDays": 7
     },
     {
-      "employeeNumber": 5943,
-      "fullName": "ESCUBILLA TEXIS ALEJANDRA",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
       "employeeNumber": 5945,
       "fullName": "SANTIN VICTORIA",
       "descriptions": "18-Dia Promesa",
@@ -1682,42 +1349,6 @@
       "endDay": "29-10-2023",
       "filterDays": 7,
       "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5947,
-      "fullName": "TROYELLI DANIELA LUZ",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "02-10-2023",
-      "endDay": "08-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5948,
-      "fullName": "FALIERO LETICIA",
-      "descriptions": "4110-Licencias por Enfermedad",
-      "startDay": "05-10-2023",
-      "endDay": "05-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5950,
-      "fullName": "VARELA GABRIEL",
-      "descriptions": "18-Dia Promesa",
-      "startDay": "12-10-2023",
-      "endDay": "12-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5950,
-      "fullName": "VARELA GABRIEL",
-      "descriptions": "18-Dia Promesa",
-      "startDay": "17-10-2023",
-      "endDay": "17-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
     },
     {
       "employeeNumber": 5951,
@@ -1792,74 +1423,11 @@
       "licenseDays": 7
     },
     {
-      "employeeNumber": 5963,
-      "fullName": "BEYRNE GUILLERMO TOMAS",
-      "descriptions": "4106-Licencia por 1/2 tr\u00e1mite",
-      "startDay": "10-10-2023",
-      "endDay": "10-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5963,
-      "fullName": "BEYRNE GUILLERMO TOMAS",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5966,
-      "fullName": "LUNA FLORENCIA",
-      "descriptions": "3560-Beneficio Vacaciones Jefatura",
-      "startDay": "17-10-2023",
-      "endDay": "23-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 5966,
-      "fullName": "LUNA FLORENCIA",
-      "descriptions": "3553-Vacaciones",
-      "startDay": "31-10-2023",
-      "endDay": "31-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
       "employeeNumber": 5975,
       "fullName": "CASTILLO DANIELA",
       "descriptions": "18-Dia Promesa",
       "startDay": "17-10-2023",
       "endDay": "17-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5978,
-      "fullName": "CAPART  DENISSE",
-      "descriptions": "18-Dia Promesa",
-      "startDay": "06-10-2023",
-      "endDay": "06-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5980,
-      "fullName": "CASTELLANO YASMIN NAHIR",
-      "descriptions": "4110-Licencias por Enfermedad",
-      "startDay": "31-10-2023",
-      "endDay": "31-10-2023",
-      "filterDays": 1,
-      "licenseDays": 1
-    },
-    {
-      "employeeNumber": 5983,
-      "fullName": "NAVARRO ROCIO",
-      "descriptions": "4100-Licencia por Examen Universitario",
-      "startDay": "03-10-2023",
-      "endDay": "03-10-2023",
       "filterDays": 1,
       "licenseDays": 1
     },
@@ -1898,24 +1466,6 @@
       "endDay": "06-10-2023",
       "filterDays": 1,
       "licenseDays": 1
-    },
-    {
-      "employeeNumber": 1111,
-      "fullName": "prueba_tst",
-      "descriptions": "prueba_TST",
-      "startDay": "22-09-2023",
-      "endDay": "30-09-2023",
-      "filterDays": 7,
-      "licenseDays": 7
-    },
-    {
-      "employeeNumber": 1111,
-      "fullName": "prueba_tst",
-      "descriptions": "prueba_TST",
-      "startDay": "20-10-2023",
-      "endDay": "30-10-2023",
-      "filterDays": 7,
-      "licenseDays": 7
     }
   ]
 }

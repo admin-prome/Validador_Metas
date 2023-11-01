@@ -73,7 +73,10 @@
     <div class="col">
       <div class="d-flex justify-content-end">
         <form action="{{ url_for('export_excel', jefe_zonal=jefe_zonal) }}" method="POST">
-          <button type="submit" class="btn btn-outline-primary me-2">Exportar Datos</button>
+          <button type="submit" class="btn btn-outline-primary me-2">Exportar Todos los Datos</button>
+        </form>
+        <form action="{{ url_for('export_excel_azure', jefe_zonal=jefe_zonal) }}" method="POST">
+          <button type="submit" class="btn btn-outline-success me-2">Exportar Datos para Azure</button>
         </form>
         <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
       </div>

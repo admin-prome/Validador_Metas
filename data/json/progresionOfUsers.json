@@ -1,3 +1,14 @@
 {
-  "Progresion_Users": []
+  "Progresion_Users": [
+    {
+      "legajo": 1111,
+      "apellido": "prueba",
+      "nombre": "prueba",
+      "mail": "prueba@prueba",
+      "categoria": "C-SE - EC Senior",
+      "fecha_desde": "2023-11-08",
+      "fecha_hasta": "2023-11-08",
+      "mes_progresion": "mes_1"
+    }
+  ]
 }

@@ -8,25 +8,11 @@
       "perfil": "Admin"
     },
     {
-      "legajo": 2222,
-      "nombre": "BEYRNE GUILLERMO TOMAS",
-      "mail": "gbeyrne@provinciamicrocreditos.com",
-      "password": "Prome111",
-      "perfil": "Inteligencia Comercial"
-    },
-    {
-      "legajo": 3333,
-      "nombre": "BELTRAN NORMA GRACIELA",
-      "mail": "nbeltran@provinciamicrocreditos.com",
-      "password": "Prome222",
-      "perfil": "Personas"
-    },
-    {
-      "legajo": 5743,
-      "nombre": "LOPEZ MARIANA ANDREA",
-      "mail": "mmoreno@provinciamicrocreditos.com",
-      "password": "Prome333",
-      "perfil": "Desarrollo de Carrera"
+      "legajo": 5678,
+      "nombre": "Gonzalo, Orellana",
+      "mail": "gorellana@provinciamicrocreditos.com",
+      "password": "G0nz4701",
+      "perfil": "Admin"
     }
   ]
 }

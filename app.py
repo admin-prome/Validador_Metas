@@ -899,6 +899,42 @@ def export_to_excel(nomina_data):
     wb.save(excel_file)
     return excel_file
 
+def export_to_excel_azure(nomina_data):
+    wb = Workbook()
+    ws = wb.active
+    bold_font = Font(bold=True)
+    light_green = Color(rgb="C6EFCE")
+    fill = PatternFill(start_color=light_green, end_color=light_green, fill_type="solid")
+    columns = ["Legajo_EC", "Meta_Q", "Meta_Monto", "Meta_Q_MES_1", "Meta_Monto_MES_1", "Meta_Q_MES_2", "Meta_Monto_MES_2", "Mes_1", "Mes_2", "Anio"]
+    for col_num, column_title in enumerate(columns, 1):
+        cell = ws.cell(row=1, column=col_num, value=column_title)
+        cell.font = bold_font
+        cell.fill = fill
+    for user in nomina_data:
+        row_data = [
+            user.get("employeeNumber", ""),
+            ajuste_total_q(user.get("category", ""), user.get("employeeNumber", "")),
+            ajuste_total_monto(user.get("category", ""), user.get("employeeNumber", "")),
+            ajuste_meta_q_mes_uno(user.get("category", ""), user.get("employeeNumber", ""))/2,
+            ajuste_meta_monto_m1(user.get("category", ""), user.get("employeeNumber", ""))/2,
+            ajuste_meta_q_mes_dos(user.get("category", ""), user.get("employeeNumber", ""))/2,
+            ajuste_meta_monto_m2(user.get("category", ""), user.get("employeeNumber", ""))/2,
+            bimestre_actual()[0],
+            bimestre_actual()[1],
+            datetime.now().year
+        ]
+        ws.append(row_data)
+    for col_num, column_title in enumerate(columns, 1):
+        col_letter = get_column_letter(col_num)
+        max_length = max(len(str(cell.value)) for cell in ws[col_letter])
+        adjusted_width = (max_length + 2)
+        ws.column_dimensions[col_letter].width = adjusted_width
+    fecha = str(datetime.now().strftime("%d-%m-%Y"))  
+    excel_file_path = os.path.join(f'data/export/Metas Colocaciones {fecha}.xlsx')
+    excel_file = excel_file_path
+    wb.save(excel_file)
+    return excel_file
+
 def handle_form_submission(jefe_zonal, nomina):
     with open(nomina, 'r') as file_nomina:
         data_metas = json.load(file_nomina)
@@ -1547,6 +1583,18 @@ def export_excel():
         nomina = data["Nomina"]
     
     excel_file = export_to_excel(nomina)
+    return send_file(excel_file, 
+                    as_attachment=True)
+    
+@app.route('/export_to_excel_azure', methods=['POST'])
+def export_excel_azure():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'data', 'json', 'nomina.json')
+    with open(json_path, 'r') as json_file:
+        data = json.load(json_file)
+        nomina = data["Nomina"]
+    
+    excel_file = export_to_excel_azure(nomina)
     return send_file(excel_file, 
                     as_attachment=True)
 

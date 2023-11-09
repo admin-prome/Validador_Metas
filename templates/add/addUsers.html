@@ -1,7 +1,8 @@
-
 {% extends 'partials/layout.html' %}
-
 {% block body %}
+
+<h2>Agregar Usuarios</h2>
+<br>
 <form action="{{ url_for('agregar_usuario') }}" method="POST">    
     <div class="table-responsive">
       {% if error_message %}
@@ -19,10 +20,10 @@
         </thead>
         <tbody>
           <tr>
-            <td> <input type="number" name="legajo" required> </td>  
-            <td> <input type="text" name="nombre" required> </td>
-            <td> <input type="email" name="mail" required> </td>
-            <td> <input type="password" name="password" required> </td>
+            <td> <input type="number" name="employeeNumber" class="form-control" placeholder="1111" required> </td>  
+            <td> <input type="text" name="fullName" class="form-control" placeholder="Nombre Apellido" required> </td>
+            <td> <input type="email" name="mail" class="form-control" placeholder="email@email.com" required> </td>
+            <td> <input type="password" name="passw" class="form-control" placeholder="Contraseña" required> </td>
             <td>
               <select name="perfil" required>
                 <option value="Jefe Zonal">Jefe Zonal</option>

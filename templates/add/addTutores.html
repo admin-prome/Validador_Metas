@@ -1,6 +1,8 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
+
+<h2>Agregar Tutores</h2>
+<br>
 <form action="{{ url_for('agregar_tutor') }}" method="POST">    
     <div class="table-responsive">
       {% if error_message %}
@@ -11,27 +13,27 @@
           <tr>
             <th> Legajo </th>
             <th> Nombre </th>
-            <th> Apellido </th>
             <th> Categoria </th>
             <th> Fecha Inicio Tutoria </th>
             <th> Fecha Fin Tutoria </th>
+            <th> Ajuste </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td> <input type="number" name="legajo" required> </td>
-            <td> <input type="text" name="nombre" " required> </td>
-            <td> <input type="text" name="apellido" required> </td>
+            <td> <input type="number" name="employeeNumber" required> </td>
+            <td> <input type="text" name="fullName" " required> </td>
             <td>
-              <select name="categoria" required>
+              <select name="category" class="form-control" required>
                 <option value="C-SE - EC Senior" selected>C-SE - EC Senior</option>
                 <option value="C-SS - EC Semi Senior">C-SS - EC Semi Senior</option>
                 <option value="C-JU - EC Junior">C-JU - EC Junior</option>
                 <option value="C-JC - EC Junior en Capacitacion">C-JC - EC Junior en Capacitacion</option>
               </select>
             </td>
-            <td> <input type="date" name="fecha_inicio_tutoria" required> </td>
-            <td> <input type="date" name="fecha_fin_tutoria" required> </td>                
+            <td> <input type="date" name="startDate" class="form-control" placeholder="01-01-2023" required> </td>
+            <td> <input type="date" name="endDate" class="form-control" placeholder="10-01-2023" required> </td>                
+            <td> <input type="number" name="adjustment" class="form-control" required step="0.01" placeholder="Ej: 0.10"> </td>
           </tr>
         </tbody>
       </table>    

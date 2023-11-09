@@ -25,44 +25,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-4">
-                        {% if perfil == 'Jefe Zonal' or perfil == 'Jefe Coordinador' %}
-                        <li class="nav-item">
-                            <a id="metas-link" class="nav-link naveg me-3" href="/nomina">Nomina</a>
-                        </li>
-                        {% endif %}
-
-                        {% if perfil == 'Personas' %}
-                        <li class="nav-item">
-                            <a id="metas-link" class="nav-link naveg me-3" href="/nomina">Nomina</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="metas-link" class="nav-link naveg me-3" href="/licencias">Licencias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="user-link" class="nav-link naveg me-3" href="/usuariosConProgresiones">Usuarios con Progresiones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="user-link" class="nav-link naveg me-3" href="/tutores">Tutores</a>
-                        </li>
-                        {% endif %}
-
-                        {% if perfil == 'Inteligencia Comercial' %}
-                        <li class="nav-item">
-                            <a id="metas-link" class="nav-link naveg me-3" href="/metas">Metas</a>
-                        </li>
-                        {% endif %}
-
-                        {% if perfil == 'Desarrollo de Carrera' %}
-                        <li class="nav-item">
-                            <a id="user-link" class="nav-link naveg me-3" href="/usuariosConProgresiones">Usuarios con
-                                Progresiones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="user-link" class="nav-link naveg me-3" href="/tutores">Tutores</a>
-                        </li>
-                        {% endif %}
-
-                        {% if perfil == 'Admin' %}
+                        
                         <li class="nav-item">
                             <a id="metas-link" class="nav-link naveg me-3" href="/nomina">Nomina</a>
                         </li>
@@ -93,7 +56,7 @@
                         <li class="nav-item">
                             <a id="user-link" class="nav-link naveg me-3" href="/importar_licencia">importar Datos Licencia</a>
                         </li>
-                        {% endif %}
+                        
                     </ul>
                 </div>
             </div>
@@ -107,7 +70,7 @@
 
     <footer class="fixed-bottom bg-light">
         <div class="container pt-4">
-            <p class="text-center">Provincia Microempresas S.A V1.1.1</p>
+            <p class="text-center">Provincia Microempresas S.A V1.1.2</p>
         </div>
     </footer>
 

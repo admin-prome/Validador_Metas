@@ -1,9 +1,9 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
-<div class="container">
-  <h3 style="text-decoration: underline;">Metas</h3>
-</div>
+
+<br>
+<h1>Metas</h1>
+<hr>
 <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
   <table class="table">
     <thead>
@@ -18,15 +18,15 @@
     <tbody>
       {% for meta in metas %}
       <tr>
-        <td class="text-nowrap">{{ meta.categoria }}</td>
-        <td class="text-nowrap">{{ meta.cantidad }}</td>
+        <td class="text-nowrap">{{ meta.category }}</td>
+        <td class="text-nowrap">{{ meta.q }}</td>
         <td class="text-nowrap">{{ meta.monto }}</td>
-        <td class="text-nowrap">{{ meta.monto_prom }}</td>
+        <td class="text-nowrap">{{ meta.monto_promedio }}</td>
         <td class="text-nowrap">{{ meta.fecha }}</td>
         <td class="text-nowrap">
           <div class="button-group">
-            <a href="{{ url_for('editar_meta', categoria=meta.categoria) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
-            <form action="{{ url_for('eliminar_meta', categoria=meta.categoria) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta meta {{ meta.categoria }}?');">
+            <a href="{{ url_for('editar_meta', categoria=meta.category) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
+            <form action="{{ url_for('eliminar_meta', categoria=meta.category) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta meta {{ meta.categoria }}?');">
               <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
             </form>
           </div>
@@ -41,7 +41,6 @@
     <div class="col">
       <div class="d-flex justify-content-end">
         <a href="{{ url_for('agregar_meta') }}" class="btn btn-outline-primary me-2" title="Agregar Meta"><i class="fa-solid fa-plus"></i></a>
-        <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@ def dias_del_mes_bimestre():
     return dias_bimestre
 
 
-def licencias_mes_uno(legajo):
+def ajustes_metas(legajo):
     bimestre = bimestre_actual()
     dias_bimestre = dias_del_mes_bimestre()
     total_q_mes_uno = 0
@@ -174,11 +174,3 @@ def licencias_mes_uno(legajo):
     connection.commit()    
     connection.close()
     
-    
-legajo = 1111    
-licencias_mes_uno(legajo)
-
-
-
-
-

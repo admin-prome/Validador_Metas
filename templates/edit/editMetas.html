@@ -1,7 +1,9 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
-<form action="{{ url_for('editar_meta', categoria=datos_categoria.categoria) }}" method="POST">    
+
+<h2>Editar Meta</h2>
+<br>
+<form action="{{ url_for('editar_meta', categoria=datos_categoria.category) }}" method="POST">    
     <div class="table-responsive">
       <table class="table">
         <thead>
@@ -15,10 +17,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{ datos_categoria.categoria }}</td>
-            <td> <input type="number" name="cantidad" value="{{ datos_categoria.cantidad }}" class="form-control" required> </td>
+            <td>{{ datos_categoria.category }}</td>
+            <td> <input type="number" name="cantidad" value="{{ datos_categoria.q }}" class="form-control" required> </td>
             <td> <input type="number" name="monto" value="{{ datos_categoria.monto }}" class="form-control" required> </td>
-            <td> <input type="number" name="monto_prom" value="{{ datos_categoria.monto_prom }}" class="form-control" required> </td>
+            <td> <input type="number" name="monto_prom" value="{{ datos_categoria.monto_promedio }}" class="form-control" required> </td>
             <td> <input type="date" name="fecha" value="{{ datos_categoria.fecha }}" class="form-control" required> </td>
           </tr>
         </tbody>

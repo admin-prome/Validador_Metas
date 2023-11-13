@@ -1,6 +1,6 @@
 import os
 from werkzeug.utils import secure_filename
-from flask import Flask, redirect, render_template, request, send_file, session, url_for
+from flask import Flask, redirect, render_template, request, send_file, session, url_for, jsonify
 from dotenv import load_dotenv
 from db.conection import DatabaseConnection
 from utils.add_nomina import *
@@ -75,6 +75,7 @@ def index():
             nombre = result[1]
         else:
             perfil, nombre = None, None
+        actualizar_datos()        
         return render_template('index.html', nombre=nombre, perfil=perfil)
     else:
         return redirect(url_for('login'))
@@ -153,9 +154,32 @@ def delete_observacion():
 
 @app.route('/guardar_datos', methods=['POST'])
 def guardar_datos():
-    render_template('spinner.html')
-    return render_template('spinner.html')
+    import time
+    time.sleep(2)
+    return jsonify({'success': True})
 
+@app.route('/update-datos', methods=['POST'])
+def update_datos():
+    actualizar_datos()
+    db_connection = DatabaseConnection()
+    connection = db_connection.connect()
+    cursor = connection.cursor()
+    legajo_query = """
+            SELECT employeeNumber FROM tec_licencesReports
+            UNION
+            SELECT employeeNumber FROM tec_licencesSpecialReports
+            UNION
+            SELECT employeeNumber FROM tec_tutoresVM
+            UNION
+            SELECT employeeNumber FROM tec_progretionOfUsers;
+    """
+    cursor.execute(legajo_query)
+    legajos = cursor.fetchall()
+    for legajo in legajos:
+        ajustes_metas(legajo[0])
+    cursor.close()
+    connection.close()
+    return redirect(url_for('nomina'))
 
 # TODO----------Licencias-------------------------------------------------------------------------------------------------
 @app.route('/licencias', methods=['GET', 'POST'])
@@ -169,6 +193,7 @@ def licencias():
     licencias = cursor.fetchall()
     cursor.close()
     connection.close()
+    actualizar_datos()
     return render_template('licencias.html', 
                            licencias=licencias)
 
@@ -185,6 +210,7 @@ def metas():
     metas = cursor.fetchall()
     cursor.close()
     connection.close()
+    actualizar_datos()
     return render_template('metas.html', 
                             metas=metas)
 
@@ -206,8 +232,6 @@ def editar_meta(categoria):
             update_query = "UPDATE tec_metasVM SET q = ?, monto = ?, monto_promedio = ?, fecha = ? WHERE category = ?"
             cursor.execute(update_query, nueva_cantidad, nuevo_monto, nuevo_monto_prom, nueva_fecha, categoria)
             connection.commit()
-            agregar_meta_q(categoria)
-            agregar_meta_monto(categoria)
         else:
             connection.close()
             return "La categoría no existe y no se puede editar."
@@ -233,7 +257,7 @@ def eliminar_meta(categoria):
         cursor.execute(delete_query, categoria)
         connection.commit()
         cursor.close()
-        connection.close()  
+        connection.close()
         return redirect(url_for('metas'))
     except Exception as e:
         return f'Error al eliminar la meta: {str(e)}'
@@ -260,10 +284,8 @@ def agregar_meta():
             insert_query = "INSERT INTO tec_metasVM (category, q, monto, monto_promedio, fecha) VALUES (?, ?, ?, ?, ?)"
             cursor.execute(insert_query, categoria, cantidad, monto, monto_prom, fecha)
             connection.commit()
-            agregar_meta_q(categoria)
-            agregar_meta_monto(categoria)            
             cursor.close()
-            connection.close()
+            connection.close()           
         return redirect(url_for('metas'))
     return render_template('add/addMetas.html')
             
@@ -280,6 +302,7 @@ def progresiones():
     progresiones = cursor.fetchall()
     cursor.close()
     connection.close()
+    actualizar_datos()
     return render_template('progresiones.html', 
                            progresiones=progresiones)
     
@@ -298,7 +321,7 @@ def editar_progresion(categoria):
         cursor = connection.cursor()        
         update_query = "UPDATE tec_progretionVM SET month_1 = ?, month_2 = ?, month_3 = ?, month_4 = ?, month_5 = ?, month_6 = ? WHERE category = ?"
         cursor.execute(update_query, datos_progresion_1, datos_progresion_2, datos_progresion_3, datos_progresion_4, datos_progresion_5, datos_progresion_6, categoria)
-        connection.commit()        
+        connection.commit()
         return redirect(url_for('progresiones'))
     db_connection = DatabaseConnection()
     connection = db_connection.connect()
@@ -382,8 +405,7 @@ def eliminar_user(legajo):
         cursor.execute(delete_query, legajo)
         connection.commit()
         cursor.close()
-        connection.close()  
-        agregar_progresion_no(legajo)       
+        connection.close()
         return redirect(url_for('users'))   
     except Exception as e:
         return f'Error al eliminar la meta: {str(e)}'
@@ -462,7 +484,7 @@ def usuarios_con_progresion():
     usuarios = cursor.fetchall()
     cursor.close()
     connection.close()
-
+    actualizar_datos()
     return render_template('usuariosConProgresiones.html', 
                            usuarios=usuarios)
     
@@ -483,7 +505,6 @@ def editar_usuario_con_progresiones(legajo):
             update_query = "UPDATE tec_progretionOfUsers SET fullName = ?, category = ?, adjustment = ? WHERE employeeNumber = ?"
             cursor.execute(update_query, fullName, category, adjustment, legajo)
             connection.commit()
-            agregar_progresion_si(legajo)
             ajustes_metas(legajo)
         else:
             connection.close()
@@ -510,8 +531,7 @@ def eliminar_usuario_con_progresiones(legajo):
         cursor.execute(delete_query, legajo)
         connection.commit()
         cursor.close()
-        connection.close()  
-        agregar_progresion_no(legajo)
+        connection.close()
         ajustes_metas(legajo)
         return redirect(url_for('usuarios_con_progresion'))
     except Exception as e:
@@ -540,7 +560,6 @@ def agregar_usuario_con_progresion():
             connection.commit()
             cursor.close()
             connection.close()
-            agregar_progresion_si(employeeNumber)
             ajustes_metas(employeeNumber)
         return redirect(url_for('usuarios_con_progresion'))
     return render_template('add/addUsuarioConProgresion.html', 
@@ -559,6 +578,7 @@ def tutores():
     usuarios = cursor.fetchall()
     cursor.close()
     connection.close()
+    actualizar_datos()
     return render_template('tutores.html', 
                            usuarios=usuarios)
     
@@ -581,7 +601,6 @@ def editar_tutores(legajo):
             update_query = "UPDATE tec_tutoresVM SET fullName = ?, category = ?, startDate = ?, endDate = ?, adjustment = ? WHERE employeeNumber = ?"
             cursor.execute(update_query, fullName, category, startDate, endDate, adjustment, legajo)
             connection.commit()
-            agregar_tutor_si(legajo)
             ajustes_metas(legajo)
         else:
             connection.close()
@@ -609,7 +628,6 @@ def eliminar_tutores(legajo):
         connection.commit()
         cursor.close()
         connection.close()
-        agregar_tutor_no(legajo)
         ajustes_metas(legajo)
         return redirect(url_for('tutores'))
     except Exception as e:
@@ -639,8 +657,7 @@ def agregar_tutor():
             cursor.execute(insert_query, employeeNumber, fullName, category, startDate, endDate, adjustment)
             connection.commit()
             cursor.close()
-            connection.close()            
-            agregar_tutor_si(employeeNumber)
+            connection.close()
             ajustes_metas(employeeNumber)
         return redirect(url_for('tutores'))
     return render_template('add/addTutores.html',
@@ -659,6 +676,7 @@ def licencias_especiales():
     licencias = cursor.fetchall()
     cursor.close()
     connection.close()
+    actualizar_datos()
     return render_template('licenciasEspeciales.html', 
                            licencias=licencias)
 
@@ -678,8 +696,6 @@ def editar_licencia(employeeNumber):
         update_query = "UPDATE tec_licencesSpecialReports SET fullName = ?, license = ?, licenseStar = ?, licenseEnd = ?, licenseDays = ?, adjustment = ? WHERE employeeNumber = ?"
         cursor.execute(update_query, nuevo_fullName, nuevo_license, nuevo_licenseStar, nuevo_licenseEnd, nuevo_licenseDays, nuevo_adjustment, employeeNumber)
         connection.commit()
-        agregar_licencias_especiales(employeeNumber)
-        agregar_dias_licencias_especiales(employeeNumber)
         ajustes_metas(employeeNumber)
         return redirect(url_for('licencias_especiales'))
     db_connection = DatabaseConnection()
@@ -723,14 +739,22 @@ def agregar_licencia():
         db_connection = DatabaseConnection()
         connection = db_connection.connect()
         cursor = connection.cursor()        
-        insert_query = "INSERT INTO tec_licencesSpecialReports (employeeNumber, fullName, license, licenseStar, licenseEnd, licenseDays, adjustment) VALUES (?, ?, ?, ?, ?, ?, ?)"
+        insert_query = """
+            INSERT INTO tec_licencesSpecialReports (
+                employeeNumber, 
+                fullName, 
+                license, 
+                licenseStar, 
+                licenseEnd, 
+                licenseDays, 
+                adjustment
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        """
         cursor.execute(insert_query, employeeNumber, fullName, license, licenseStar, licenseEnd, licenseDays, adjustment)
         connection.commit()
-        agregar_licencias_especiales(employeeNumber)
-        agregar_dias_licencias_especiales(employeeNumber)
-        ajustes_metas(employeeNumber)
         cursor.close()
         connection.close()
+        ajustes_metas(employeeNumber)
         return redirect(url_for('licencias_especiales'))
     return render_template('add/addLicencias.html', 
                            error_message=None)
@@ -749,7 +773,28 @@ def export_excel():
     db_connection = DatabaseConnection()
     connection = db_connection.connect()
     cursor = connection.cursor()
-    query = "select employeeNumber, fullName, branch, category, metas_q, metas_monto, descripcion_licencias, dias_licencias, licencias_especiales, dias_licencias_especiales, es_tutor, tiene_progresion, ajuste_q_mes_uno, ajuste_monto_mes_uno, ajuste_q_mes_dos, ajuste_monto_mes_dos, ajuste_total_q, ajuste_total_monto, Observacion from tec_nominaAllDataVM"
+    query = """select 
+                    employeeNumber, 
+                    fullName, 
+                    branch, 
+                    category, 
+                    metas_q, 
+                    metas_monto, 
+                    descripcion_licencias, 
+                    dias_licencias, 
+                    licencias_especiales, 
+                    dias_licencias_especiales, 
+                    es_tutor, 
+                    tiene_progresion, 
+                    ajuste_q_mes_uno, 
+                    ajuste_monto_mes_uno, 
+                    ajuste_q_mes_dos, 
+                    ajuste_monto_mes_dos, 
+                    ajuste_total_q, 
+                    ajuste_total_monto, 
+                    Observacion 
+                from tec_nominaAllDataVM
+                """
     cursor.execute(query)
     nomina = cursor.fetchall()
     connection.close()    
@@ -762,11 +807,32 @@ def export_excel_azure():
     db_connection = DatabaseConnection()
     connection = db_connection.connect()
     cursor = connection.cursor()
-    query = "select employeeNumber, fullName, branch, category, metas_q, metas_monto, descripcion_licencias, dias_licencias, licencias_especiales, dias_licencias_especiales, es_tutor, tiene_progresion, ajuste_q_mes_uno, ajuste_monto_mes_uno, ajuste_q_mes_dos, ajuste_monto_mes_dos, ajuste_total_q, ajuste_total_monto, Observacion from tec_nominaAllDataVM"
+    query = """
+            select 
+                employeeNumber, 
+                fullName, 
+                branch, 
+                category, 
+                metas_q, 
+                metas_monto, 
+                descripcion_licencias, 
+                dias_licencias, 
+                licencias_especiales, 
+                dias_licencias_especiales, 
+                es_tutor, 
+                tiene_progresion, 
+                ajuste_q_mes_uno, 
+                ajuste_monto_mes_uno, 
+                ajuste_q_mes_dos, 
+                ajuste_monto_mes_dos, 
+                ajuste_total_q, 
+                ajuste_total_monto, 
+                Observacion 
+            from tec_nominaAllDataVM
+            """
     cursor.execute(query)
     nomina = cursor.fetchall()
-    connection.close()
-    
+    connection.close()    
     excel_file = export_to_excel(nomina)
     return send_file(excel_file, 
                     as_attachment=True)
@@ -816,8 +882,8 @@ def uploaded_file(filename):
                 '',  # dias_licencias
                 '',  # licencias_especiales
                 '',  # dias_licencias_especiales
-                'NO',  # es_tutor
-                'NO',  # tiene_progresion
+                '',  # es_tutor
+                '',  # tiene_progresion
                 0.0,  # ajuste_q_mes_uno
                 0,  # ajuste_monto_mes_uno
                 0.0,  # ajuste_q_mes_dos
@@ -828,20 +894,34 @@ def uploaded_file(filename):
             data_to_insert.append(data)
         try:
             insert_query = """
-            INSERT INTO tec_nominaAllDataVM 
-            (employeeNumber, fullName, branch, category, Observacion, metas_q, metas_monto, descripcion_licencias, dias_licencias, licencias_especiales, dias_licencias_especiales, es_tutor, tiene_progresion, ajuste_q_mes_uno, ajuste_monto_mes_uno, ajuste_q_mes_dos, ajuste_monto_mes_dos, ajuste_total_q, ajuste_total_monto)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO tec_nominaAllDataVM (  
+                    employeeNumber, 
+                    fullName, 
+                    branch, 
+                    category, 
+                    Observacion, 
+                    metas_q, 
+                    metas_monto, 
+                    descripcion_licencias, 
+                    dias_licencias, 
+                    licencias_especiales, 
+                    dias_licencias_especiales, 
+                    es_tutor, 
+                    tiene_progresion, 
+                    ajuste_q_mes_uno, 
+                    ajuste_monto_mes_uno, 
+                    ajuste_q_mes_dos, 
+                    ajuste_monto_mes_dos, 
+                    ajuste_total_q, 
+                    ajuste_total_monto
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """
             cursor.executemany(insert_query, data_to_insert)
             connection.commit()
             for _, row in df.iterrows():
-                categoria = row['category']
                 legajo = row['employeeNumber']
-                agregar_meta_q(categoria)
-                agregar_meta_monto(categoria)
-                agregar_descripcion_licencias(legajo)
-                agregar_dias_licencias(legajo)
-                ajustes_metas(legajo)
+            actualizar_datos()
+            ajustes_metas(legajo)
         except Exception as e:
             connection.rollback()
             flash(f'Error al insertar datos en la base de datos: {str(e)}', 'danger')
@@ -901,16 +981,33 @@ def uploaded_licencia_file(filename):
             data_to_insert.append(data)
         try:
             insert_query = """
-            INSERT INTO tec_licencesReports 
-            (employeeNumber, fullName, descriptions, startDay, endDay, filterDays, licenseDays)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO tec_licencesReports (
+                            employeeNumber, 
+                            fullName, 
+                            descriptions, 
+                            startDay, 
+                            endDay, 
+                            filterDays, 
+                            licenseDays
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?)
             """
             cursor.executemany(insert_query, data_to_insert)
             connection.commit()
-            for legajo in df['employeeNumber']:
-                agregar_descripcion_licencias(legajo)
-                agregar_dias_licencias(legajo)
-                ajustes_metas(legajo)
+            legajo_query = """
+                    SELECT employeeNumber FROM tec_licencesReports
+                    UNION
+                    SELECT employeeNumber FROM tec_licencesSpecialReports
+                    UNION
+                    SELECT employeeNumber FROM tec_tutoresVM
+                    UNION
+                    SELECT employeeNumber FROM tec_progretionOfUsers;
+            """
+            cursor.execute(legajo_query)
+            legajos = cursor.fetchall()
+            for legajo in legajos:
+                ajustes_metas(legajo[0])
+            
+            actualizar_datos()
         except Exception as e:
             connection.rollback()
             return f'Error al insertar datos en la base de datos: {str(e)}'

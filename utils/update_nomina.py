@@ -14,7 +14,6 @@ def dias_del_mes_bimestre():
     dias_bimestre = [dias_por_mes[mes] for mes in meses_bimestre]    
     return dias_bimestre
 
-
 def ajustes_metas(legajo):
     bimestre = bimestre_actual()
     dias_bimestre = dias_del_mes_bimestre()

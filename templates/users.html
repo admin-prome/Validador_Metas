@@ -1,7 +1,9 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
 
+<br>
+<h1>Usuarios</h1>
+<hr>
 <div class="container">
   <div class="container">
     <h3 style="text-decoration: underline;">Usuarios</h3>
@@ -21,14 +23,14 @@
         <tbody>
           {% for user in users %}
           <tr>
-            <td class="text-nowrap">{{ user.legajo }}</td>
-            <td class="text-nowrap">{{ user.nombre }}</td>
+            <td class="text-nowrap">{{ user.employeeNumber }}</td>
+            <td class="text-nowrap">{{ user.fullName }}</td>
             <td class="text-nowrap">{{ user.mail }}</td>
             <td class="text-nowrap">{{ user.perfil }}</td>
             <td>
               <div class="button-group">
-                <a href="{{ url_for('editar_usuario', legajo=user['legajo']) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
-                <form action="{{ url_for('eliminar_user', legajo=user.legajo) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar al usuario {{ user.nombre }} {{ user.apellido }}?');">
+                <a href="{{ url_for('editar_usuario', legajo=user.employeeNumber) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
+                <form action="{{ url_for('eliminar_user', legajo=user.employeeNumber) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar al usuario {{ user.fullName }}?');">
                   <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
                 </form>
               </div>
@@ -44,7 +46,6 @@
       <div class="col">
         <div class="d-flex justify-content-end">
           <a href="{{ url_for('agregar_usuario') }}" class="btn btn-outline-primary" title="Agregar Usuario"><i class="fa-solid fa-plus"></i></a>
-          <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
         </div>
       </div>
     </div>

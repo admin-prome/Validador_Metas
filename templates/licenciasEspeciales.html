@@ -1,7 +1,9 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
 
+<br>
+<h1>Licecias Especiales</h1>
+<hr>
 <div class="container">
   <div class="container">
     <h3 style="text-decoration: underline;">Licencias Especiales</h3>
@@ -32,7 +34,7 @@
             <td class="text-nowrap">{{ user.adjustment }} % </td>
             <td>
               <div class="button-group">
-                <a href="{{ url_for('editar_licencia', employeeNumber=user['employeeNumber']) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="{{ url_for('editar_licencia', employeeNumber=user.employeeNumber) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
                 <form action="{{ url_for('eliminar_licencia', employeeNumber=user.employeeNumber) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar al usuario {{ user.fullName }}?');">
                   <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
                 </form>
@@ -49,7 +51,6 @@
       <div class="col">
         <div class="d-flex justify-content-end">
           <a href="{{ url_for('agregar_licencia') }}" class="btn btn-outline-primary" title="Agregar Usuario"><i class="fa-solid fa-plus"></i></a>
-          <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
         </div>
       </div>
     </div>

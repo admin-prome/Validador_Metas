@@ -21,3 +21,8 @@ class DatabaseConnection:
             print(f'Error al intentar conectarse a la base de "{self.sql_server}"')
             traceback.print_exc()
       
+
+
+# db_connection = DatabaseConnection()
+# conexion = db_connection.connect()
+# conexion.close()

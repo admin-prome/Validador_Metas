@@ -1,7 +1,9 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
 
+<br>
+<h1>Licencias</h1>
+<hr>
 <div class="table-responsive h100" style="max-height: 500px; overflow: auto;">
   <table class="table table-bordered border-primary table-hover">
     <thead class="thead-dark table-primary">
@@ -31,14 +33,5 @@
   </table>
 </div>
 <p><b>Número total de registros: {{ licencias|length }}</p>
-<div class="container mt-3">
-  <div class="row">
-    <div class="col">
-      <div class="d-flex justify-content-end">
-        <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
-      </div>
-    </div>
-  </div>
-</div>
 
 {% endblock %}

@@ -1,11 +1,14 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
+
+<h2>Agregar Licencia Especial</h2>
+<br>
 <form action="{{ url_for('agregar_licencia') }}" method="POST">    
     <div class="table-responsive">
       {% if error_message %}
         <p class="text-danger">{{ error_message }}</p>
       {% endif %}
+      <h2>Agregar Licencia Especial</h2>
       <table class="table">
         <thead>
           <tr>
@@ -20,13 +23,13 @@
         </thead>
         <tbody>
           <tr>
-            <td> <input type="number" name="employeeNumber" required> </td>
-            <td> <input type="text" name="fullName" required> </td>
-            <td> <input type="text" name="license" required> </td>
-            <td> <input type="date" name="licenseStar" required> </td>
-            <td> <input type="date" name="licenseEnd" required> </td>
-            <td> <input type="number" name="licenseDays" required> </td>
-            <td> <input type="number" name="adjustment" required step="0.01" placeholder="Ej: 0.20"> </td>
+            <td> <input type="number" name="employeeNumber" class="form-control"  placeholder="1111" required> </td>
+            <td> <input type="text" name="fullName" class="form-control" placeholder="Nombre Apellido" required> </td>
+            <td> <input type="text" name="license" class="form-control" placeholder="Descripcion" required> </td>
+            <td> <input type="date" name="licenseStar" class="form-control" placeholder="01-01-2023" required> </td>
+            <td> <input type="date" name="licenseEnd" class="form-control" placeholder="02-01-2023" required> </td>
+            <td> <input type="number" name="licenseDays" class="form-control" placeholder="1" required> </td>
+            <td> <input type="number" name="adjustment" class="form-control" required step="0.01" placeholder="Ej: 0.01"> </td>
           </tr>
         </tbody>
       </table>    

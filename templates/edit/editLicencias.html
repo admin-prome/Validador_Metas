@@ -1,6 +1,7 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
+<h2>Editar Licencia Especial</h2>
+<br>
 <form action="{{ url_for('editar_licencia', employeeNumber=datos_licencia.employeeNumber) }}" method="POST">    
     <div class="table-responsive">
       <table class="table">

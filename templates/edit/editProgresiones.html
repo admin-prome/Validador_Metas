@@ -1,7 +1,9 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
-<form action="{{ url_for('editar_progresion', categoria=datos_progresion.categoria) }}" method="POST">    
+
+<h2>Editar Progresion</h2>
+<br>
+<form action="{{ url_for('editar_progresion', categoria=datos_progresion.category) }}" method="POST">    
     <div class="table-responsive">
       <table class="table">
         <thead>
@@ -17,13 +19,13 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{ datos_progresion.categoria }}</td>
-            <td> <input type="number" name="mes_1" value="{{ datos_progresion.mes_1 }}" class="form-control" required step="0.01"> </td>
-            <td> <input type="number" name="mes_2" value="{{ datos_progresion.mes_2 }}" class="form-control" required step="0.01"> </td>
-            <td> <input type="number" name="mes_3" value="{{ datos_progresion.mes_3 }}" class="form-control" required step="0.01"> </td>
-            <td> <input type="number" name="mes_4" value="{{ datos_progresion.mes_4 }}" class="form-control" required step="0.01"> </td>
-            <td> <input type="number" name="mes_5" value="{{ datos_progresion.mes_5 }}" class="form-control" required step="0.01"> </td>
-            <td> <input type="number" name="mes_6" value="{{ datos_progresion.mes_6 }}" class="form-control" required step="0.01"> </td>
+            <td>{{ datos_progresion.category }}</td>
+            <td> <input type="number" name="month_1" value="{{ datos_progresion.month_1 }}" class="form-control" required step="0.01"> </td>
+            <td> <input type="number" name="month_2" value="{{ datos_progresion.month_2 }}" class="form-control" required step="0.01"> </td>
+            <td> <input type="number" name="month_3" value="{{ datos_progresion.month_3 }}" class="form-control" required step="0.01"> </td>
+            <td> <input type="number" name="month_4" value="{{ datos_progresion.month_4 }}" class="form-control" required step="0.01"> </td>
+            <td> <input type="number" name="month_5" value="{{ datos_progresion.month_5 }}" class="form-control" required step="0.01"> </td>
+            <td> <input type="number" name="month_6" value="{{ datos_progresion.month_6 }}" class="form-control" required step="0.01"> </td>
           </tr>
         </tbody>
       </table>    

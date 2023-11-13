@@ -1,38 +1,30 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
-<div class="container">
-  <h3 style="text-decoration: underline;">Usuarios con Progresion</h3>
-</div>
+
+<br>
+<h1>Usuarios con Progresiones</h1>
+<hr>
 <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
   <table class="table">
     <thead>
       <tr>
         <th>Legajo</th>
-        <th>Apellido</th>
-        <th>Nombre</th>
-        <th>Mail</th>
+        <th>Nombre EC</th>
         <th>Categoría</th>
-        <th>Fecha Desde</th>
-        <th>Fecha Hasta</th>
-        <th>Mes de Progresion</th>
+        <th>Ajuste</th>
       </tr>
     </thead>
     <tbody>
         {% for user in usuarios %}     
         <tr>
-          <td class="text-nowrap">{{ user.legajo }}</td>
-          <td class="text-nowrap">{{ user.apellido }}</td>
-          <td class="text-nowrap">{{ user.nombre }}</td>
-          <td class="text-nowrap">{{ user.mail }}</td>
-          <td class="text-nowrap">{{ user.categoria }}</td>
-          <td class="text-nowrap">{{ user.fecha_desde }}</td>
-          <td class="text-nowrap">{{ user.fecha_hasta }}</td>
-          <td class="text-nowrap">{{ user.mes_progresion }}</td>
+          <td class="text-nowrap">{{ user.employeeNumber }}</td>
+          <td class="text-nowrap">{{ user.fullName }}</td>
+          <td class="text-nowrap">{{ user.category }}</td>
+          <td class="text-nowrap">{{ user.adjustment }}</td>
           <td>
             <div class="button-group">
-              <a href="{{ url_for('editar_usuario_con_progresiones', legajo=user.legajo) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
-              <form action="{{ url_for('eliminar_usuario_con_progresiones', legajo=user.legajo) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar al usuarios {{ user.nombre }} {{ user.apellido }}?');">
+              <a href="{{ url_for('editar_usuario_con_progresiones', legajo=user.employeeNumber) }}" class="btn btn-outline-success" title="Editar Observacion"><i class="fa-regular fa-pen-to-square"></i></a>
+              <form action="{{ url_for('eliminar_usuario_con_progresiones', legajo=user.employeeNumber) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar al usuarios {{ user.fullName }}?');">
                 <button type="submit" class="btn btn-outline-danger" title="Eliminar Observacion"><i class="fa-solid fa-trash"></i></button>
               </form>
             </div>
@@ -47,7 +39,6 @@
     <div class="col">
       <div class="d-flex justify-content-end">
         <a href="{{ url_for('agregar_usuario_con_progresion') }}" class="btn btn-outline-primary me-2" title="Nuevo Usuario"><i class="fa-solid fa-plus"></i></a>
-        <button class="btn btn-outline-secondary" onclick="history.back()" title="Atras"><i class="fa-solid fa-arrow-rotate-left"></i></button>
       </div>
     </div>
   </div>

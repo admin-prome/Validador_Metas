@@ -1,6 +1,8 @@
 {% extends 'partials/layout.html' %}
-
 {% block body %}
+
+<h2>Agregar Meta</h2>
+<br>
 <form action="{{ url_for('agregar_meta') }}" method="POST">    
     <div class="table-responsive">
       {% if error_message %}
@@ -19,17 +21,17 @@
         <tbody>
           <tr>
             <td>
-              <select name="categoria" required>
+              <select name="categoria" class="form-control" required>
                 <option value="C-SE - EC Senior" selected>C-SE - EC Senior</option>
                 <option value="C-SS - EC Semi Senior">C-SS - EC Semi Senior</option>
                 <option value="C-JU - EC Junior">C-JU - EC Junior</option>
                 <option value="C-JC - EC Junior en Capacitacion">C-JC - EC Junior en Capacitacion</option>
               </select>
             </td>
-            <td> <input type="number" name="cantidad" required> </td>
-            <td> <input type="number" name="monto" required> </td>
-            <td> <input type="number" name="monto_prom" required> </td>
-            <td> <input type="date" name="fecha" required> </td>
+            <td> <input type="number" name="cantidad" class="form-control" placeholder="10" required> </td>
+            <td> <input type="number" name="monto" class="form-control" placeholder="10000" required> </td>
+            <td> <input type="number" name="monto_prom" class="form-control" placeholder="1000" required> </td>
+            <td> <input type="date" name="fecha" class="form-control" placeholder="Fecha modificacion" required> </td>
           </tr>
         </tbody>
       </table>    

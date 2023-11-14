@@ -23,7 +23,6 @@ app.config['ALLOWED_EXTENSIONS'] = {'xlsx'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
-
 # TODO----------LOGIN--------------------------------------------------------------------------------------------------
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -84,7 +83,6 @@ def index():
 def logout():
     session.pop('usuario', None)
     return redirect(url_for('login'))
-
 
 # TODO----------NOMINA-------------------------------------------------------------------------------------------------
 @app.route('/nomina', methods=['GET', 'POST'])
@@ -151,7 +149,6 @@ def delete_observacion():
             connection.close()
     return redirect('/nomina')
 
-
 @app.route('/guardar_datos', methods=['POST'])
 def guardar_datos():
     import time
@@ -196,7 +193,6 @@ def licencias():
     actualizar_datos()
     return render_template('licencias.html', 
                            licencias=licencias)
-
 
 # TODO-----------METAS------------------------------------------------------------------------------------------------
 @app.route('/metas', methods=['GET', 'POST'])
@@ -289,7 +285,6 @@ def agregar_meta():
         return redirect(url_for('metas'))
     return render_template('add/addMetas.html')
             
-
 # TODO-----------PROGRESIONES-----------------------------------------------------------------------------------------
 @app.route('/progresiones', methods=['GET', 'POST'])
 @profile_required(['Admin', 'Personas', 'Desarrollo de Carrera'])
@@ -377,7 +372,6 @@ def agregar_progresion():
             connection.close()
         return redirect(url_for('progresiones'))    
     return render_template('add/addProgresiones.html')
-
 
 # TODO------------USERS------------------------------------------------------------------------------------------
 @app.route('/users', methods=['GET', 'POST'])
@@ -471,7 +465,6 @@ def agregar_usuario():
             return redirect(url_for('users'))
     return render_template('add/addUsers.html')
 
-
 # TODO-------------USUARIOS_CON_PROGRESIONES---------------------------------------------------------------------------
 @app.route('/usuariosConProgresiones')
 @profile_required(['Admin', 'Personas', 'Desarrollo de Carrera'])
@@ -564,7 +557,6 @@ def agregar_usuario_con_progresion():
         return redirect(url_for('usuarios_con_progresion'))
     return render_template('add/addUsuarioConProgresion.html', 
                            error_message=None)
-
 
 # TODO-------------TUTORES------------------------------------------------------------------------------------
 @app.route('/tutores')
@@ -663,7 +655,6 @@ def agregar_tutor():
     return render_template('add/addTutores.html',
                            error_message=None)
 
-
 #TODO--------LICENCIAS ESPECIALES--------------------------------------------------------
 @app.route('/licenciasEspeciales')
 @profile_required(['Admin', 'Personas'])
@@ -759,13 +750,11 @@ def agregar_licencia():
     return render_template('add/addLicencias.html', 
                            error_message=None)
 
-
 #TODO--------VALIDACION_DE_USUARIO_LOGUEADO--------------------------------------------------------
 @app.before_request
 def before_request():
     if request.endpoint != 'login' and 'usuario' not in session:
         return redirect(url_for('login'))
-
 
 #TODO--------EXPORT_TO_EXCEL----------------------------------------------------------------------
 @app.route('/export_excel', methods=['POST'])
@@ -836,7 +825,6 @@ def export_excel_azure():
     excel_file = export_to_excel(nomina)
     return send_file(excel_file, 
                     as_attachment=True)
-
 
 #TODO--------upload_nomina------------------------------------------------------------------------------
 @app.route('/importar_nomina', methods=['GET', 'POST'])
@@ -918,10 +906,20 @@ def uploaded_file(filename):
             """
             cursor.executemany(insert_query, data_to_insert)
             connection.commit()
-            for _, row in df.iterrows():
-                legajo = row['employeeNumber']
+            legajo_query = """
+                    SELECT employeeNumber FROM tec_licencesReports
+                    UNION
+                    SELECT employeeNumber FROM tec_licencesSpecialReports
+                    UNION
+                    SELECT employeeNumber FROM tec_tutoresVM
+                    UNION
+                    SELECT employeeNumber FROM tec_progretionOfUsers;
+            """
+            cursor.execute(legajo_query)
+            legajos = cursor.fetchall()
             actualizar_datos()
-            ajustes_metas(legajo)
+            for legajo in legajos:
+                ajustes_metas(legajo[0])
         except Exception as e:
             connection.rollback()
             flash(f'Error al insertar datos en la base de datos: {str(e)}', 'danger')
@@ -934,7 +932,6 @@ def uploaded_file(filename):
         return render_template('upload.html')
     flash('Archivo importado y procesado con exito', 'info')
     return render_template('ok.html')
-
 
 #TODO--------upload_licencias------------------------------------------------------------------------------
 @app.route('/importar_licencia', methods=['GET', 'POST'])

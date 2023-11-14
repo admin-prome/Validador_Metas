@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from db.conection import DatabaseConnection
 
 def bimestre_actual():
@@ -8,49 +8,56 @@ def bimestre_actual():
     mes_final = bimestre * 2 + 1
     return list(range(mes_inicial, mes_final))
 
-def dias_del_mes_bimestre():
-    dias_por_mes = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]    
-    meses_bimestre = bimestre_actual()
-    dias_bimestre = [dias_por_mes[mes] for mes in meses_bimestre]    
-    return dias_bimestre
+def cantidad_dias(fecha1, fecha2, mes):
+    fecha1 = datetime.strptime(fecha1, '%Y-%m-%d')
+    fecha2 = datetime.strptime(fecha2, '%Y-%m-%d')
+    if fecha1.month == fecha2.month == mes:
+        diferencia = abs((fecha2 - fecha1).days)
+        return diferencia+1
+    elif fecha1.month == mes:
+        ultimo_dia_mes = (fecha1 + timedelta(days=32)).replace(day=1) - timedelta(days=1)
+        dias_hasta_final_mes = (ultimo_dia_mes - fecha1).days
+        return dias_hasta_final_mes+1
+    elif fecha2.month == mes:
+        primer_dia_mes = datetime(fecha2.year, mes, 1)
+        dias_desde_inicio_mes = (fecha2 - primer_dia_mes).days
+        return dias_desde_inicio_mes+1
+    else:
+        return 0
 
 def ajustes_metas(legajo):
-    bimestre = bimestre_actual()
-    dias_bimestre = dias_del_mes_bimestre()
-    total_q_mes_uno = 0
-    total_q_mes_dos = 0
-    total_q = 0
-    total_monto_mes_uno = 0
-    total_monto_mes_dos = 0
-    total_monto = 0
     meta_q = 0
     meta_monto = 0
-    ajuste_licencias = 0.01
-    ajuste_tutoria = 0
-    ajuste_progresion = 0
-    dias_licencias_uno = 0
-    dias_licencias_dos = 0
-    total_licencias = dias_licencias_uno + dias_licencias_dos
-    ajuste_licencia_especial = 0
+    progresiones = 0
+    mes_uno = 0
+    mes_dos = 0
+    tutoria = 0
+    licencia_especial = 0
+    bimestre = bimestre_actual()
     
     db_connection = DatabaseConnection()
     connection = db_connection.connect()
-    cursor = connection.cursor()
+    cursor = connection.cursor()    
+    
     nomina_query = "SELECT * FROM tec_nominaAllDataVM WHERE employeeNumber = ?"
     cursor.execute(nomina_query, legajo)
-    rows_nomina = cursor.fetchall()    
+    rows_nomina = cursor.fetchall()
+    
     progresion_query = "SELECT * FROM tec_progretionOfUsers WHERE employeeNumber = ?"
     cursor.execute(progresion_query, legajo)
-    rows_progresiones = cursor.fetchall()    
+    rows_progresiones = cursor.fetchall()
+    
+    licencia_query = "SELECT startDay, endDay FROM tec_licencesReports WHERE employeeNumber = ?"
+    cursor.execute(licencia_query, legajo)
+    rows_licencia = cursor.fetchall()
+    
     tutores_query = "SELECT * FROM tec_tutoresVM WHERE employeeNumber = ?"
     cursor.execute(tutores_query, legajo)
     rows_tutores = cursor.fetchall()    
-    licencia_query = "SELECT * FROM tec_licencesReports WHERE employeeNumber = ?"
-    cursor.execute(licencia_query, legajo)
-    rows_licencia = cursor.fetchall()    
+    
     licencia_special_query = "SELECT * FROM tec_licencesSpecialReports WHERE employeeNumber = ?"
     cursor.execute(licencia_special_query, legajo)
-    rows_licencia_especial = cursor.fetchall()    
+    rows_licencia_especial = cursor.fetchall()
     
     for row_nomina in rows_nomina:
         metas_q = row_nomina[6]
@@ -60,116 +67,115 @@ def ajustes_metas(legajo):
         
     for row_progress in rows_progresiones:
         ajuste_progress = row_progress[4]
-        ajuste_progresion += ajuste_progress
+        progresiones += ajuste_progress
+        
+    for row_licencia in rows_licencia:
+        fecha_desde = row_licencia[0]
+        fecha_hasta = row_licencia[1]
+        mes_uno += cantidad_dias(str(fecha_desde), str(fecha_hasta), bimestre[0])
+        mes_dos += cantidad_dias(str(fecha_desde), str(fecha_hasta), bimestre[1])
+    if mes_uno >= 7 and mes_uno <= 21:
+        mes_uno = mes_uno*0.01
+    else:
+        mes_uno = 0
+    if mes_dos >= 7 and  mes_dos <= 21:
+        mes_dos = mes_dos*0.01
+    else:
+        mes_dos = 0
         
     for row_tutor in rows_tutores:
         ajuste = row_tutor[6]
-        ajuste_tutoria += ajuste
-    
-    for row_licencia in rows_licencia:
-        fecha_desde = row_licencia[4]
-        fecha_hasta = row_licencia[5]            
-        if fecha_desde.month == bimestre[0] and fecha_hasta.month == bimestre[0]:
-            dias_licencias_uno += ((fecha_hasta.day - fecha_desde.day) + 1)*ajuste_licencias
-        if fecha_desde.month == bimestre[0] and fecha_hasta.month != bimestre[0]:
-            dias_licencias_uno += ((dias_bimestre[0] - fecha_desde.day) + 1)*ajuste_licencias
-        if fecha_desde.month != bimestre[0] and fecha_hasta.month == bimestre[0]:
-            dias_licencias_uno += ((dias_bimestre[0] + fecha_hasta.day) - dias_bimestre[0])*ajuste_licencias              
-        if fecha_desde.month == bimestre[1] and fecha_hasta.month == bimestre[1]:
-            dias_licencias_dos += ((fecha_hasta.day - fecha_desde.day) + 1)*ajuste_licencias
-        if fecha_desde.month == bimestre[1] and fecha_hasta.month != bimestre[1]:
-            dias_licencias_dos += ((dias_bimestre[1] - fecha_desde.day) + 1)*ajuste_licencias
-        if fecha_desde.month != bimestre[1] and fecha_hasta.month == bimestre[1]:
-            dias_licencias_dos += ((dias_bimestre[1] + fecha_hasta.day) - dias_bimestre[1])*ajuste_licencias
-    
+        tutoria += ajuste        
+        
     for rows_licen_esp in rows_licencia_especial:
         ajuste_lic_esp = rows_licen_esp[7]
-        ajuste_licencia_especial += ajuste_lic_esp
+        licencia_especial += ajuste_lic_esp
+        
     
-    total_de_ajustes_mes_uno = dias_licencias_uno + (ajuste_tutoria/2) + ajuste_progresion + ajuste_licencia_especial        
-    total_de_ajustes_mes_dos = dias_licencias_dos + (ajuste_tutoria/2) + ajuste_progresion + ajuste_licencia_especial        
-    total_de_ajustes = total_licencias + ajuste_tutoria + ajuste_progresion + ajuste_licencia_especial        
+    total_licencias = mes_uno + mes_dos
+    valor_maximo = max(total_licencias, tutoria, licencia_especial)
+    if valor_maximo == total_licencias:
+        segundo_mayor = max(tutoria, licencia_especial)
+        minimo = min(tutoria, licencia_especial)
+    elif valor_maximo == tutoria:
+        segundo_mayor = max(total_licencias, licencia_especial)
+        minimo = min(total_licencias, licencia_especial)
+    else:
+        segundo_mayor = max(total_licencias, tutoria)
+        minimo = min(total_licencias, tutoria)
+        
+    valor_maximo_q_uno = max(mes_uno, tutoria, licencia_especial)
+    if valor_maximo_q_uno == mes_uno:
+        segundo_mayor_q_uno = max(tutoria, licencia_especial)
+        minimo_q_uno = min(tutoria, licencia_especial)
+    elif valor_maximo_q_uno == tutoria:
+        segundo_mayor_q_uno = max(mes_uno, licencia_especial)
+        minimo_q_uno = min(mes_uno, licencia_especial)
+    else:
+        segundo_mayor_q_uno = max(mes_uno, tutoria)
+        minimo_q_uno = min(mes_uno, tutoria)
+        
+    valor_maximo_q_dos = max(mes_dos, tutoria, licencia_especial)
+    if valor_maximo_q_dos == mes_dos:
+        segundo_mayor_q_dos = max(tutoria, licencia_especial)
+        minimo_q_dos = min(tutoria, licencia_especial)
+    elif valor_maximo_q_dos == tutoria:
+        segundo_mayor_q_dos = max(mes_dos, licencia_especial)
+        minimo_q_dos = min(mes_dos, licencia_especial)
+    else:
+        segundo_mayor_q_dos = max(mes_dos, tutoria)
+        minimo_q_dos = min(mes_dos, tutoria)
     
-    valor_maximo_mes_uno = max(dias_licencias_uno, ajuste_tutoria, ajuste_licencia_especial)    
-    valor_maximo_mes_dos = max(dias_licencias_uno, ajuste_tutoria, ajuste_licencia_especial)
-    valor_maximo = max(total_licencias, ajuste_tutoria, ajuste_licencia_especial)
+        
+    ajuste_q_1 = meta_q - (meta_q*progresiones)
+    ajuste_q_2 = ajuste_q_1 - (ajuste_q_1*valor_maximo)
+    ajuste_q_3 = ajuste_q_2 - (ajuste_q_2*segundo_mayor)
+    ajuste_q_total = round(ajuste_q_3 - (ajuste_q_3*minimo),1) ## Total Q
     
-    if valor_maximo_mes_uno == dias_licencias_uno:
-        segundo_mayor_mes_uno = max(ajuste_tutoria, ajuste_licencia_especial)
-        menor_mes_uno = min(ajuste_tutoria, ajuste_licencia_especial)
-    elif valor_maximo_mes_uno == ajuste_tutoria:
-        segundo_mayor_mes_uno = max(dias_licencias_uno, ajuste_licencia_especial)
-        menor_mes_uno = min(dias_licencias_uno, ajuste_licencia_especial)
-    else:
-        segundo_mayor_mes_uno = max(dias_licencias_uno, ajuste_tutoria)
-        menor_mes_uno = min(dias_licencias_uno, ajuste_tutoria)
+    ajuste_monto_1 = meta_monto - (meta_monto*progresiones)
+    ajuste_monto_2 = ajuste_monto_1 - (ajuste_monto_1*valor_maximo)
+    ajuste_monto_3 = ajuste_monto_2 - (ajuste_monto_2*segundo_mayor)
+    ajuste_monto_total = int(ajuste_monto_3 - (ajuste_monto_3*minimo)) ## Total Monto
+    # -------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    ajus_mes_1 = (meta_q - (meta_q*progresiones))/2
+    ajus_mes_2 = ajus_mes_1 - (ajus_mes_1 * (valor_maximo_q_uno/2))
+    ajus_mes_3 = ajus_mes_2 - (ajus_mes_2 * (segundo_mayor_q_uno/2))
+    ajus_q_mes_uno = round((ajus_mes_3 - (ajus_mes_3 * minimo_q_uno)),1) ## ajuste Q mes 1
+    
+    ajus2_mes_1 = (meta_monto - (meta_monto*progresiones))/2
+    ajus2_mes_2 = ajus2_mes_1 - (ajus2_mes_1 * (valor_maximo_q_uno/2))
+    ajus2_mes_3 = ajus2_mes_2 - (ajus2_mes_2 * (segundo_mayor_q_uno/2))
+    ajus_monto_mes_uno = int((ajus2_mes_3 - (ajus2_mes_3 * minimo_q_uno)))  ## ajuste monto mes 1
+    # -------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    ajus_q_2mes_1 = (meta_q - (meta_q*progresiones))/2
+    ajus_q_2mes_2 = ajus_q_2mes_1 - (ajus_q_2mes_1 * (valor_maximo_q_dos/2))
+    ajus_q_2mes_3 = ajus_q_2mes_2 - (ajus_q_2mes_2 * (segundo_mayor_q_dos/2))
+    ajus_q_mes_dos = round((ajus_q_2mes_3 - (ajus_q_2mes_3 * minimo_q_uno)),1) ## ajuste Q mes 2
+    
+    ajus2_m_mes_1 = (meta_monto - (meta_monto*progresiones))/2
+    ajus2_m_mes_2 = ajus2_m_mes_1 - (ajus2_m_mes_1 * (valor_maximo_q_dos/2))
+    ajus2_m_mes_3 = ajus2_m_mes_2 - (ajus2_m_mes_2 * (segundo_mayor_q_dos/2))
+    ajus_monto_mes_dos = int((ajus2_m_mes_3 - (ajus2_m_mes_3 * minimo_q_dos)))  ## ajuste monto mes 2
+    
         
-    ajuste_q_1 = (meta_q/2) - ((meta_q/2)*ajuste_progresion)
-    ajuste_q_2 = ajuste_q_1 - (ajuste_q_1*valor_maximo_mes_uno)
-    ajuste_q_3 = ajuste_q_2 - (ajuste_q_2*segundo_mayor_mes_uno)
-    ajuste_q_4 = ajuste_q_3 - (ajuste_q_3*menor_mes_uno)
-    ajuste_monto_1 = (meta_monto/2) - ((meta_monto/2)*ajuste_progresion)
-    ajuste_monto_2 = ajuste_monto_1 - (ajuste_monto_1*valor_maximo_mes_uno)
-    ajuste_monto_3 = ajuste_monto_2 - (ajuste_monto_2*segundo_mayor_mes_uno)
-    ajuste_monto_4 = ajuste_monto_3 - (ajuste_monto_3*menor_mes_uno)
-    total_q_mes_uno += round(ajuste_q_4, 2)
-    total_monto_mes_uno += ajuste_monto_4
-    if total_de_ajustes_mes_uno >= 1:
-        total_q_mes_uno = 0
-        total_monto_mes_uno = 0
-        
-        
-    if valor_maximo_mes_dos == total_licencias:
-        segundo_mayor_mes_dos = max(ajuste_tutoria, ajuste_licencia_especial)
-        menor_mes_dos = min(ajuste_tutoria, ajuste_licencia_especial)
-    elif valor_maximo_mes_dos == ajuste_tutoria:
-        segundo_mayor_mes_dos = max(total_licencias, ajuste_licencia_especial)
-        menor_mes_dos = min(total_licencias, ajuste_licencia_especial)
-    else:
-        segundo_mayor_mes_dos = max(total_licencias, ajuste_tutoria)
-        menor_mes_dos = min(total_licencias, ajuste_tutoria)
-        
-    ajuste_q_m2_1 = (meta_q/2) - ((meta_q/2)*ajuste_progresion)
-    ajuste_q_m2_2 = ajuste_q_m2_1 - (ajuste_q_m2_1*valor_maximo_mes_dos)
-    ajuste_q_m2_3 = ajuste_q_m2_2 - (ajuste_q_m2_2*segundo_mayor_mes_dos)
-    ajuste_q_m2_4 = ajuste_q_m2_3 - (ajuste_q_m2_3*menor_mes_dos)
-    ajuste_monto_m2_1 = (meta_monto/2) - ((meta_monto/2)*ajuste_progresion)
-    ajuste_monto_m2_2 = ajuste_monto_m2_1 - (ajuste_monto_m2_1*valor_maximo_mes_dos)
-    ajuste_monto_m2_3 = ajuste_monto_m2_2 - (ajuste_monto_m2_2*segundo_mayor_mes_dos)
-    ajuste_monto_m2_4 = ajuste_monto_m2_3 - (ajuste_monto_m2_3*menor_mes_dos)
-    total_q_mes_dos += round(ajuste_q_m2_4, 2)
-    total_monto_mes_dos += ajuste_monto_m2_4
-    if total_de_ajustes_mes_dos >= 1:
-        total_q_mes_dos = 0
-        total_monto_mes_dos = 0
-        
-        
-    if valor_maximo == dias_licencias_dos:
-        segundo_mayor = max(ajuste_tutoria, ajuste_licencia_especial)
-        menor = min(ajuste_tutoria, ajuste_licencia_especial)
-    elif valor_maximo == ajuste_tutoria:
-        segundo_mayor = max(dias_licencias_dos, ajuste_licencia_especial)
-        menor = min(dias_licencias_dos, ajuste_licencia_especial)
-    else:
-        segundo_mayor = max(dias_licencias_dos, ajuste_tutoria)
-        menor = min(dias_licencias_dos, ajuste_tutoria)
-        
-    ajuste_q_total_1 = meta_q - (meta_q*ajuste_progresion)
-    ajuste_q_total_2 = ajuste_q_total_1 - (ajuste_q_total_1*valor_maximo)
-    ajuste_q_total_3 = ajuste_q_total_2 - (ajuste_q_total_2*segundo_mayor)
-    ajuste_q_total_4 = ajuste_q_total_3 - (ajuste_q_total_3*menor)
-    ajuste1monto_2 = (meta_monto/2) - ((meta_monto/2)*ajuste_progresion)
-    ajuste2monto_2 = ajuste1monto_2 - (ajuste1monto_2*valor_maximo_mes_dos)
-    ajuste3monto_2 = ajuste2monto_2 - (ajuste2monto_2*segundo_mayor_mes_dos)
-    ajuste4monto_2 = ajuste3monto_2 - (ajuste3monto_2*menor_mes_dos)
-    total_q += round(ajuste_q_total_4, 2)
-    total_monto += ajuste4monto_2
-    if total_de_ajustes >= 1:
-        total_q = 0
-        total_monto = 0
+    total_ajustes = progresiones + mes_uno + mes_dos + tutoria + licencia_especial
+    if total_ajustes >= 1:
+        ajus_q_mes_uno = 0
+        ajus_monto_mes_uno = 0
+        ajus_q_mes_dos = 0
+        ajus_monto_mes_dos = 0
+        ajuste_q_total = 0
+        ajuste_monto_total = 0
     
     update_query = "UPDATE tec_nominaAllDataVM SET ajuste_q_mes_uno = ?, ajuste_monto_mes_uno = ?, ajuste_q_mes_dos = ?, ajuste_monto_mes_dos = ?, ajuste_total_q = ?, ajuste_total_monto = ? WHERE employeeNumber = ?"
-    cursor.execute(update_query, (total_q_mes_uno, total_monto_mes_uno, total_q_mes_dos, total_monto_mes_dos, total_q, total_monto, legajo))
+    cursor.execute(update_query, (ajus_q_mes_uno, ajus_monto_mes_uno, ajus_q_mes_dos, ajus_monto_mes_dos, ajuste_q_total, ajuste_monto_total, legajo))    
+    
     connection.commit()    
     connection.close()
+    
+    
+
+
     

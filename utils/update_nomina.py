@@ -25,7 +25,7 @@ def cantidad_dias(fecha1, fecha2, mes):
     else:
         return 0
 
-def ajustes_metas(legajo):
+def ajustes_metas(conexion, legajo):
     meta_q = 0
     meta_monto = 0
     progresiones = 0
@@ -34,9 +34,7 @@ def ajustes_metas(legajo):
     tutoria = 0
     licencia_especial = 0
     bimestre = bimestre_actual()
-    
-    db_connection = DatabaseConnection()
-    connection = db_connection.connect()
+    connection = conexion.connect()
     cursor = connection.cursor()    
     
     nomina_query = "SELECT * FROM tec_nominaAllDataVM WHERE employeeNumber = ?"

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,162 +9,7 @@
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
       <script src="https://kit.fontawesome.com/a214269803.js" crossorigin="anonymous"></script>
-      <style>
-          .🤚 {
-              --skin-color: #E4C560;
-              --tap-speed: 0.6s;
-              --tap-stagger: 0.1s;
-              position: relative;
-              width: 80px;
-              height: 60px;
-              margin-left: 80px;
-            }
-
-            .🤚:before {
-              content: '';
-              display: block;
-              width: 180%;
-              height: 75%;
-              position: absolute;
-              top: 70%;
-              right: 20%;
-              background-color: black;
-              border-radius: 40px 10px;
-              filter: blur(10px);
-              opacity: 0.3;
-            }
-
-            .🌴 {
-              display: block;
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              top: 0;
-              left: 0;
-              background-color: var(--skin-color);
-              border-radius: 10px 40px;
-            }
-
-            .👍 {
-              position: absolute;
-              width: 120%;
-              height: 38px;
-              background-color: var(--skin-color);
-              bottom: -18%;
-              right: 1%;
-              transform-origin: calc(100% - 20px) 20px;
-              transform: rotate(-20deg);
-              border-radius: 30px 20px 20px 10px;
-              border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-              border-left: 2px solid rgba(0, 0, 0, 0.1);
-            }
-
-            .👍:after {
-              width: 20%;
-              height: 60%;
-              content: '';
-              background-color: rgba(255, 255, 255, 0.3);
-              position: absolute;
-              bottom: -8%;
-              left: 5px;
-              border-radius: 60% 10% 10% 30%;
-              border-right: 2px solid rgba(0, 0, 0, 0.05);
-            }
-
-            .👉 {
-              position: absolute;
-              width: 80%;
-              height: 35px;
-              background-color: var(--skin-color);
-              bottom: 32%;
-              right: 64%;
-              transform-origin: 100% 20px;
-              animation-duration: calc(var(--tap-speed) * 2);
-              animation-timing-function: ease-in-out;
-              animation-iteration-count: infinite;
-              transform: rotate(10deg);
-            }
-
-            .👉:before {
-              content: '';
-              position: absolute;
-              width: 140%;
-              height: 30px;
-              background-color: var(--skin-color);
-              bottom: 8%;
-              right: 65%;
-              transform-origin: calc(100% - 20px) 20px;
-              transform: rotate(-60deg);
-              border-radius: 20px;
-            }
-
-            .👉:nth-child(1) {
-              animation-delay: 0;
-              filter: brightness(70%);
-              animation-name: tap-upper-1;
-            }
-
-            .👉:nth-child(2) {
-              animation-delay: var(--tap-stagger);
-              filter: brightness(80%);
-              animation-name: tap-upper-2;
-            }
-
-            .👉:nth-child(3) {
-              animation-delay: calc(var(--tap-stagger) * 2);
-              filter: brightness(90%);
-              animation-name: tap-upper-3;
-            }
-
-            .👉:nth-child(4) {
-              animation-delay: calc(var(--tap-stagger) * 3);
-              filter: brightness(100%);
-              animation-name: tap-upper-4;
-            }
-
-            @keyframes tap-upper-1 {
-              0%, 50%, 100% {
-                transform: rotate(10deg) scale(0.4);
-              }
-
-              40% {
-                transform: rotate(50deg) scale(0.4);
-              }
-            }
-
-            @keyframes tap-upper-2 {
-              0%, 50%, 100% {
-                transform: rotate(10deg) scale(0.6);
-              }
-
-              40% {
-                transform: rotate(50deg) scale(0.6);
-              }
-            }
-
-            @keyframes tap-upper-3 {
-              0%, 50%, 100% {
-                transform: rotate(10deg) scale(0.8);
-              }
-
-              40% {
-                transform: rotate(50deg) scale(0.8);
-              }
-            }
-
-            @keyframes tap-upper-4 {
-              0%, 50%, 100% {
-                transform: rotate(10deg) scale(1);
-              }
-
-              40% {
-                transform: rotate(50deg) scale(1);
-              }
-            }
-      </style>
-
   </head>
-
   <body>
     <div id="contenedor_carga" class="container-fluid pt-4" style="width: 95%;">
       <div class="container-fluid text-center">            
@@ -179,20 +23,17 @@
           </div>
       </div>
     </div>
-
-
     <div class="container-fluid mt-5 nav_gradient">
       <nav class="navbar navbar-expand-lg bg-body-tertiary nav_gradient fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/index">
-              <img src="../../../public/img/logo-icon.png" alt="Logo" class="logo-img">
+          <a class="navbar-brand ms-4" href="/index">
+              <img src="../../../public/img/val_logo.png" alt="Logo" class="logo-img">
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-4">                    
+            <ul class="navbar-nav ms-4 ms-auto">                    
               <li class="nav-item">
                 <a id="metas-link" class="nav-link naveg me-3" href="/nomina">Nomina</a>
               </li>
@@ -206,10 +47,7 @@
                 <a id="progresiones-link" class="nav-link naveg me-3" href="/progresiones">Progresiones</a>
               </li>
               <li class="nav-item">
-                  <a id="user-link" class="nav-link naveg me-3" href="/users">Users</a>
-              </li>
-              <li class="nav-item">
-                  <a id="user-link" class="nav-link naveg me-3" href="/usuariosConProgresiones">Usuarios con Progresiones</a>
+                <a id="user-link" class="nav-link naveg me-3" href="/usuariosConProgresiones">Usuarios Con Progresiones</a>
               </li>
               <li class="nav-item">
                 <a id="user-link" class="nav-link naveg me-3" href="/tutores">Tutores</a>
@@ -218,58 +56,72 @@
                 <a id="user-link" class="nav-link naveg me-3" href="/licenciasEspeciales">Licencias Especiales</a>
               </li>
               <li class="nav-item">
-                <a id="user-link" class="nav-link naveg me-3" href="/importar_nomina">importar Datos Nomina</a>
+                  <a id="user-link" class="nav-link naveg me-3" href="/users">Users</a>
               </li>
               <li class="nav-item">
-                <a id="user-link" class="nav-link naveg me-3" href="/importar_licencia">importar Datos Licencia</a>
+                <a id="user-link" class="nav-link naveg me-3" href="/importar_nomina">Importar Nomina</a>
+              </li>
+              <li class="nav-item">
+                <a id="user-link" class="nav-link naveg me-3" href="/importar_licencia">Importar Licencia</a>
+              </li>
+              <div class="vertical-line"></div>                    
+              <li class="nav-item">
+                <form action="{{ url_for('logout') }}" method="POST">
+                  <button class="transparent-button" type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
+                </form>
               </li>                    
             </ul>
           </div>
         </div>
       </nav>
     </div>
-
-    <div class="container-fluid pt-4" style="width: 95%;">
+    <div id="allData" class="container-fluid pt-4" style="width: 95%;">
         {% block body %}
         {% endblock %}
     </div>
-
     <footer class="fixed-bottom bg-light">
         <div class="container pt-4">
             <p class="text-center">Provincia Microempresas S.A V1.1.2</p>
         </div>
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var contenedor = document.getElementById('contenedor_carga');  
-        function mostrarSpinner() {
-            contenedor.style.visibility = 'visible';
-            contenedor.style.opacity = '1';
-        }  
-        function ocultarSpinner() {
-            contenedor.style.visibility = 'hidden';
-            contenedor.style.opacity = '0';
-        }  
-        document.addEventListener("click", function (event) {
-            if (event.target.tagName === "A" && event.target.getAttribute("href")) {
-                mostrarSpinner();
-            }
-        });  
-        window.addEventListener("load", function () {
-            ocultarSpinner();
-        });
-        document.addEventListener("async-operation-start", function () {
-            mostrarSpinner();
-        });  
-        document.addEventListener("async-operation-end", function () {
-            ocultarSpinner();
-        });
-      });
-  </script>
-  
+    var contenedor = document.getElementById('contenedor_carga');
+    var allData = document.getElementById('allData');
 
+    function mostrarSpinner() {
+        contenedor.style.visibility = 'visible';
+        contenedor.style.opacity = '1';
+        allData.style.visibility = 'hidden';
+        allData.style.opacity = '0';
+      }
+      
+      function ocultarSpinner() {
+        contenedor.style.visibility = 'hidden';
+        contenedor.style.opacity = '0';
+        allData.style.visibility = 'visible';
+        allData.style.opacity = '1';
+    }
+
+    function manejarClicEnlace(event) {
+        if (event.target.tagName === "A" && event.target.getAttribute("href")) {
+            mostrarSpinner();
+        }
+    }
+
+    window.addEventListener("load", function () {
+        ocultarSpinner();
+    });
+
+    window.addEventListener("beforeunload", mostrarSpinner);
+
+    document.addEventListener("click", manejarClicEnlace);
+});
+  </script>
   </body>
 </html>

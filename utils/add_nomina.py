@@ -1,10 +1,9 @@
 from db.conection import DatabaseConnection
 
 
-def actualizar_datos():
+def actualizar_datos(conexion):
     try:
-        db_connection = DatabaseConnection()
-        connection = db_connection.connect()
+        connection = conexion.connect()
         cursor = connection.cursor()
         query_metas = """
                 UPDATE tec_nominaAllDataVM

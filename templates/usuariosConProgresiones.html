@@ -4,14 +4,15 @@
 <br>
 <h1>Usuarios con Progresiones</h1>
 <hr>
-<div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
-  <table class="table">
-    <thead>
+<div class="table-responsive" style="height: 58vh;">
+  <table class="table table-bordered border-primary table-hover table-striped table-light">
+    <thead class="table-dark">
       <tr>
         <th>Legajo</th>
         <th>Nombre EC</th>
         <th>Categoría</th>
         <th>Ajuste</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -33,12 +34,12 @@
         {% endfor %}
     </tbody>
   </table>
-</div>
-<div class="container mt-3">
-  <div class="row">
-    <div class="col">
-      <div class="d-flex justify-content-end">
-        <a href="{{ url_for('agregar_usuario_con_progresion') }}" class="btn btn-outline-primary me-2" title="Nuevo Usuario"><i class="fa-solid fa-plus"></i></a>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          <a href="{{ url_for('agregar_usuario_con_progresion') }}" class="btn btn-outline-primary me-2" title="Nuevo Usuario"><i class="fa-solid fa-plus"></i>  Agregar Usuarios con Progresiones</a>
+        </div>
       </div>
     </div>
   </div>

@@ -4,9 +4,9 @@
 <br>
 <h1>Progresiones</h1>
 <hr>
-<div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
-  <table class="table">
-    <thead>
+<div class="table-responsive" style="max-height: 450px; overflow-y: auto;">
+  <table class="table table-bordered border-primary table-hover table-striped table-light">
+    <thead class="table-dark">
       <tr>
         <th>Categoría</th>
         <th>Mes 1</th>
@@ -15,6 +15,7 @@
         <th>Mes 4</th>
         <th>Mes 5</th>
         <th>Mes 6</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -39,12 +40,12 @@
       {% endfor %}
     </tbody>
   </table>
-</div>
-<div class="container mt-3">
-  <div class="row">
-    <div class="col">
-      <div class="d-flex justify-content-end">
-        <a href="{{ url_for('agregar_progresion') }}" class="btn btn-outline-primary  me-2" title="Agregar Progresion"><i class="fa-solid fa-plus"></i></a>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          <a href="{{ url_for('agregar_progresion') }}" class="btn btn-outline-primary  me-2" title="Agregar Progresion"><i class="fa-solid fa-plus"></i>  Agregar Progresiones</a>
+        </div>
       </div>
     </div>
   </div>

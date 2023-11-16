@@ -4,15 +4,16 @@
 <br>
 <h1>Metas</h1>
 <hr>
-<div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
-  <table class="table">
-    <thead>
+<div class="table-responsive" style="height: 58vh;">
+  <table class="table table-bordered border-primary table-hover table-striped table-light">
+    <thead class="table-dark">
       <tr>
         <th>Categoría</th>
         <th>Cantidad</th>
         <th>Monto</th>
         <th>Monto Promedio</th>
         <th>Fecha</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -35,12 +36,12 @@
       {% endfor %}
     </tbody>
   </table>
-</div>
-<div class="container mt-3">
-  <div class="row">
-    <div class="col">
-      <div class="d-flex justify-content-end">
-        <a href="{{ url_for('agregar_meta') }}" class="btn btn-outline-primary me-2" title="Agregar Meta"><i class="fa-solid fa-plus"></i></a>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          <a href="{{ url_for('agregar_meta') }}" class="btn btn-outline-primary me-2" title="Agregar Meta"><i class="fa-solid fa-plus"></i>  Agregar Meta</a>
+        </div>
       </div>
     </div>
   </div>

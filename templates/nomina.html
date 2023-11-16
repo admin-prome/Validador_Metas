@@ -4,9 +4,9 @@
 <br>
 <h1>Nomina</h1>
 <hr>
-<div class="table-responsive" style="max-height: 430px; overflow: auto;">
-  <table class="table table-bordered border-primary table-hover">
-    <thead class="thead-dark table-primary">
+<div class="table-responsive" style="height: 55vh;">
+  <table class="table table-bordered border-primary table-hover table-striped table-light">
+    <thead class="table-dark">
       <tr>
         <th class="sticky-top text-nowrap">Legajo</th>
         <th class="sticky-top text-nowrap">Nombre Ejecutivo</th>
@@ -65,35 +65,33 @@
       {% endfor %}
     </tbody>
   </table>
+
 </div>
 <p><b>Número total de registros: {{ nomina|length }}</p>
-<div class="container mt-3">
-  <div class="row">
-    <div class="col">
-      <div class="d-flex justify-content-end">
-        <form action="{{ url_for('export_excel', jefe_zonal=jefe_zonal) }}" method="POST">
-          <button type="submit" class="btn btn-outline-primary me-2">Exportar Todos los Datos</button>
-        </form>
-
-        <!-- <form action="{{ url_for('export_excel_azure', jefe_zonal=jefe_zonal) }}" method="POST">
-          <button type="submit" class="btn btn-outline-success me-2">Exportar Datos para Azure</button>
-        </form> -->
-
-
-        <!-- <div class="d-flex justify-content-end">
-          <form action="{{ url_for('guardar_datos') }}" method="POST">
-            <button type="submit" class="btn btn-primary"><i class="fa-regular fa-floppy-disk"></i></button>
-          </form>
-        </div> -->
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
         <div class="d-flex justify-content-end">
-          <form action="{{ url_for('update_datos') }}" method="POST">
-            <button id="btnActualizar" type="submit" class="btn btn-primary"> Actualizar </button>
+          <form action="{{ url_for('export_excel', jefe_zonal=jefe_zonal) }}" method="POST">
+            <button type="submit" class="btn btn-outline-primary me-2">Exportar Todos los Datos</button>
           </form>
-        </div>
-
-      </div>      
+  
+          <!-- <form action="{{ url_for('export_excel_azure', jefe_zonal=jefe_zonal) }}" method="POST">
+            <button type="submit" class="btn btn-outline-success me-2">Exportar Datos para Azure</button>
+          </form> -->
+  
+  
+          <!-- <div class="d-flex justify-content-end">
+            <form action="{{ url_for('guardar_datos') }}" method="POST">
+              <button type="submit" class="btn btn-primary"><i class="fa-regular fa-floppy-disk"></i></button>
+            </form>
+          </div> -->
+            <form action="{{ url_for('update_datos') }}" method="POST">
+              <button id="btnActualizar" type="submit" class="btn btn-primary"> Actualizar </button>
+            </form>
+        </div>      
+      </div>
     </div>
   </div>
-</div>
 
 {% endblock %}

@@ -10,8 +10,8 @@
   </div>
   <div class="table-container">
     <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
-      <table class="table">
-        <thead>
+      <table class="table table-bordered border-primary table-hover table-striped table-light">
+        <thead class="table-dark">
           <tr>
             <th>Legajo</th>
             <th>Nombre Completo</th>
@@ -20,6 +20,7 @@
             <th>Fin Licencia</th>
             <th>Cantidad de dias</th>
             <th>Ajuste (%)</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -44,13 +45,13 @@
           {% endfor %}
         </tbody>
       </table>
-    </div>
-  </div>
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col">
-        <div class="d-flex justify-content-end">
-          <a href="{{ url_for('agregar_licencia') }}" class="btn btn-outline-primary" title="Agregar Usuario"><i class="fa-solid fa-plus"></i></a>
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col">
+            <div class="d-flex justify-content-end">
+              <a href="{{ url_for('agregar_licencia') }}" class="btn btn-outline-primary" title="Agregar Usuario"><i class="fa-solid fa-plus"></i>  Agregar Licencia Especial</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
